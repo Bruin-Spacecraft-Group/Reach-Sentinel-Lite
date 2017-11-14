@@ -1,0 +1,15 @@
+body {
+	font-family: sans-serif;
+	margin: 0px 10px 0px 10px;
+	padding: 0px;
+}
+
+p {
+	color: blue;
+	font-family: monospace;
+	font-size: 300%;
+}
+
+#graphdiv {
+	width: 200%;
+}

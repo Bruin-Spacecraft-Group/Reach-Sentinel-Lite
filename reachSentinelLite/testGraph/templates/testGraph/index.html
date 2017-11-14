@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Index - testGraph</title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'testGraph/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'testGraph/dygraphs/dygraph.css' %}">
+	<script type="text/javascript" src="{% static 'testGraph/dygraphs/dygraph.js' %}"></script>
+</head>
+<body>
+	<p id="hello">Turntable Data 1:</p><br>
+	<div id="graphdiv"></div><br>
+	<div id="tester"></div>
+	<div id="tester2"></div>
+	
+	<script type="text/javascript" src="{% static 'testGraph/graph.js' %}"></script>
+</body>
+</html>
