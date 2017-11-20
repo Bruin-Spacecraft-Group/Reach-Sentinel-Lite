@@ -1,20 +1,21 @@
 function testFunction(data, dataArray, source) {
-	console.log(source);
+	console.log("In request function: " + source);
 	var xhttp = new XMLHttpRequest();
 	xhttp.open("GET", source, true);
 	xhttp.onreadystatechange = function(dataArray) {
-		if (this.readyState == 4 && this.status == 200) {
+		if (xhttp.readyState == 4 && (xhttp.status == 200 || xhttp.status == 0)) {
 			console.log("Value of Data:\t" + data.valueOf());
-			var info = this.responseText;
+			var info = xhttp.responseText;
 			dataArray = info.split("\n");
-			console.log("Value of Data Array:\t" + dataArray[1]);
-			document.getElementById("tester").innerHTML = this.responseText;
+			//console.log(dataArray);
+			console.log("Value of Data Array:\t" + dataArray[4]);
+			document.getElementById("tester").innerHTML = xhttp.responseText;
 		}
 	};
-	var info = xhttp.responseText;
-	dataArray = info.split("\n");
-	xhttp.send();
-	
+	xhttp.send(dataArray);
+	console.log("Value of Data Array outside:\t" + dataArray[4]);
+	return ["a", "b"];
+	//return xhttp.responseText; //["a", "b"]
 }
 
 
@@ -25,20 +26,15 @@ var dataSource = currentSource.replace("graph.js", filename);
 
 
 var data = "testing out here";
-var dataArray = [];
+var dataArray = new Array();
 
 console.log(dataSource);
-testFunction(data, dataArray, dataSource);
-console.log("Data Array Outside-0:\t" + dataArray.length);
+hello = testFunction(data, dataArray, dataSource);
+console.log("Data Array Outside-0:\t" + hello);
 console.log("---------------------------------------------");
 
 console.log("Data outside the function:\t" + data);
-var allData = data.split("\n");
-console.log("Type of allData:\t" + typeof(allData));
-console.log("First value of allData:\t" + allData[1]);
-for (i = 0; i < allData.length; i++) {
-	console.log(allData[i]);
-}
+console.log(document.getElementById("tester").innerHTML);
 
 
 
@@ -46,9 +42,7 @@ for (i = 0; i < allData.length; i++) {
 
 
 
-
-
-
+console.log("--------------End script");
 
 
 g = new Dygraph(
