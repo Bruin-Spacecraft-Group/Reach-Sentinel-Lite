@@ -8,10 +8,18 @@
 	<script type="text/javascript" src="{% static 'testGraph/dygraphs/dygraph.js' %}"></script>
 </head>
 <body>
-	<p id="hello">Temperature over 30 mins:</p><br>
-	<div id="graphdiv" style="width: 1400px;"></div><br>
-	<div id="tester"></div>
-	<div id="tester2"></div>
+	<p id="hello">Accel-X over 30 mins:</p><br>
+	<div id="graphdiv"></div><br>
+	<button id="ACCEL_X">ACCEL_X</button>
+	<button id="ACCEL_Y">ACCEL_Y</button>
+	<button id="ACCEL_Z">ACCEL_Z</button>
+
+	<button id="GYRO_X">GYRO_X</button>
+	<button id="GYRO_Y">GYRO_Y</button>
+	<button id="GYRO_Z">GYRO_Z</button>
+
+	<button id="BARO">BARO</button>
+	<button id="TEMP">TEMP</button>
 	
 	<script type="text/javascript" src="{% static 'testGraph/graph.js' %}"></script>
 </body>

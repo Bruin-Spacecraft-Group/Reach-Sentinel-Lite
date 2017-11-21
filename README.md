@@ -19,4 +19,4 @@ Quick start
 
 6. Open a browser and navigate to: http://127.0.0.1:8000/testGraph/
 
-7. The code is not perfect, but we'll get there!
+7. The above link is the base page. For a more fancier view (if you want to compare two graphs at the same time): http://127.0.0.1:8000/testGraph/onegraph/

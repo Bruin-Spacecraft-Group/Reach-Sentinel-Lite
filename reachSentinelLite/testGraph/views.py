@@ -8,6 +8,9 @@ import os
 def index(request):
 	return render(request, 'testGraph/index.html')
 
+def onegraph(request):
+	return render(request, 'testGraph/onegraph.html')
+
 def testing(request):
 	return HttpResponse("<b>More testing here</b>")
 

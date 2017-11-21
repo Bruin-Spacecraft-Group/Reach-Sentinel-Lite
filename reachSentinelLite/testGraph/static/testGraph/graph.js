@@ -8,7 +8,11 @@ function drawGraph(dataArray) {
 	g = new Dygraph(
 		document.getElementById("graphdiv"),
 		dataArray,
-		{}
+		{
+			showRoller: true,
+			height: 200,
+			width: 600
+		}
 		);
 }
 
@@ -35,7 +39,6 @@ function drawGraphHard(dataArray) {
 
 function getData(dataArray, sensor, timestamp) {
 	var resultArray = new Array();
-	updateTimestamp(timestamp);
 	for (i = 0; i < dataArray.length; i++) {
 		resultArray.push([new Date(timestamp), dataArray[i][sensor]]);
 		timestamp = updateTimestamp(timestamp);
@@ -43,6 +46,7 @@ function getData(dataArray, sensor, timestamp) {
 	return resultArray;
 }
 
+// Hardcoding timestamps into data
 function updateTimestamp(timestamp) {
 	timestamp = updateSeconds(timestamp);
 	if (getSeconds(timestamp) == "00") {
@@ -104,12 +108,13 @@ function updateHours(timestamp) {
 		return timestamp.substring(0, timestamp.length-8) + hours.toString() + timestamp.substring(timestamp.length-6);
 	}
 }
+// End time
 
 
-function showGraph() {
-	var filename = "turntable-1.txt";
+function showGraph(graphNum) {
+	var filename = "accel-1.txt";
 	//var filename = "turntable_data_1.txt";
-	var currentSource = document.currentScript.src;
+	//var currentSource = document.currentScript.src;
 	var dataSource = currentSource.replace("graph.js", filename);
 
 	var xhttp = new XMLHttpRequest();
@@ -120,17 +125,13 @@ function showGraph() {
 	xhttp.onreadystatechange = function() {
 		if (xhttp.readyState == 4 && (xhttp.status == 200 || xhttp.status == 0)) {
 			var rawData = xhttp.responseText.split("\n");
-			console.log(rawData);
 			var timestamp = rawData.splice(0, 1);
 			var dataArray = csvToArray(rawData);
-
-			var sensorData = getData(dataArray, GYRO_Z, timestamp[0]);
+			var sensorData = getData(dataArray, graphNum, timestamp[0]);
 
 			drawGraph(sensorData);
 		}
 	};
-	
-	return infoArray;
 }
 
 var ACCEL_X = 0;
@@ -142,4 +143,52 @@ var GYRO_Z = 5;
 var BARO = 6;
 var TEMP = 7;
 
-hello = showGraph();
+var currentSource = document.currentScript.src;
+
+hello = showGraph(ACCEL_X);
+
+document.getElementById("ACCEL_X").onclick = function() {
+	document.getElementById("hello").innerHTML = "Accel-X over 30 mins:";
+	showGraph(ACCEL_X);
+};
+
+document.getElementById("ACCEL_Y").onclick = function() {
+	document.getElementById("hello").innerHTML = "Accel-Y over 30 mins:";
+	showGraph(ACCEL_Y);
+};
+
+document.getElementById("ACCEL_Z").onclick = function() {
+	document.getElementById("hello").innerHTML = "Accel-Z over 30 mins:";
+	showGraph(ACCEL_Z);
+};
+
+document.getElementById("GYRO_X").onclick = function() {
+	document.getElementById("hello").innerHTML = "Gyro-X over 30 mins:";
+	showGraph(GYRO_X);
+};
+
+document.getElementById("GYRO_Y").onclick = function() {
+	document.getElementById("hello").innerHTML = "Gyro-Y over 30 mins:";
+	showGraph(GYRO_Y);
+};
+
+document.getElementById("GYRO_Z").onclick = function() {
+	document.getElementById("hello").innerHTML = "Gyro-Z over 30 mins:";
+	showGraph(GYRO_Z);
+};
+
+document.getElementById("BARO").onclick = function() {
+	document.getElementById("hello").innerHTML = "Pressure over 30 mins:";
+	showGraph(BARO);
+};
+
+document.getElementById("TEMP").onclick = function() {
+	document.getElementById("hello").innerHTML = "Temperature over 30 mins:";
+	showGraph(TEMP);
+};
+
+
+
+
+
+
