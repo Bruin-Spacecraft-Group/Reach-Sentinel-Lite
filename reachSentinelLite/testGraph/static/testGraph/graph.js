@@ -112,7 +112,7 @@ function updateHours(timestamp) {
 
 
 function showGraph(graphNum) {
-	var filename = "accel-1.txt";
+	var filename = "turntable-1.txt";
 	//var filename = "turntable_data_1.txt";
 	//var currentSource = document.currentScript.src;
 	var dataSource = currentSource.replace("graph.js", filename);

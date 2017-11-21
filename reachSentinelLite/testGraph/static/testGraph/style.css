@@ -5,12 +5,8 @@ body {
 }
 
 p {
+	margin: 10px 0px 0px 0px;
 	color: blue;
 	font-family: monospace;
-	font-size: 300%;
+	font-size: 200%;
 }
-/*
-#graphdiv {
-	width: 200%;
-}
-*/
