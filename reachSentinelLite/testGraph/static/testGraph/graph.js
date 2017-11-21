@@ -37,7 +37,6 @@ function getData(dataArray, sensor, timestamp) {
 	var resultArray = new Array();
 	updateTimestamp(timestamp);
 	for (i = 0; i < dataArray.length; i++) {
-		//resultArray.push(dataArray[i][sensor]);
 		resultArray.push([new Date(timestamp), dataArray[i][sensor]]);
 		timestamp = updateTimestamp(timestamp);
 	}
@@ -108,7 +107,8 @@ function updateHours(timestamp) {
 
 
 function showGraph() {
-	var filename = "turntable-1.csv";
+	var filename = "turntable-1.txt";
+	//var filename = "turntable_data_1.txt";
 	var currentSource = document.currentScript.src;
 	var dataSource = currentSource.replace("graph.js", filename);
 
@@ -120,10 +120,11 @@ function showGraph() {
 	xhttp.onreadystatechange = function() {
 		if (xhttp.readyState == 4 && (xhttp.status == 200 || xhttp.status == 0)) {
 			var rawData = xhttp.responseText.split("\n");
+			console.log(rawData);
 			var timestamp = rawData.splice(0, 1);
 			var dataArray = csvToArray(rawData);
 
-			var sensorData = getData(dataArray, ACCEL_Y, timestamp[0]);
+			var sensorData = getData(dataArray, GYRO_Z, timestamp[0]);
 
 			drawGraph(sensorData);
 		}
@@ -132,7 +133,7 @@ function showGraph() {
 	return infoArray;
 }
 
-var ACCELX = 0;
+var ACCEL_X = 0;
 var ACCEL_Y = 1;
 var ACCEL_Z = 2;
 var GYRO_X = 3;
