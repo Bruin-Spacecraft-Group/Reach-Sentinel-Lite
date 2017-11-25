@@ -5,8 +5,13 @@ body {
 }
 
 p {
-	margin: 10px 0px 0px 0px;
+	margin: 10px 0px 0px 10px;
 	color: blue;
 	font-family: monospace;
 	font-size: 200%;
+}
+
+button {
+	border: 1px solid black;
+	font-family: monospace;
 }

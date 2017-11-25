@@ -19,4 +19,16 @@ Quick start
 
 6. Open a browser and navigate to: http://127.0.0.1:8000/testGraph/
 
-7. The above link is the base page. For a more fancier view (if you want to compare two graphs at the same time): http://127.0.0.1:8000/testGraph/onegraph/
+7. The above link is the base page. For a more fancier view (if you want to compare two graphs at the same time): http://127.0.0.1:8000/dashboard/
+
+8. If your website isn't working, it may mean that the database has not been initialized.
+	 - `python3 manage.py makemigrations`
+	 - `python3 manage.py migrate`
+
+Next steps
+-----------
+
+1. We need to read data from serial and save to database
+
+2. Update graphs everytime database is updated
+	 - or every 1 second, whatever the optimal solution is

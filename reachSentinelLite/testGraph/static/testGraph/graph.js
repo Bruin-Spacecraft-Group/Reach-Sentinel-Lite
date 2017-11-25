@@ -112,40 +112,40 @@ function updateHours(timestamp) {
 
 
 function showGraph(graphNum) {
+	/*
 	var filename = "turntable-1.txt";
-	//var filename = "turntable_data_1.txt";
-	//var currentSource = document.currentScript.src;
 	var dataSource = currentSource.replace("graph.js", filename);
 
 	var xhttp = new XMLHttpRequest();
 	xhttp.open("GET", dataSource, true);
 	xhttp.send();
 	var infoArray = new Array();
-	
 	xhttp.onreadystatechange = function() {
 		if (xhttp.readyState == 4 && (xhttp.status == 200 || xhttp.status == 0)) {
 			var rawData = xhttp.responseText.split("\n");
 			var timestamp = rawData.splice(0, 1);
 			var dataArray = csvToArray(rawData);
 			var sensorData = getData(dataArray, graphNum, timestamp[0]);
+			
+			//drawGraph(sensorData);
+		}
+	};
+	*/
+	var dataxhttp = new XMLHttpRequest();
+	dataxhttp.open("GET", "/testGraph/getdata/" + graphNum, true);
+	dataxhttp.send();
+	var j = 0;
+	dataxhttp.onreadystatechange = function() {
+		if (dataxhttp.readyState == 4 && (dataxhttp.status == 200 || dataxhttp.status == 0)) {
+			datum = JSON.parse(dataxhttp.response)['stuff'];
+			console.log(datum[2]);
+			datum[1][0] = new Date(datum[1][0]);
+			datum[2][0] = new Date(datum[2][0]);
+			drawGraph([datum[1], datum[2]]);
 
-			drawGraph(sensorData);
 		}
 	};
 }
-
-var ACCEL_X = 0;
-var ACCEL_Y = 1;
-var ACCEL_Z = 2;
-var GYRO_X = 3;
-var GYRO_Y = 4;
-var GYRO_Z = 5;
-var BARO = 6;
-var TEMP = 7;
-
-var currentSource = document.currentScript.src;
-
-hello = showGraph(ACCEL_X);
 
 document.getElementById("ACCEL_X").onclick = function() {
 	document.getElementById("hello").innerHTML = "Accel-X over 30 mins:";
@@ -186,6 +186,21 @@ document.getElementById("TEMP").onclick = function() {
 	document.getElementById("hello").innerHTML = "Temperature over 30 mins:";
 	showGraph(TEMP);
 };
+
+//------------------------
+
+var ACCEL_X = 1;
+var ACCEL_Y = 2;
+var ACCEL_Z = 3;
+var GYRO_X = 4;
+var GYRO_Y = 5;
+var GYRO_Z = 6;
+var BARO = 7;
+var TEMP = 8;
+
+var currentSource = document.currentScript.src;
+
+showGraph(ACCEL_X);
 
 
 
