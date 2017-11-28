@@ -1,0 +1,27 @@
+<!DOCTYPE html> 
+<html lang="eng-US">
+	<head>
+		<title>Calculation Stuff</title>
+		<script type="text/javascript" src="simplifiedAltCalc.js"></script>
+		<link rel="stylesheet" type="text/css" href="basic.css">
+	</head>
+	<body>
+		<header>
+			<h1>HEY STUFF</h1>
+		</header>
+		<main>
+			<h3>Input numbers here for altitude</h3>
+			<p>Initial Pressure</p>
+			<input type="number" id="initialPressure" value="101325">
+			<p>Temperature</p>
+			<input type="number" id="temperature" value="273">
+			<p>Pressure</p>
+			<input type="number" id="pressure">
+			<button onclick="altcalc()" class="button">Click to Calculate</button>
+			<p>Result: <span id="result">___</span> meters</p>
+		</main>
+		<div id="about">
+				<p>This is a program that calculates altitude based on the pressure at sea level, the temperature, and the pressure at some altitude. Operates under the assumptions of constant gravity, molar mass of the air, the ideal gas constant, and probably other stuff.<p>
+		</div>
+	</body>
+</html>

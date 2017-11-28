@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Paths</name>
+    <description>Examples of paths. Note that the tessellate tag is by default
+      set to 0. If you want to create tessellated lines, they must be authored
+      (or edited) directly in KML.</description>
+    <Style id="yellowLineGreenPoly">
+      <LineStyle>
+        <color>7f00ffff</color>
+        <width>4</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>7f00ff00</color>
+      </PolyStyle>
+    </Style>
+    <Placemark>
+      <name>Absolute Extruded</name>
+      <description>Transparent green wall with yellow outlines</description>
+      <styleUrl>#yellowLineGreenPoly</styleUrl>
+      <LineString>
+        <extrude>1</extrude>
+        <tessellate>1</tessellate>
+        <altitudeMode>absolute</altitudeMode>
+        <coordinates>
+-118.43333333333334,34.05833333333333,1000
+-118.43333333333334,34.06,1000
+-118.43333333333334,34.06166666666667,1000
+-118.43333333333334,34.06333333333333,1000
+-118.43333333333334,34.065,1000
+-118.43333333333334,34.06666666666667,1000
+-118.43333333333334,34.068333333333335,1000
+-118.43333333333334,34.07,1000
+-118.43333333333334,34.071666666666665,1000
+-118.43333333333334,34.07333333333333,1000
+-118.43333333333334,34.075,1000
+-118.43333333333334,34.07666666666667,1000
+-118.43333333333334,34.07833333333333,1000
+-118.43333333333334,34.08,1000
+-118.43333333333334,34.08166666666666,1000
+-118.43333333333334,34.083333333333336,1000
+-118.43333333333334,34.085,1000
+-118.43333333333334,34.086666666666666,1000
+-118.43333333333334,34.08833333333333,1000
+-118.43333333333334,34.09,1000
+-118.43333333333334,34.09166666666667,1000
+</coordinates>
+      </LineString>
+    </Placemark>
+  </Document>
+</kml>

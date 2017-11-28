@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Style id="yellowLineGreenPoly">
+    <LineStyle>
+        <color>7f00ffff</color>
+        <width>4</width>
+    </LineStyle>
+    <PolyStyle>
+        <color>7f00ff00</color>
+    </PolyStyle>
+</Style>
+<NetworkLink>
+	<name>GPS Location</name>
+    <description>Track GPS</description>
+    <Link>
+        <href>position.kml</href>
+        <refreshMode>onInterval</refreshMode>
+        <refreshInterval>0.1</refreshInterval>
+    </Link>
+    <refreshInterval>0.1</refreshInterval>
+    <refreshMode>onInterval</refreshMode>
+</NetworkLink>
+</kml>
