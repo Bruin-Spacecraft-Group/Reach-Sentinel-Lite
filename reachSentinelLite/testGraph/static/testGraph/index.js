@@ -16,27 +16,6 @@ function drawGraph(dataArray) {
 		);
 }
 
-function drawGraphHard(dataArray) {
-	g = new Dygraph(
-		document.getElementById("graphdiv"),
-		"Timestamp,Accel-X, Accel-Y\n" +
-					"2017-05-13 16:01:08,0,12\n" +
-					"2017-05-13 16:01:09,1,12\n" +
-					"2017-05-13 16:01:10,0,13\n" +
-					"2017-05-13 16:01:11,0,13\n" +
-					"2017-05-13 16:01:12,0,13\n" +
-					"2017-05-13 16:01:13,1,12\n" +
-					"2017-05-13 16:01:14,0,14\n" +
-					"2017-05-13 16:01:15,0,13\n" +
-					"2017-05-13 16:01:16,1,12\n" +
-					"2017-05-13 16:01:17,0,11\n" +
-					"2017-05-13 16:01:18,1,12\n" +
-					"2017-05-13 16:01:19,2,13\n" +
-					"2017-05-13 16:01:20,1,13\n",
-		{}
-		);
-}
-
 function getData(dataArray, sensor, timestamp) {
 	var resultArray = new Array();
 	for (i = 0; i < dataArray.length; i++) {

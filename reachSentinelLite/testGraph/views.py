@@ -22,7 +22,8 @@ def testing(request):
 	return HttpResponse("<b>More testing here</b>")
 
 # getdata(request, sensor)
-def getdata(request, sensor):
+# or we could get all the data, then get the specifics within app
+def getdata(request, sensor, *other_sensors):
 	data = [None] * Telemetry.objects.count()
 	i = 0
 	for x in Telemetry.objects.all():
@@ -39,34 +40,7 @@ def getdata(request, sensor):
 		aa[8] = x.temp
 
 		data[i] = [aa[0], aa[int(sensor)]]
+		for x in other_sensors:
+			data[i].append(x);
 		i = i + 1
 	return JsonResponse({'stuff': data})
-
-
-
-
-
-
-
-
-	#load static
-	#stuff = static "testGraph/turntable-1.txt"
-	#return HttpResponse(stuff)
-	#http://127.0.0.1:8000/static/testGraph/turntable-1.txt
-	#need to parse instead of hardcoding file path
-	'''
-	filepath = "/Users/karthikpullela/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/testGraph/static/testGraph/turntable-1.txt"
-	result = "Initial---"
-	if (os.path.exists(filepath)):
-		result += " true"
-		hello = File.open("./static/testGraph/turntable-1.txt")
-		for line in File:
-			result += line + "<br>"
-		File.close()
-		
-
-
-	return HttpResponse(result)
-	#return HttpResponse(os.path.realpath(__file__))
-
-'''
