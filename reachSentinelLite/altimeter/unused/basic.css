@@ -1,0 +1,109 @@
+body {
+	margin:0px;
+	width: 100%;
+	background-color:white;
+}
+#navbar {
+	text-align:right;
+	background-color: white;
+	margin: 0px;
+	height: 8vw; 
+	width: 100%;
+}
+#navbar a {
+	font-family: impact;
+	font-size: 5vw;
+}
+.navbutton {
+	margin:0px;
+	height: 8vw;
+	background-color: white; 
+	color: #07167a;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    float:left;
+    width: 50%;
+    border: 1px;
+    border-style: solid;
+}
+.navbutton:hover {
+	background-color: #008CBA; 
+	color: white;
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+header {
+	font-family: 'Oswald', sans-serif;
+	text-align: center;
+	background-color: #07167a;
+	color: white;
+	margin: 0px;
+	padding: 5px;
+}
+h1 {	
+	color: white; 
+	font-size: 10vw; 
+	font-weight: 100;  
+	letter-spacing: 1px; 
+	padding: 0 0 0.2vw; 
+	border-bottom: 3px solid;
+	border-bottom-color: white; 
+}
+#intro h1{
+	color: #07167a;
+}
+h3 {
+	font-family: 'Oswald', sans-serif;
+	font-size: 3vw;
+}
+main {
+	width: 100%;
+	text-align: left;
+	color: #07167a;
+	margin: 5vw;
+}
+p, input {
+	font-family: 'Oswald', sans-serif;
+	font-size:2vw;
+}
+#about {
+	width: 100%;
+	padding: 2vw;
+	background-color: #07167a;
+	color: white;
+
+}
+#footer {
+	height: 10vw;
+}
+#footer {
+	text-align:center;
+	background-color: #07167a;
+	color: white;
+	margin: 0px;
+	padding: 1.5vw;
+}
+#footer img {
+	height: 7vw;
+	padding-left: 1vw;
+	padding-right: 1vw;
+}
+.grad {
+  background: red; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top,rgba(7,22,122,1),rgba(7,22,122,0)); /*Safari 5.1-6*/
+  background: -o-linear-gradient(bottom right,rgba(7,22,122,1),rgba(7,22,122,0)); /*Opera 11.1-12*/
+  background: -moz-linear-gradient(bottom right,rgba(7,22,122,1),rgba(7,22,122,0)); /*Fx 3.6-15*/
+  background: linear-gradient(to bottom right,rgba(7,22,122,1),rgba(7,22,122,0)); /*Standard*/
+}
+.button {
+	border: none;
+	background-color: #e7e7e7; 
+	color: #07167a;
+	padding: 5px 8px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+.button:hover {
+	background-color: #008CBA; 
+	color: white;
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}

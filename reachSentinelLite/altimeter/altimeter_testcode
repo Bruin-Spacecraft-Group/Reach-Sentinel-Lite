@@ -1,0 +1,53 @@
+/*
+FOR TESTING ONLY -- uploads to Arduino, will change once we get feather
+Need to import this library first: https://github.com/adafruit/Adafruit_MPL3115A2_Library
+
+Testing notes:
+  - is off by ~80 meters by last time, or according to Google Earth
+  - there's a significant difference between the altitude it outputs and the altitude I computed (using the equation they provided in the data sheet. 
+    - figure out why (could be because of the offset factor)
+  - also connect it to 3.3V not 5V 
+  - would need to know actual height of W6
+    - Possible solution: throw stuff off https://en.wikipedia.org/wiki/Free_fall#Uniform_gravitational_field_with_air_resistance
+*/
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+#include <Wire.h>
+#include <Adafruit_MPL3115A2.h>
+
+Adafruit_MPL3115A2 baro = Adafruit_MPL3115A2();
+
+void setup() {
+  Serial.begin(9600);
+  Serial.println("Adafruit_MPL3115A2 test!");
+
+}
+
+void loop() {
+
+  //get height (Pa)
+  //double h = 44330.77*(1-pow(p/p0, 0.1902632));
+
+   if (! baro.begin()) {
+    Serial.println("Couldnt find sensor");
+    return;
+  }
+  
+  float pascals = baro.getPressure();
+  Serial.print(pascals); Serial.println(" Pascals");
+  
+  //sensor output of altitude 
+  float altm = baro.getAltitude();
+  Serial.print(altm); Serial.println(" meters");
+
+  //own computation of altitude from pressure
+  float height = 44330.77*(1-pow(pascals/101325.00, 0.1902632));
+  Serial.print(height); Serial.println(" Meters");
+
+  //float tempC = baro.getTemperature();
+  //Serial.print(tempC); Serial.println("*C");
+
+  delay(250);
+  
+}
