@@ -91,9 +91,8 @@ function updateHours(timestamp) {
 
 
 function showGraph(graphNum) {
-	/*
 	var filename = "turntable-1.txt";
-	var dataSource = currentSource.replace("graph.js", filename);
+	var dataSource = currentSource.replace("index.js", filename);
 
 	var xhttp = new XMLHttpRequest();
 	xhttp.open("GET", dataSource, true);
@@ -104,12 +103,13 @@ function showGraph(graphNum) {
 			var rawData = xhttp.responseText.split("\n");
 			var timestamp = rawData.splice(0, 1);
 			var dataArray = csvToArray(rawData);
-			var sensorData = getData(dataArray, graphNum, timestamp[0]);
+			var sensorData = getData(dataArray, graphNum-1, timestamp[0]);
 			
-			//drawGraph(sensorData);
+			drawGraph(sensorData);
 		}
 	};
-	*/
+
+	/*
 	var dataxhttp = new XMLHttpRequest();
 	dataxhttp.open("GET", "/testGraph/getdata/" + graphNum, true);
 	dataxhttp.send();
@@ -124,6 +124,7 @@ function showGraph(graphNum) {
 
 		}
 	};
+	*/
 }
 
 document.getElementById("ACCEL_X").onclick = function() {
@@ -175,7 +176,7 @@ var GYRO_X = 4;
 var GYRO_Y = 5;
 var GYRO_Z = 6;
 var BARO = 7;
-var TEMP = 8;
+var TEMP = 8 ;
 
 var currentSource = document.currentScript.src;
 

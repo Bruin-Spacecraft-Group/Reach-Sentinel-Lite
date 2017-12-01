@@ -11,5 +11,11 @@
 	<iframe src="{% url 'testGraph:index' %}" height="300" width="600" style="border: 1px solid white"></iframe>
 	<iframe src="{% url 'testGraph:index' %}" height="300" width="600" style="border: 1px solid white"></iframe>
 	<iframe src="{% url 'testGraph:index' %}" height="300" width="600" style="border: 1px solid white"></iframe>
+
+	<br><br>
+	<button id="update">Update {% csrf_token %}</button>
+	<p id="updateText">Button</p>
+	
+	<script type="text/javascript" src="{% static 'dashboard/index.js' %}"></script>
 </body>
 </html>

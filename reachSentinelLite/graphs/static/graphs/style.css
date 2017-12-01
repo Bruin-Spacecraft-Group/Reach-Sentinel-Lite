@@ -17,3 +17,8 @@ button {
 	background-color: gray;
 	color: white;
 }
+
+#warning {
+	color: red;
+	font-size: 100%;
+}

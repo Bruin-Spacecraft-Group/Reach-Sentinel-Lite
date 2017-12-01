@@ -1,4 +1,3 @@
-#from django.shortcuts import render
 from django.http import JsonResponse, HttpResponse 
 from django.shortcuts import render
 from django.core.files import File
@@ -8,7 +7,7 @@ from .models import Telemetry
 
 # Create your views here.
 def index(request):
-	return render(request, 'testGraph/index.html', {'telemetry': Telemetry.objects.get(id=2)})
+	return render(request, 'testGraph/index.html')
 
 def onegraph(request):
 	return render(request, 'testGraph/onegraph.html')
@@ -23,7 +22,7 @@ def testing(request):
 
 # getdata(request, sensor)
 # or we could get all the data, then get the specifics within app
-def getdata(request, sensor, *other_sensors):
+def getdata(request, sensor):
 	data = [None] * Telemetry.objects.count()
 	i = 0
 	for x in Telemetry.objects.all():
@@ -40,7 +39,5 @@ def getdata(request, sensor, *other_sensors):
 		aa[8] = x.temp
 
 		data[i] = [aa[0], aa[int(sensor)]]
-		for x in other_sensors:
-			data[i].append(x);
 		i = i + 1
 	return JsonResponse({'stuff': data})

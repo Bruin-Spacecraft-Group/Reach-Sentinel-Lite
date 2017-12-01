@@ -1,31 +1,18 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title>Index - testGraph</title>
+	<title>Index - temp</title>
 	{% load static %}
 	<link rel="stylesheet" type="text/css" href="{% static 'graphs/style.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'testGraph/dygraphs/dygraph.css' %}">
 	<script type="text/javascript" src="{% static 'testGraph/dygraphs/dygraph.js' %}"></script>
 </head>
 <body>
-	<p id="hello">Temperature</p><br>
-	<div id="graphdiv"></div><br>
-
-
-
-
-	<button id="ACCEL_X">ACCEL_X</button>
-	<button id="ACCEL_Y">ACCEL_Y</button>
-	<button id="ACCEL_Z">ACCEL_Z</button>
-
-	<button id="GYRO_X">GYRO_X</button>
-	<button id="GYRO_Y">GYRO_Y</button>
-	<button id="GYRO_Z">GYRO_Z</button>
-
-	<button id="BARO">BARO</button>
-	<button id="TEMP">TEMP</button>
+	<p>Temperature</p><br>
+	<div id="graphdiv"></div>
+	<p id="warning">WARNING!!! Some data points missing</p>
 	
+	<script type="text/javascript" src="{% static 'graphs/index.js' %}"></script>
 	<script type="text/javascript" src="{% static 'temp/index.js' %}"></script>
-	<!-- This is website specific JS script, while above script for cross website graphing functionality -->
 </body>
 </html>
