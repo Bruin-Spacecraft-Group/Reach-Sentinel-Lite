@@ -16,6 +16,8 @@ function drawGraph(dataArray) {
 		);
 }
 
+// -------------------- * * * -------------------- START TIMESTAMP -------------------- * * * --------------------
+
 function getData(dataArray, sensor, timestamp) {
 	var resultArray = new Array();
 	for (i = 0; i < dataArray.length; i++) {
@@ -87,7 +89,7 @@ function updateHours(timestamp) {
 		return timestamp.substring(0, timestamp.length-8) + hours.toString() + timestamp.substring(timestamp.length-6);
 	}
 }
-// End time
+// -------------------- * * * -------------------- END TIMESTAMP -------------------- * * * --------------------
 
 
 function showGraph(graphNum) {

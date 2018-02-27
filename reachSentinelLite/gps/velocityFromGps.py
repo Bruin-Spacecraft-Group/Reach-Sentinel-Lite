@@ -19,3 +19,5 @@ def calcVelGPS (lat1, lon1, lat2, lon2, dt):
 	speed = earthRadius * c / dt *3600
 	print("gps speed: " + str(speed))
 	return speed
+
+calcVelGPS(120.0, 60.5, 120.1, 60.6, 60)

@@ -25,7 +25,7 @@ def printCoor(lon, lat, alt):
         ) %(lon, lat, alt)
 
   with open('coordinates.txt', 'a+') as coor: 
-        print("lon, lat, alt: " + newCoor)
+        print "lon, lat, alt: " + newCoor
         coor.write(newCoor + '\n')
 
   with open("position.kml", "w") as pos:
@@ -56,16 +56,16 @@ def printCoor(lon, lat, alt):
         <altitudeMode>absolute</altitudeMode>
         <coordinates>\n""" 
             )
-      kmlFoot = (
+        kmlFoot = (
             """</coordinates>
       </LineString>
     </Placemark>
   </Document>
 </kml>\n"""
             )
-      coor = open('coordinates.txt', 'r')
+        coor = open('coordinates.txt', 'r')
 
-      pos.write(kmlHead + coor.read() + kmlFoot)
+        pos.write(kmlHead + coor.read() + kmlFoot)
 
 while True:
     latMin = 4 + i/10
@@ -85,7 +85,7 @@ while True:
     oldTime = newTime
     newTime = time.time()
     dt = newTime - oldTime
-    print("time elapsed: " + str(dt)) 
+    print "time elapsed: " + str(dt) 
     calcVelGPS(lat1, lon1, lat2, lon2, dt)
     i += 1
     time.sleep(0.5)

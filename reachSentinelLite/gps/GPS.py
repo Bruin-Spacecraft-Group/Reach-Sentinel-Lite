@@ -1,14 +1,14 @@
 import random
 import time
 import math
-from velocityFromGps import calcVelGPS
+from .velocityFromGps import calcVelGPS
 
 def GPSInit():
   #reset coordinates path
   coor = open('coordinates.txt', 'w+')
   coor.write("")
 
-def saveCoordinates(lon, lat, alt):
+def saveCoor(lon, lat, alt):
   newCoor = ( 
             '%s,%s,%s'
         ) %(lon, lat, alt)

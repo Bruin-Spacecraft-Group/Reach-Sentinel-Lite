@@ -1,4 +1,4 @@
-# Reach-Sentinel-Lite
+#Reach-Sentinel-Lite
 
 
 Quick start
@@ -25,10 +25,13 @@ Quick start
 	 - `python3 manage.py makemigrations`
 	 - `python3 manage.py migrate`
 
+9. Final step is to open up a new terminal window and run `python3 main.py`
+	 - This establishes a connection to the ground Arduino
+	 - Saves data to database
+
 Next steps
 -----------
 
-1. We need to read data from serial and save to database
+1. Process incoming data and save to database
 
-2. Update graphs everytime database is updated
-	 - or every 1 second, whatever the optimal solution is
+2. Beautify the dashboard -> maybe check BruinSpace branding team?

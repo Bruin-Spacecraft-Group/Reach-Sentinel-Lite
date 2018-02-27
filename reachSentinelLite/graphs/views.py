@@ -6,6 +6,7 @@ from graphs.models import Telemetry
 
 import json
 import requests
+import serial
 
 # Create your views here.
 def index(request):

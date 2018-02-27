@@ -12,6 +12,20 @@ class Telemetry(models.Model):
 	gyro_z = models.FloatField()
 	barometer = models.FloatField()
 	temp = models.FloatField()
+	'''
+	gpsTime = models.CharField(max_length=200, default="")
+	longitude = models.CharField(max_length=200, default="")
+	latitude = models.CharField(max_length=200, default="")
+	gpsAlt = models.CharField(max_length=200, default="")
+	speed = models.CharField(max_length=200, default="")
+	course = models.CharField(max_length=200, default="")
+	'''
 
 	def __str__(self):
-		return self.timestamp
+		return self.timestamp 
+
+class IsLive(models.Model):
+	isLive = models.BooleanField(default=False) 
+
+	def __str__(self):
+		return self.isLive

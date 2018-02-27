@@ -4,10 +4,12 @@ import socket
 import math
 import sqlite3
 
-from gps.GPS import GPSInit, saveCoordinates, processCoordinates
+from gps.GPS import GPSInit, saveCoor, processCoordinates
 #from communication.sendUDP import initSocket, sendPacket, killSocket
 from altimeter.altitudeCalculation import altitudeCalc
-from accel import findInertialFrameAccel
+from accel.accel import findInertialFrameAccel
+
+from graphs.models import Telemetry, IsLive  # exec(open("process.py").read())
 
 #Initiate variables
 start = time.time()
@@ -21,25 +23,38 @@ GPSInit()
 velocity = [0,0,0]
 position = [0,0,0]
 
+# Dabatase checks
+if IsLive.objects.count() != 0:  # ------------------ * * * ------------------ REQUIRES TESTING
+	for elem in IsLive.objects.all():
+		elem.delete()
+
+downlink = IsLive.objects.create() # ----------------- * * * ----------------- INITIALLY FALSE, ON BUTTON-CLICK IN DASH, TRUE
+
 try:
 	#initiate serial port to read data from
 	SERIAL_PORT = 'COM4'
 	#I don't really know what these are about, just make sure 
 	#they line up with the arduino
 	ser = serial.Serial(
-	    port=SERIAL_PORT,
-	    baudrate=9600,
-	    parity=serial.PARITY_ODD,
-	    stopbits=serial.STOPBITS_TWO,
-	    bytesize=serial.SEVENBITS
+		port=SERIAL_PORT,
+		baudrate=9600,
+		parity=serial.PARITY_ODD,
+		stopbits=serial.STOPBITS_TWO,
+		bytesize=serial.SEVENBITS
 	)
 except:
-	print("<==Error connecting to " + SERIAL_PORT + "==>")
+	print("\n\n\n<== Error connecting to " + SERIAL_PORT + " ==>\n\n\n")
+
+# -
+# ################
+# ------------ I CAN SAVE THE TIME WHEN THE FIRST TIME ARRIVES ALONG WITH WHEN IT 
 
 
 #Connect to database here
 
 while ser.isOpen():
+	if downlinkisLive == false:  # ----------------- * * * ------------------ EDIT LATER, CHECK
+		continue
 	#get data
 	dataString = ser.readline()
 	'''
@@ -63,6 +78,20 @@ while ser.isOpen():
 	data[14] = course
 	'''
 	data = dataString.split(",")
+
+	'''
+	new_data = Telemetry.objects.create(  -------------- * * * -------------- SAVE TO DATABASE
+	timestamp=data[0], 
+	accel_x=data[6], 
+	accel_y= data[7], 
+	accel_z= data[8], 
+	gyro_x=data[3], 
+	gyro_y=data[4], 
+	gyro_z= data[5],
+	barometer=data[1],
+	temp=data[2])
+	new_data.save()
+	'''
 	
 	#had problems with only reading in a few data 
 	if (len(data) < 9):

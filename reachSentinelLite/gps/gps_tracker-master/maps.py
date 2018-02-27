@@ -64,8 +64,8 @@ def altitude():
 					gpgga.parse(line)
 					alt = gpgga.antenna_altitude
 					i +=1 #increment the counter
-					print(i)
-					print(alt)
+					print i
+					print alt
 					plt.scatter(x=[i], y=[float(alt)], s = 1, c='r') #plot each point
 	finally:
 		f1.close()
@@ -78,22 +78,22 @@ def altitude():
 	plt.show()
 
 def check_serial():
-	print('Do you have a GPS connected to the serial port? hit y or n, then enter')
+	print 'Do you have a GPS connected to the serial port? hit y or n, then enter'
 	temp = raw_input()
 	if temp == 'y':
 		init_serial()
 	if temp == 'n':
-		print('You can enter your own NMEA sentences into a file named nmea.txt')
+		print 'You can enter your own NMEA sentences into a file named nmea.txt'
 	
 def init_serial():
 	#opens the serial port based on the COM number you choose
-	print("Found Ports:")
+	print "Found Ports:"
 	for n,s in scan():
-		print("%s" % s)
-	print(" ")
+		print "%s" % s
+	print " "
 
 	#enter your COM port number
-	print("Choose a COM port #. Enter # only, then enter")
+	print "Choose a COM port #. Enter # only, then enter"
 	temp = raw_input() #waits here for keyboard input
 	if temp == 'e':
 		sys.exit()
@@ -111,8 +111,8 @@ def init_serial():
 	#Prints menu and asks for input
 	global lat_input, long_input
 
-	print('OPEN: '+ ser.name)
-	print('')
+	print 'OPEN: '+ ser.name
+	print ''
 	
 	#can be used to enter positions through the user interface
 	#print 'enter your home position'
@@ -163,8 +163,8 @@ def position():
 					plt.scatter(x=[pos_x], y=[pos_y], s = 5, c='r')
 
 					#shows that we are reading through this loop
-					print(pos_x)
-					print(pos_y)
+					print pos_x
+					print pos_y
 	finally:
 		f1.close()
 		
@@ -213,7 +213,7 @@ def stream_serial():
     #stream data directly from the serial port
     line = ser.readline()
     line_str = str(line)    
-    print(line_str)
+    print line_str
 
 def thread():
 	#threads - run idependent of main loop
@@ -224,9 +224,9 @@ def thread():
 
 def user_input():
 	#runs in main loop looking for user commands
-	print('hit a for altitude map')
-	print('hit p for position map')
-	print('hit e to exit')
+	print 'hit a for altitude map'
+	print 'hit p for position map'
+	print 'hit e to exit'
 	tester = raw_input()
 	if tester == 'a':
 		altitude()

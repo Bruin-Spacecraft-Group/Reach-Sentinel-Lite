@@ -18,7 +18,20 @@ button {
 	color: white;
 }
 
+#graphdiv {
+	height: 200px;
+	width: 600px;
+}
+
+#textdiv {
+	word-break: break-all;
+}
+
 #warning {
 	color: red;
 	font-size: 100%;
+}
+
+#dataText {
+	
 }
