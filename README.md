@@ -3,8 +3,9 @@
 
 ## Quick start
 
-1. First, download Django from the Django website, ideally for python-3: https://www.djangoproject.com/
-
+1. First, you must download the following:
+	 - download Django from the Django website, ideally for python-3: https://www.djangoproject.com/
+	 - pip install the packages: 'pyserial, requests, and numpy' (if in a later step a ModuleNotFoundError occurs, download the package listed with the error)
 2. Download the repo to a dedicated directory, ideally called **Reach-Sentinel-Lite**
 	 - `git init`
 	 - `git clone https://github.com/Bruin-Spacecraft-Group/Reach-Sentinel-Lite`
