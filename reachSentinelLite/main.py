@@ -4,12 +4,17 @@ import serial
 import socket
 import math
 import numpy as np
+import os
+import django
 
 from gps.GPS import GPSInit, saveCoor, processCoordinates, calcVelGPS
 from communication.sendUDP import initSocket, sendPacket, killSocket
 from altimeter.altitudeCalculation import altitudeCalc
 import accel
 #from accel import findInertialFrameAccel
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'reachSentinelLite.settings')
+django.setup()
 
 from graphs.models import Telemetry, IsLive  # exec(open("main.py").read())
 
