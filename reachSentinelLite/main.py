@@ -1,8 +1,11 @@
 import time
+import datetime
 import serial
 import socket
 import math
 import numpy as np
+import os
+import django
 
 from gps.GPS import GPSInit, saveCoor, processCoordinates, calcVelGPS
 from communication.sendUDP import initSocket, sendPacket, killSocket
@@ -10,7 +13,27 @@ from altimeter.altitudeCalculation import altitudeCalc
 import accel
 #from accel import findInertialFrameAccel
 
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'reachSentinelLite.settings')
+django.setup()
+
 from graphs.models import Telemetry, IsLive  # exec(open("main.py").read())
+
+print("\n\n\n")
+print(
+	'             ||---------------------------- * * * -------------------------\\\\\n'\
+	'             ||   ______                    _____                           \\\\\n'\
+	'       ######||   | ___ \           ()     /  ___|                           \\\\\n'\
+	'  ###########||   | |_/ /_ __ _   _ _ _ __ \ `--. _ __   __  _  ___ ___       \\\\\n'\
+	"#############||   | ___ \ '__| | | | | '_ \ `--. \ '_ \ / _\| |/ __/ _ \       \\\\\n"\
+	'   ##########||   | |_/ / |  | |_| | | | | /\__/ / |_) | (_ | | (__| __/       //\n'\
+	'        #####||   \____/|_|   \__,_|_|_| |_\____/| .__/ \__/|_|\___\___|      //\n'\
+	'      #######||                                  | |                         //\n'\
+	'             ||                                  |_|                        //\n'\
+	'             ||---------------------------- * * * -------------------------//\n')
+
+print("\n\n\n")
+
+
 
 # Dabatase checks
 if IsLive.objects.count() != 0:  # ------------------ * * * ------------------ REQUIRES TESTING
@@ -36,21 +59,7 @@ except:
 	print("<== Error connecting to " + SERIAL_PORT + " ==>")
 	exit()
 
-'''
-#initiate socket to push data to raspberry pi
-#wlan0 address of pi:
-SEND_TO_IP = '192.168.1.12'
-#SEND_TO_IP = '10.10.10.193'
-SEND_TO_PORT = 5005
-try:
-	print "Connecting to server..."
-	sock = initSocket(SEND_TO_IP, SEND_TO_PORT)
-	print "Connected to server at " + SEND_TO_IP + "on Port " + SEND_TO_PORT 
-except:
-	print "<== Error could not connect to server at " + SEND_TO_IP + " ==>" 
-	exit()
-'''
-#Initiate variables
+##Initiate variables
 FIRST = True
 
 lat2 = 0
@@ -60,9 +69,9 @@ velocity = np.matrix([0,0,0]).T
 position = np.matrix([0,0,0]).T
 
 #TODO function for dynamicaly assessing calibration constants
-ACCX_CALIB = -20
-ACCY_CALIB = -10
-ACCZ_CALIB = 13
+ACCX_CALIB = 0
+ACCY_CALIB = 0
+ACCZ_CALIB = 0
 
 #set positions of data in incoming csv packet
 TIMESTAMP = 0
@@ -79,10 +88,21 @@ MAGHEAD = 10
 TEMP = 11
 ALTITUDE = 12
 
-#TODO 
+tots_not_launch = 1
+count = 0
+
+#create plain text file to save raw data as backup for database
+date = str(datetime.datetime.now())
+FILENAME = 'Raw_Data/' + date
+FILENAME = FILENAME.replace(':', '_')
+txtfile = open(FILENAME, "w")
+txtfile.write('Project Reach Raw Data starting at ' + date)
+
+##Main Processing Loop
 while ser.isOpen():
 	#get data
 	dataString = ser.readline()
+	txtfile.write(dataString)
 	print('"' + dataString)
 	'''
 	LAST YEAR'S ORDER LEFT FOR REFERENCE, IS NOT USED
@@ -142,7 +162,20 @@ while ser.isOpen():
 	if (len(data) < 6):
 		print("not enough data")
 		continue
-
+	#for the first few iterations, just take the 
+	#accelerometer data to calibrate the offsets
+	if(count <= 6):
+		if(count==6):
+			ACCX_CALIB = ACCX_CALIB/6
+			ACCY_CALIB = ACCY_CALIB/6
+			ACCZ_CALIB = ACCZ_CALIB/6
+		else:
+			ACCX_CALIB += data[ACCELX]
+			ACCY_CALIB += data[ACCELY]
+			ACCZ_CALIB += data[ACCELZ]
+		count += 1
+		continue
+		
 	#establish spacecraft time
 	if(FIRST == True):
 		FIRST = False
@@ -197,7 +230,6 @@ while ser.isOpen():
 		latitude = data[11]
 		latDeg = math.floor(latitude)
 		lonDeg = math.floor(longitude)
-
 		latMin = float(latitude) - latDeg
 		lonMin = float(longitude) - lonDeg
 	    
@@ -212,12 +244,10 @@ while ser.isOpen():
 	 	lat2 = lat
 		lon1 = lon2
 		lon2 = lon
-
 		dt = data[9] - oldGPSTime
 		#specific to GPS because GPS not expected as often
 		oldGPSTime = data[9]
 		#calcVelGPS(lat1, lon1, lat2, lon2, dt)
-
 		print "sending:"
 	'''
 	

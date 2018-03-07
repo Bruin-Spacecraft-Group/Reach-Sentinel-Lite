@@ -3,7 +3,7 @@ var text = false;
 var tenmins = false;
 var thirtymins = false;
 
-/*
+
 window.intervalId = setInterval(function(){
 	if (full_data) {
 		showGraph(TEMP, 10);
@@ -18,9 +18,9 @@ window.intervalId = setInterval(function(){
 	 	showGraph(TEMP, 10);
 	 }
 }, 10);
-*/
 
-showGraph(TEMP, 10);
+
+//showGraph(TEMP, 10);
 //showText(TEMP);
 
 
