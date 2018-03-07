@@ -25,7 +25,7 @@
 	 - `python3 manage.py makemigrations`
 	 - `python3 manage.py migrate`
 
-8. Final step is to open up a new terminal window and run `python3 main.py`
+8. Final step is to open up a new terminal window and run `python3 manage.py shell`, then `exec(open("main.py").read())`
 	 - This establishes a connection to the ground Arduino
 	 - Saves incoming data to database
 
