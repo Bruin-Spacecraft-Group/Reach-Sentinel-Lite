@@ -34,7 +34,6 @@ print(
 print("\n\n\n")
 
 
-
 # Dabatase checks
 if IsLive.objects.count() != 0:  # ------------------ * * * ------------------ REQUIRES TESTING
 	for elem in IsLive.objects.all():
