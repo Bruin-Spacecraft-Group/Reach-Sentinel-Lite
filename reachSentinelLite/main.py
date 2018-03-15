@@ -10,7 +10,7 @@ import django
 from gps.GPS import GPSInit, saveCoor, processCoordinates, calcVelGPS
 from communication.sendUDP import initSocket, sendPacket, killSocket
 from altimeter.altitudeCalculation import altitudeCalc
-import accel
+import acceleration
 #from accel import findInertialFrameAccel
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'reachSentinelLite.settings')
@@ -85,12 +85,14 @@ MAGY = 8
 MAGZ = 9
 MAGHEAD = 10
 TEMP = 11
+PRESSURE = 13
 ALTITUDE = 12
+BAROTEMP = 14
 
 tots_not_launch = 1
 count = 0
 
-#create plain text file to save raw data as backup for database
+##create plain text file to save raw data as backup for database
 date = str(datetime.datetime.now())
 FILENAME = 'Raw_Data/' + date
 FILENAME = FILENAME.replace(':', '_')
@@ -100,9 +102,10 @@ txtfile.write('Project Reach Raw Data starting at ' + date)
 ##Main Processing Loop
 while ser.isOpen():
 	#get data
-	dataString = ser.readline()
+	dataString = str(ser.readline())
 	txtfile.write(dataString)
-	print('"' + dataString)
+	dataString = dataString[2:len(dataString)-5]
+	print('Received: ' + dataString)
 	'''
 	LAST YEAR'S ORDER LEFT FOR REFERENCE, IS NOT USED
 	parse string 
@@ -139,28 +142,37 @@ while ser.isOpen():
 	temp=data[2])
 	new_data.save()
 	'''
-	'''
-	new_data = Telemetry.objects.create(  -------------- * * * -------------- SAVE TO DATABASE
-	timestamp=data[TIMESTAMP], 
-	accel_x=data[ACCELX], 
-	accel_y= data[ACCELY], 
-	accel_z= data[ACCELZ], 
-	gyro_x=data[GYROX], 
-	gyro_y=data[GYROY], 
-	gyro_z= data[GYROZ],
-	mag_x = data[MAGX],
-	mag_y = data[MAGY],
-	mag_z = data[MAGZ],
-	maghead = data[MAGHEAD],
-	barometer=data[ALTITUDE],
-	temp=data[TEMP])
-	new_data.save()
-	'''
-
+		
 	#had problems with only reading in a few data 
 	if (len(data) < 6):
 		print("not enough data")
 		continue
+	
+		#convert from string type
+	for i in range(len(data)-1):
+		if "NAN" in data[i]:
+			data[i] = 0.0
+			continue
+		data[i] = float(data[i])
+
+		
+	new_data = Telemetry.objects.create(  #-------------- * * * -------------- SAVE TO DATABASE
+		#timestamp=data[TIMESTAMP], 
+		timestamp = datetime.datetime.now(),
+		accel_x=data[ACCELX], 
+		accel_y= data[ACCELY], 
+		accel_z= data[ACCELZ], 
+		gyro_x=data[GYROX], 
+		gyro_y=data[GYROY], 
+		gyro_z= data[GYROZ],
+		#mag_x = data[MAGX],
+		#mag_y = data[MAGY],
+		#mag_z = data[MAGZ],
+		#maghead = data[MAGHEAD],
+		barometer=data[ALTITUDE],
+		temp=data[TEMP])
+	new_data.save()
+
 	#for the first few iterations, just take the 
 	#accelerometer data to calibrate the offsets
 	if(count <= 6):
@@ -169,9 +181,9 @@ while ser.isOpen():
 			ACCY_CALIB = ACCY_CALIB/6
 			ACCZ_CALIB = ACCZ_CALIB/6
 		else:
-			ACCX_CALIB += data[ACCELX]
-			ACCY_CALIB += data[ACCELY]
-			ACCZ_CALIB += data[ACCELZ]
+			ACCX_CALIB += float(data[ACCELX])
+			ACCY_CALIB += float(data[ACCELY])
+			ACCZ_CALIB += float(data[ACCELZ])
 		count += 1
 		continue
 		
@@ -184,9 +196,6 @@ while ser.isOpen():
 		continue
 
 	#DO STUFF WITH DATA
-	#convert from string type
-	for i in range(len(data)-1):
-		data[i] = float(data[i])
 	'''
 	if (len(data) < 12):
 		gpsRecieved = False
@@ -202,20 +211,19 @@ while ser.isOpen():
 	#data.append(altitudeCalc(data[1]))
 
 	#process acceleration
-	acceleration = accel.findInertialFrameAccel(data[ACCELX], data[ACCELY], data[ACCELZ], data[GYROX], data[GYROY], data[GYROZ], dt, [ACCX_CALIB, ACCY_CALIB, ACCZ_CALIB])
-	
+	myAcceleration = acceleration.findInertialFrameAccel(data[ACCELX], data[ACCELY], data[ACCELZ], data[GYROX], data[GYROY], data[GYROZ], dt, [ACCX_CALIB, ACCY_CALIB, ACCZ_CALIB])
+	#acceleration = (data[ACCELX],data[ACCELY],data[ACCELZ])
 	#integrate to find velocity
-	velocity = velocity+acceleration*dt
+	velocity = velocity+myAcceleration*dt
 
 	#integrate to find position
 	position = position + velocity*dt
 
 	#append inertial frame acceleration velocity 
 	#and position data to transmitted data
-	data.append(acceleration.item(0))
-	data.append(acceleration.item(1))
-	data.append(acceleration.item(2))
-	data.append(velocity.item(0)) 
+	data.append(myAcceleration.item(0))
+	data.append(myAcceleration.item(1))
+	data.append(myAcceleration.item(0)) 
 	data.append(velocity.item(1))
 	data.append(velocity.item(2))
 	data.append(position.item(0))
