@@ -72,4 +72,4 @@ class IsLive(models.Model):
 	isLive = models.BooleanField(default=False) 
 
 	def __str__(self):
-		return self.isLive
+		return str(self.isLive)

@@ -33,6 +33,20 @@ print(
 
 print("\n\n\n")
 
+print("---------- * * * ---------- BEFORE")
+new_data = Telemetry.objects.create(  # -------------- * * * -------------- SAVE TO DATABASE
+timestamp='11-28-2017 00:18:30', 
+accel_x=8, 
+accel_y= 16, 
+accel_z= 256, 
+gyro_x=-86, 
+gyro_y=-62, 
+gyro_z= 69,
+barometer=99420,
+temp=70)
+new_data.save()
+print("---------- * * * ---------- AFTER")
+
 
 # Dabatase checks
 if IsLive.objects.count() != 0:  # ------------------ * * * ------------------ REQUIRES TESTING
@@ -44,7 +58,7 @@ downlink = IsLive.objects.create() # ----------------- * * * ----------------- I
 try:
 	print("Opening Serial Port...")
 	#initiate serial port to read data from
-	SERIAL_PORT = 'COM4'
+	SERIAL_PORT = '/dev/cu.usbmodem14141'
 	ser = serial.Serial(
 	    port=SERIAL_PORT,
 	    baudrate=9600,
@@ -101,8 +115,11 @@ txtfile.write('Project Reach Raw Data starting at ' + date)
 while ser.isOpen():
 	#get data
 	dataString = ser.readline()
-	txtfile.write(dataString)
-	print('"' + dataString)
+	txtfile.write(str(dataString))
+
+	print('"' + str(dataString))
+	dataString = str(dataString)
+
 	'''
 	LAST YEAR'S ORDER LEFT FOR REFERENCE, IS NOT USED
 	parse string 
@@ -126,21 +143,9 @@ while ser.isOpen():
 	'''
 	data = dataString.split(",")
 
-	'''
-	new_data = Telemetry.objects.create(  -------------- * * * -------------- SAVE TO DATABASE
-	timestamp=data[0], 
-	accel_x=data[6], 
-	accel_y= data[7], 
-	accel_z= data[8], 
-	gyro_x=data[3], 
-	gyro_y=data[4], 
-	gyro_z= data[5],
-	barometer=data[1],
-	temp=data[2])
-	new_data.save()
-	'''
-	'''
-	new_data = Telemetry.objects.create(  -------------- * * * -------------- SAVE TO DATABASE
+	
+	print("---------- * * * ---------- BEFORE SAVING TO DB")
+	new_data = Telemetry.objects.create(  # -------------- * * * -------------- SAVE TO DATABASE
 	timestamp=data[TIMESTAMP], 
 	accel_x=data[ACCELX], 
 	accel_y= data[ACCELY], 
@@ -148,22 +153,19 @@ while ser.isOpen():
 	gyro_x=data[GYROX], 
 	gyro_y=data[GYROY], 
 	gyro_z= data[GYROZ],
-	mag_x = data[MAGX],
-	mag_y = data[MAGY],
-	mag_z = data[MAGZ],
-	maghead = data[MAGHEAD],
 	barometer=data[ALTITUDE],
 	temp=data[TEMP])
 	new_data.save()
-	'''
+	print("---------- * * * ---------- AFTER SAVING TO DB")
 
 	#had problems with only reading in a few data 
 	if (len(data) < 6):
 		print("not enough data")
 		continue
+
 	#for the first few iterations, just take the 
 	#accelerometer data to calibrate the offsets
-	if(count <= 6):
+	if(count <= 6):    # -------------- * * * -------------- NO TO 6, COLLECT UNTIL A BUTTON PRESSED
 		if(count==6):
 			ACCX_CALIB = ACCX_CALIB/6
 			ACCY_CALIB = ACCY_CALIB/6
