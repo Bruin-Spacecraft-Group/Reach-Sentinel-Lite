@@ -10,7 +10,7 @@ import django
 from gps.GPS import GPSInit, saveCoor, processCoordinates, calcVelGPS
 from communication.sendUDP import initSocket, sendPacket, killSocket
 from altimeter.altitudeCalculation import altitudeCalc
-import accel
+import acceleration
 #from accel import findInertialFrameAccel
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'reachSentinelLite.settings')
@@ -35,7 +35,7 @@ print("\n\n\n")
 
 print("---------- * * * ---------- BEFORE")
 new_data = Telemetry.objects.create(  # -------------- * * * -------------- SAVE TO DATABASE
-timestamp='11-28-2017 00:18:30', 
+timestamp='11-28-2017 00:18:45', 
 accel_x=8, 
 accel_y= 16, 
 accel_z= 256, 
@@ -43,7 +43,7 @@ gyro_x=-86,
 gyro_y=-62, 
 gyro_z= 69,
 barometer=99420,
-temp=70)
+temp=73)
 new_data.save()
 print("---------- * * * ---------- AFTER")
 
@@ -116,9 +116,8 @@ while ser.isOpen():
 	#get data
 	dataString = ser.readline()
 	txtfile.write(str(dataString))
-
-	print('"' + str(dataString))
-	dataString = str(dataString)
+	dataString =- dataString[2:len(dataString)-5]
+	print('Received: ' + dataString)
 
 	'''
 	LAST YEAR'S ORDER LEFT FOR REFERENCE, IS NOT USED
@@ -143,8 +142,6 @@ while ser.isOpen():
 	'''
 	data = dataString.split(",")
 
-	
-	print("---------- * * * ---------- BEFORE SAVING TO DB")
 	new_data = Telemetry.objects.create(  # -------------- * * * -------------- SAVE TO DATABASE
 	timestamp=data[TIMESTAMP], 
 	accel_x=data[ACCELX], 
@@ -156,7 +153,6 @@ while ser.isOpen():
 	barometer=data[ALTITUDE],
 	temp=data[TEMP])
 	new_data.save()
-	print("---------- * * * ---------- AFTER SAVING TO DB")
 
 	#had problems with only reading in a few data 
 	if (len(data) < 6):
