@@ -4,9 +4,13 @@ import math
 from .velocityFromGps import calcVelGPS
 
 def GPSInit():
-  #reset coordinates path
-  coor = open('coordinates.txt', 'w+')
-  coor.write("")
+  reset = input('Would you like to reset the coordinates? Y/N: ')
+  if(str(reset).upper() == 'Y'):
+    print('\tReseting coordinates.txt')
+    #reset coordinates path
+    coor = open('coordinates.txt', 'w+')
+    coor.write("")
+  print('\tGPS initiated')
 
 def saveCoor(lon, lat, alt):
   newCoor = ( 
@@ -56,8 +60,8 @@ def saveCoor(lon, lat, alt):
 
       pos.write(kmlHead + coor.read() + kmlFoot)
 
-
-def processCoordinates(timestamp, longitude, latitude, altitude):
+#def processCoordinates(timestamp, longitude, latitude, altitude):
+def processCoordinates(longitude, latitude, altitude):
 
     latDeg = math.floor(float(latitude))
     lonDeg = math.floor(float(longitude))
@@ -69,7 +73,7 @@ def processCoordinates(timestamp, longitude, latitude, altitude):
     lon = float(lonDeg)-float(lonMin)/60
     
     saveCoor(lon, lat, altitude)
-    
+    '''
     #push the last new value to the old and then set the new value 
     lat1 = lat2
     lat2 = lat
@@ -83,3 +87,4 @@ def processCoordinates(timestamp, longitude, latitude, altitude):
     dt = newTime - oldTime
     print("time elapsed: " + str(dt)) 
     calcVelGPS(lat1, lon1, lat2, lon2, dt)
+    '''

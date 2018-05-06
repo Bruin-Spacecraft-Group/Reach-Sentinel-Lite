@@ -8,7 +8,7 @@ import os
 import django
 
 from gps.GPS import GPSInit, saveCoor, processCoordinates, calcVelGPS
-from communication.sendUDP import initSocket, sendPacket, killSocket
+#from communication.sendUDP import initSocket, sendPacket, killSocket
 from altimeter.altitudeCalculation import altitudeCalc
 import acceleration
 #from accel import findInertialFrameAccel
@@ -33,13 +33,14 @@ print(
 	' |                                 |_|                     |/\n'\
 	' +------------------------- * * * -------------------------+\n')
 
-# Dabatase checks
+# Database checks
 if IsLive.objects.count() != 0:  # ------------------ * * * ------------------ REQUIRES TESTING
 	for elem in IsLive.objects.all():
 		elem.delete()
 
 downlink = IsLive.objects.create() # ----------------- * * * ----------------- INITIALLY FALSE, ON BUTTON-CLICK IN DASH, TRUE
 
+#Open serial port to recieve downlinked data
 try:
 	print("Opening Serial Port...")
 	#initiate serial port to read data from
@@ -55,7 +56,7 @@ try:
 	print("connected to port " + SERIAL_PORT)
 except:
 	print("<== Error connecting to " + SERIAL_PORT + " ==>")
-	exit()
+	#exit()
 
 ##Initiate variables
 FIRST = True
@@ -66,9 +67,7 @@ GPSInit()
 velocity = np.matrix([0,0,0]).T
 position = np.matrix([0,0,0]).T
 
-ACCX_CALIB = 0
-ACCY_CALIB = 0
-ACCZ_CALIB = 0
+ACCX_CALIB, ACCY_CALIB, ACCZ_CALIB = 0, 0, 0
 
 #set positions of data in incoming csv packet
 TIMESTAMP = 0
@@ -104,6 +103,8 @@ FILENAME = FILENAME.replace(':', '_')
 txtfile = open(FILENAME, "w")
 txtfile.write('Project Reach Raw Data starting at ' + date)
 
+print('\tTelemetry initiated')
+
 ##Main Processing Loop
 while ser.isOpen():
 	try:
@@ -121,13 +122,14 @@ while ser.isOpen():
 	try:
 		#cut off extra characters
 		#first two characters are b'
-		#last 5, I don't actually know....
+		#last 5, I don't remember....
 		dataString = dataString[2:len(dataString)-5]
 		print('Received: ' + dataString)
 		data = dataString.split(",")
 
 		#TODO: check whether this is right/necessary
 		#can have multiple data types in python - no need to change NAN into a float
+		#must be able to then handle instances of NAN - ie if we attempt to add a NAN
 		#adjust for NANs
 		for i in range(len(data)-1):
 			if "NAN" in data[i]:
@@ -179,14 +181,7 @@ while ser.isOpen():
 				print("not enough data")
 				continue
 		
-			#DO STUFF WITH DATA
-			'''
-			if (len(data) < 12):
-				gpsRecieved = False
-				print "no coordinates"
-			else: 
-				gpsRecieved = True
-			'''
+			##DO STUFF WITH DATA
 			#establish time elapsed
 			dt = (data[TIMESTAMP] - oldtime)/1000.0 #convert ms to s
 			oldtime = data[TIMESTAMP]
@@ -230,27 +225,12 @@ while ser.isOpen():
 				lon = float(lonDeg)-float(lonMin)/60
 			    
 				saveCoor(lon, lat, data[GPSALT])
-			    
-			    #speed calculation from gps data:
-				#push the last new value to the old and then set the new value 
-				lat1 = lat2
-				lat2 = lat
-				lon1 = lon2
-				lon2 = lon
-
-				dt = data[GPSSEC] - oldGPSTime
-				if dt < 0:
-					dt = data[GPSSEC] + 60 - oldGPSTime
-				#specific to GPS because GPS not expected as often
-				oldGPSTime = data[GPSSEC]
-				#calcVelGPS(lat1, lon1, lat2, lon2, dt)
-		
-				print("sending:")
+				#processCoordinates(data[GPSLON], data[GPSLAT], data[GPSALT])
 			
-			
+			'''
 			#append absolute time
 			data.append(time.time())
-			
+			'''
 			finalData = ""
 			for i in range(len(data)-1):
 				#print data[i]
@@ -265,10 +245,10 @@ while ser.isOpen():
 				gyroX
 				gyroY
 				gyroZ
-				magX
-				magY
-				magZ
-				magHead
+				magX - NO
+				magY - NO
+				magZ - NO
+				magHead - NO
 				temp(C)
 				altitude
 				inertial accelX
@@ -280,23 +260,26 @@ while ser.isOpen():
 				posX
 				posY
 				posZ
-				absTime
+				absTime - NO
 				'''
 			print(finalData)
 	except:
-		pass
+		pass #maybe this should be a continue?
 		######SAVE TO DATABASE
 
+	#TODO -- might actually want to implement the data object. 
+	#At this point it's confusing where the processed data ends up
 	'''
-	new_data = Telemetry.objects.create(  -------------- * * * -------------- SAVE TO DATABASE
-	timestamp=data[0], 
-	accel_x=data[6], 
-	accel_y= data[7], 
-	accel_z= data[8], 
-	gyro_x=data[3], 
-	gyro_y=data[4], 
-	gyro_z= data[5],
-	barometer=data[1],
-	temp=data[2])
-	new_data.save()
+	try:
+		new_data = Telemetry.objects.create(  #-------------- * * * -------------- SAVE TO DATABASE
+			timestamp=data[TIMESTAMP], 
+			accel_x=data[6], 
+			accel_y= data[7], 
+			accel_z= data[8], 
+			gyro_x=data[3], 
+			gyro_y=data[4], 
+			gyro_z= data[5],
+			barometer=data[1],
+			temp=data[2])
+		new_data.save()
 	'''
