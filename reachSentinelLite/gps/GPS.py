@@ -10,7 +10,7 @@ def GPSInit():
     #reset coordinates path
     coor = open('coordinates.txt', 'w+')
     coor.write("")
-  print('\tGPS initiated')
+  print('GPS initiated')
 
 def saveCoor(lon, lat, alt):
   newCoor = ( 
@@ -63,14 +63,14 @@ def saveCoor(lon, lat, alt):
 #def processCoordinates(timestamp, longitude, latitude, altitude):
 def processCoordinates(longitude, latitude, altitude):
 
-    latDeg = math.floor(float(latitude))
-    lonDeg = math.floor(float(longitude))
+    latDeg = math.floor(latitude)
+    lonDeg = math.floor(longitude)
 
-    latMin = float(latitude) - latDeg
-    lonMin = float(longitude) - lonDeg
+    latMin = latitude - latDeg
+    lonMin = longitude - lonDeg
     
-    lat = float(latDeg)+float(latMin)/60
-    lon = float(lonDeg)-float(lonMin)/60
+    lat = latDeg + latMin/60.0
+    lon = lonDeg - lonMin/60.0
     
     saveCoor(lon, lat, altitude)
     '''
