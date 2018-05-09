@@ -1,0 +1,2184 @@
+Last login: Wed Apr 11 17:17:40 on ttys000
+Karthiks-MacBook-Pro:~ karthikpullela$ cd Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/
+Karthiks-MacBook-Pro:reachSentinelLite karthikpullela$ source bin/activate
+(reachSentinelLite) Karthiks-MacBook-Pro:reachSentinelLite karthikpullela$ ls
+A new hope.ipynb
+I have no idea.ipynb
+KalmanFilterGyro-main.ipynb
+KalmanFilterGyro.ipynb
+README.md
+Raw_Data
+__pycache__
+accel
+accel.pyc
+accelOffset.py
+accelTest.py
+acceleration.py
+altimeter
+bin
+calibrationConstants.py
+communication
+coordinates.txt
+dashboard
+data analytics thingy v1200 my version naming is fine karthik.ipynb
+db.sqlite3
+etc
+gps
+graphs
+gyroscope
+include
+lib
+main.py
+mainTest.py
+manage.py
+numIntAccel.py
+pip-selfcheck.json
+position.kml
+process.py
+reachSentinelLite
+share
+temp
+temperature
+test.py
+test1.txt
+test2.txt
+test3.txt
+testGraph
+(reachSentinelLite) Karthiks-MacBook-Pro:reachSentinelLite karthikpullela$ python3 manage.py shell
+Python 3.6.3 (v3.6.3:2c5fed86e0, Oct  3 2017, 00:32:08) 
+Type 'copyright', 'credits' or 'license' for more information
+IPython 6.2.1 -- An enhanced Interactive Python. Type '?' for help.
+
+In [1]: exec(open("main.py").read())
+gps speed: 746.1436111819729
+
+
+
+
+             ||---------------------------- * * * -------------------------\\
+             ||   ______                    _____                           \\
+       ######||   | ___ \           ()     /  ___|                           \\
+  ###########||   | |_/ /_ __ _   _ _ _ __ \ `--. _ __   __  _  ___ ___       \\
+#############||   | ___ \ '__| | | | | '_ \ `--. \ '_ \ / _\| |/ __/ _ \       \\
+   ##########||   | |_/ / |  | |_| | | | | /\__/ / |_) | (_ | | (__| __/       //
+        #####||   \____/|_|   \__,_|_|_| |_\____/| .__/ \__/|_|\___\___|      //
+      #######||                                  | |                         //
+             ||                                  |_|                        //
+             ||---------------------------- * * * -------------------------//
+
+
+
+
+
+Opening Serial Port...
+<== Error connecting to /dev/cu.usbmodem14141 ==>
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-1-e95e4a094d95> in <module>()
+----> 1 exec(open("main.py").read())
+
+<string> in <module>()
+
+NameError: name 'ser' is not defined
+(reachSentinelLite) Karthiks-MacBook-Pro:reachSentinelLite karthikpullela$ 
+(reachSentinelLite) Karthiks-MacBook-Pro:reachSentinelLite karthikpullela$ 
+(reachSentinelLite) Karthiks-MacBook-Pro:reachSentinelLite karthikpullela$ python3 manage.py shell
+Python 3.6.3 (v3.6.3:2c5fed86e0, Oct  3 2017, 00:32:08) 
+Type 'copyright', 'credits' or 'license' for more information
+IPython 6.2.1 -- An enhanced Interactive Python. Type '?' for help.
+
+In [1]: exec(open("main.py").read())
+gps speed: 746.1436111819729
+
+
+
+
+             ||---------------------------- * * * -------------------------\\
+             ||   ______                    _____                           \\
+       ######||   | ___ \           ()     /  ___|                           \\
+  ###########||   | |_/ /_ __ _   _ _ _ __ \ `--. _ __   __  _  ___ ___       \\
+#############||   | ___ \ '__| | | | | '_ \ `--. \ '_ \ / _\| |/ __/ _ \       \\
+   ##########||   | |_/ / |  | |_| | | | | /\__/ / |_) | (_ | | (__| __/       //
+        #####||   \____/|_|   \__,_|_|_| |_\____/| .__/ \__/|_|\___\___|      //
+      #######||                                  | |                         //
+             ||                                  |_|                        //
+             ||---------------------------- * * * -------------------------//
+
+
+
+
+
+Opening Serial Port...
+<== Error connecting to /dev/cu.usbmodem14141 ==>
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-1-e95e4a094d95> in <module>()
+----> 1 exec(open("main.py").read())
+
+<string> in <module>()
+
+NameError: name 'ser' is not defined
+(reachSentinelLite) Karthiks-MacBook-Pro:reachSentinelLite karthikpullela$ 
+(reachSentinelLite) Karthiks-MacBook-Pro:reachSentinelLite karthikpullela$ 
+(reachSentinelLite) Karthiks-MacBook-Pro:reachSentinelLite karthikpullela$ 
+(reachSentinelLite) Karthiks-MacBook-Pro:reachSentinelLite karthikpullela$ 
+(reachSentinelLite) Karthiks-MacBook-Pro:reachSentinelLite karthikpullela$ python3 manage.py shell
+Python 3.6.3 (v3.6.3:2c5fed86e0, Oct  3 2017, 00:32:08) 
+Type 'copyright', 'credits' or 'license' for more information
+IPython 6.2.1 -- An enhanced Interactive Python. Type '?' for help.
+
+In [1]: exec(open("main.py").read())
+gps speed: 746.1436111819729
+
+
+
+
+             ||---------------------------- * * * -------------------------\\
+             ||   ______                    _____                           \\
+       ######||   | ___ \           ()     /  ___|                           \\
+  ###########||   | |_/ /_ __ _   _ _ _ __ \ `--. _ __   __  _  ___ ___       \\
+#############||   | ___ \ '__| | | | | '_ \ `--. \ '_ \ / _\| |/ __/ _ \       \\
+   ##########||   | |_/ / |  | |_| | | | | /\__/ / |_) | (_ | | (__| __/       //
+        #####||   \____/|_|   \__,_|_|_| |_\____/| .__/ \__/|_|\___\___|      //
+      #######||                                  | |                         //
+             ||                                  |_|                        //
+             ||---------------------------- * * * -------------------------//
+
+
+
+
+
+Opening Serial Port...
+<== Error connecting to /dev/cu.usbmodem14141 ==>
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-1-e95e4a094d95> in <module>()
+----> 1 exec(open("main.py").read())
+
+<string> in <module>()
+
+NameError: name 'ser' is not defined
+(reachSentinelLite) Karthiks-MacBook-Pro:reachSentinelLite karthikpullela$ python3 manage.py shell
+Python 3.6.3 (v3.6.3:2c5fed86e0, Oct  3 2017, 00:32:08) 
+Type 'copyright', 'credits' or 'license' for more information
+IPython 6.2.1 -- An enhanced Interactive Python. Type '?' for help.
+
+In [1]: exec(open("main.py").read())
+gps speed: 746.1436111819729
+
+
+
+
+             ||---------------------------- * * * -------------------------\\
+             ||   ______                    _____                           \\
+       ######||   | ___ \           ()     /  ___|                           \\
+  ###########||   | |_/ /_ __ _   _ _ _ __ \ `--. _ __   __  _  ___ ___       \\
+#############||   | ___ \ '__| | | | | '_ \ `--. \ '_ \ / _\| |/ __/ _ \       \\
+   ##########||   | |_/ / |  | |_| | | | | /\__/ / |_) | (_ | | (__| __/       //
+        #####||   \____/|_|   \__,_|_|_| |_\____/| .__/ \__/|_|\___\___|      //
+      #######||                                  | |                         //
+             ||                                  |_|                        //
+             ||---------------------------- * * * -------------------------//
+
+
+
+
+
+Opening Serial Port...
+connected to port /dev/cu.usbmodem14321
+Received: Arduino LoRa RX Test!
+---------------------------------------------------------------------------
+IndexError                                Traceback (most recent call last)
+<ipython-input-1-e95e4a094d95> in <module>()
+----> 1 exec(open("main.py").read())
+
+<string> in <module>()
+
+IndexError: list index out of range
+
+In [2]: 
+
+In [2]: 
+
+In [2]: 
+
+In [2]: 
+
+In [2]: 
+
+In [2]: 
+
+In [2]: exec(open("main.py").read())
+
+
+
+
+             ||---------------------------- * * * -------------------------\\
+             ||   ______                    _____                           \\
+       ######||   | ___ \           ()     /  ___|                           \\
+  ###########||   | |_/ /_ __ _   _ _ _ __ \ `--. _ __   __  _  ___ ___       \\
+#############||   | ___ \ '__| | | | | '_ \ `--. \ '_ \ / _\| |/ __/ _ \       \\
+   ##########||   | |_/ / |  | |_| | | | | /\__/ / |_) | (_ | | (__| __/       //
+        #####||   \____/|_|   \__,_|_|_| |_\____/| .__/ \__/|_|\___\___|      //
+      #######||                                  | |                         //
+             ||                                  |_|                        //
+             ||---------------------------- * * * -------------------------//
+
+
+
+
+
+Opening Serial Port...
+<== Error connecting to /dev/cu.usbmodem14321 ==>
+---------------------------------------------------------------------------
+SerialException                           Traceback (most recent call last)
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/serial/serialposix.py in read(self, size)
+    500                     raise SerialException(
+--> 501                         'device reports readiness to read but returned no data '
+    502                         '(device disconnected or multiple access on port?)')
+
+SerialException: device reports readiness to read but returned no data (device disconnected or multiple access on port?)
+
+During handling of the above exception, another exception occurred:
+
+SerialException                           Traceback (most recent call last)
+<ipython-input-2-e95e4a094d95> in <module>()
+----> 1 exec(open("main.py").read())
+
+<string> in <module>()
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/serial/serialposix.py in read(self, size)
+    507                 # https://www.python.org/dev/peps/pep-0475.
+    508                 if e.errno not in (errno.EAGAIN, errno.EALREADY, errno.EWOULDBLOCK, errno.EINPROGRESS, errno.EINTR):
+--> 509                     raise SerialException('read failed: {}'.format(e))
+    510             except select.error as e:
+    511                 # this is for Python 2.x
+
+SerialException: read failed: device reports readiness to read but returned no data (device disconnected or multiple access on port?)
+(reachSentinelLite) Karthiks-MacBook-Pro:reachSentinelLite karthikpullela$ 
+(reachSentinelLite) Karthiks-MacBook-Pro:reachSentinelLite karthikpullela$ 
+(reachSentinelLite) Karthiks-MacBook-Pro:reachSentinelLite karthikpullela$ 
+(reachSentinelLite) Karthiks-MacBook-Pro:reachSentinelLite karthikpullela$ python3 manage.py shell
+Python 3.6.3 (v3.6.3:2c5fed86e0, Oct  3 2017, 00:32:08) 
+Type 'copyright', 'credits' or 'license' for more information
+IPython 6.2.1 -- An enhanced Interactive Python. Type '?' for help.
+
+In [1]: exec(open("main.py").read())
+gps speed: 746.1436111819729
+
+
+
+
+             ||---------------------------- * * * -------------------------\\
+             ||   ______                    _____                           \\
+       ######||   | ___ \           ()     /  ___|                           \\
+  ###########||   | |_/ /_ __ _   _ _ _ __ \ `--. _ __   __  _  ___ ___       \\
+#############||   | ___ \ '__| | | | | '_ \ `--. \ '_ \ / _\| |/ __/ _ \       \\
+   ##########||   | |_/ / |  | |_| | | | | /\__/ / |_) | (_ | | (__| __/       //
+        #####||   \____/|_|   \__,_|_|_| |_\____/| .__/ \__/|_|\___\___|      //
+      #######||                                  | |                         //
+             ||                                  |_|                        //
+             ||---------------------------- * * * -------------------------//
+
+
+
+
+
+Opening Serial Port...
+<== Error connecting to /dev/cu.usbmodem14321 ==>
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-1-e95e4a094d95> in <module>()
+----> 1 exec(open("main.py").read())
+
+<string> in <module>()
+
+NameError: name 'ser' is not defined
+(reachSentinelLite) Karthiks-MacBook-Pro:reachSentinelLite karthikpullela$ python3 manage.py shell
+Python 3.6.3 (v3.6.3:2c5fed86e0, Oct  3 2017, 00:32:08) 
+Type 'copyright', 'credits' or 'license' for more information
+IPython 6.2.1 -- An enhanced Interactive Python. Type '?' for help.
+
+In [1]: exec(open("main.py").read())
+gps speed: 746.1436111819729
+
+
+
+
+             ||---------------------------- * * * -------------------------\\
+             ||   ______                    _____                           \\
+       ######||   | ___ \           ()     /  ___|                           \\
+  ###########||   | |_/ /_ __ _   _ _ _ __ \ `--. _ __   __  _  ___ ___       \\
+#############||   | ___ \ '__| | | | | '_ \ `--. \ '_ \ / _\| |/ __/ _ \       \\
+   ##########||   | |_/ / |  | |_| | | | | /\__/ / |_) | (_ | | (__| __/       //
+        #####||   \____/|_|   \__,_|_|_| |_\____/| .__/ \__/|_|\___\___|      //
+      #######||                                  | |                         //
+             ||                                  |_|                        //
+             ||---------------------------- * * * -------------------------//
+
+
+
+
+
+Opening Serial Port...
+connected to port /dev/cu.usbmodem14321
+Received: Arduino LoRa RX Test!
+-------------------------- * * * -------------------------- BEFORE
+-------------------------- * * * -------------------------- AFTER
+---------------------------------------------------------------------------
+IndexError                                Traceback (most recent call last)
+<ipython-input-1-e95e4a094d95> in <module>()
+----> 1 exec(open("main.py").read())
+
+<string> in <module>()
+
+IndexError: list index out of range
+
+In [2]: exec(open("main.py").read())
+
+
+
+
+             ||---------------------------- * * * -------------------------\\
+             ||   ______                    _____                           \\
+       ######||   | ___ \           ()     /  ___|                           \\
+  ###########||   | |_/ /_ __ _   _ _ _ __ \ `--. _ __   __  _  ___ ___       \\
+#############||   | ___ \ '__| | | | | '_ \ `--. \ '_ \ / _\| |/ __/ _ \       \\
+   ##########||   | |_/ / |  | |_| | | | | /\__/ / |_) | (_ | | (__| __/       //
+        #####||   \____/|_|   \__,_|_|_| |_\____/| .__/ \__/|_|\___\___|      //
+      #######||                                  | |                         //
+             ||                                  |_|                        //
+             ||---------------------------- * * * -------------------------//
+
+
+
+
+
+Opening Serial Port...
+connected to port /dev/cu.usbmodem14321
+Received: .02,0.02,-0.00,34.07,-118.44,183.70,2,13,37, NAN,138.69
+---------------------------------------------------------------------------
+IndexError                                Traceback (most recent call last)
+<ipython-input-2-e95e4a094d95> in <module>()
+----> 1 exec(open("main.py").read())
+
+<string> in <module>()
+
+IndexError: list index out of range
+
+In [3]: 
+
+In [3]: 
+
+In [3]: 
+
+In [3]: 
+
+In [3]: exec(open("main.py").read())
+
+
+
+
+             ||---------------------------- * * * -------------------------\\
+             ||   ______                    _____                           \\
+       ######||   | ___ \           ()     /  ___|                           \\
+  ###########||   | |_/ /_ __ _   _ _ _ __ \ `--. _ __   __  _  ___ ___       \\
+#############||   | ___ \ '__| | | | | '_ \ `--. \ '_ \ / _\| |/ __/ _ \       \\
+   ##########||   | |_/ / |  | |_| | | | | /\__/ / |_) | (_ | | (__| __/       //
+        #####||   \____/|_|   \__,_|_|_| |_\____/| .__/ \__/|_|\___\___|      //
+      #######||                                  | |                         //
+             ||                                  |_|                        //
+             ||---------------------------- * * * -------------------------//
+
+
+
+
+
+Opening Serial Port...
+connected to port /dev/cu.usbmodem14321
+Received: 9.14,0.02,0.02,0.00,34.07,-118.44,165.90,2,14,2, NAN,138.50
+---------------------------------------------------------------------------
+IndexError                                Traceback (most recent call last)
+<ipython-input-3-e95e4a094d95> in <module>()
+----> 1 exec(open("main.py").read())
+
+<string> in <module>()
+
+IndexError: list index out of range
+
+In [4]: exec(open("main.py").read())
+
+
+
+
+             ||---------------------------- * * * -------------------------\\
+             ||   ______                    _____                           \\
+       ######||   | ___ \           ()     /  ___|                           \\
+  ###########||   | |_/ /_ __ _   _ _ _ __ \ `--. _ __   __  _  ___ ___       \\
+#############||   | ___ \ '__| | | | | '_ \ `--. \ '_ \ / _\| |/ __/ _ \       \\
+   ##########||   | |_/ / |  | |_| | | | | /\__/ / |_) | (_ | | (__| __/       //
+        #####||   \____/|_|   \__,_|_|_| |_\____/| .__/ \__/|_|\___\___|      //
+      #######||                                  | |                         //
+             ||                                  |_|                        //
+             ||---------------------------- * * * -------------------------//
+
+
+
+
+
+Opening Serial Port...
+connected to port /dev/cu.usbmodem14321
+Received: 914309,0.00,0.98,9.30,0.02,0.02,-0.00,34.07,-118.44,165.90,2,14,28, NAN,138.38
+---------------------------------------------------------------------------
+ValueError                                Traceback (most recent call last)
+<ipython-input-4-e95e4a094d95> in <module>()
+----> 1 exec(open("main.py").read())
+
+<string> in <module>()
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/manager.py in manager_method(self, *args, **kwargs)
+     80         def create_method(name, method):
+     81             def manager_method(self, *args, **kwargs):
+---> 82                 return getattr(self.get_queryset(), name)(*args, **kwargs)
+     83             manager_method.__name__ = method.__name__
+     84             manager_method.__doc__ = method.__doc__
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/query.py in create(self, **kwargs)
+    415         obj = self.model(**kwargs)
+    416         self._for_write = True
+--> 417         obj.save(force_insert=True, using=self.db)
+    418         return obj
+    419 
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/base.py in save(self, force_insert, force_update, using, update_fields)
+    727 
+    728         self.save_base(using=using, force_insert=force_insert,
+--> 729                        force_update=force_update, update_fields=update_fields)
+    730     save.alters_data = True
+    731 
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/base.py in save_base(self, raw, force_insert, force_update, using, update_fields)
+    757             if not raw:
+    758                 self._save_parents(cls, using, update_fields)
+--> 759             updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+    760         # Store the database on which the object was saved
+    761         self._state.db = using
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/base.py in _save_table(self, raw, cls, force_insert, force_update, using, update_fields)
+    840 
+    841             update_pk = meta.auto_field and not pk_set
+--> 842             result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+    843             if update_pk:
+    844                 setattr(self, meta.pk.attname, result)
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/base.py in _do_insert(self, manager, using, fields, update_pk, raw)
+    878         """
+    879         return manager._insert([self], fields=fields, return_id=update_pk,
+--> 880                                using=using, raw=raw)
+    881 
+    882     def delete(self, using=None, keep_parents=False):
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/manager.py in manager_method(self, *args, **kwargs)
+     80         def create_method(name, method):
+     81             def manager_method(self, *args, **kwargs):
+---> 82                 return getattr(self.get_queryset(), name)(*args, **kwargs)
+     83             manager_method.__name__ = method.__name__
+     84             manager_method.__doc__ = method.__doc__
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/query.py in _insert(self, objs, fields, return_id, raw, using)
+   1123         query = sql.InsertQuery(self.model)
+   1124         query.insert_values(fields, objs, raw=raw)
+-> 1125         return query.get_compiler(using=using).execute_sql(return_id)
+   1126     _insert.alters_data = True
+   1127     _insert.queryset_only = False
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/sql/compiler.py in execute_sql(self, return_id)
+   1278         self.return_id = return_id
+   1279         with self.connection.cursor() as cursor:
+-> 1280             for sql, params in self.as_sql():
+   1281                 cursor.execute(sql, params)
+   1282             if not (return_id and cursor):
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/sql/compiler.py in as_sql(self)
+   1231             value_rows = [
+   1232                 [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+-> 1233                 for obj in self.query.objs
+   1234             ]
+   1235         else:
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/sql/compiler.py in <listcomp>(.0)
+   1231             value_rows = [
+   1232                 [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+-> 1233                 for obj in self.query.objs
+   1234             ]
+   1235         else:
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/sql/compiler.py in <listcomp>(.0)
+   1230         if has_fields:
+   1231             value_rows = [
+-> 1232                 [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+   1233                 for obj in self.query.objs
+   1234             ]
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/sql/compiler.py in prepare_value(self, field, value)
+   1170                 raise FieldError('Window expressions are not allowed in this query.')
+   1171         else:
+-> 1172             value = field.get_db_prep_save(value, connection=self.connection)
+   1173         return value
+   1174 
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/fields/__init__.py in get_db_prep_save(self, value, connection)
+    765     def get_db_prep_save(self, value, connection):
+    766         """Return field's value prepared for saving into a database."""
+--> 767         return self.get_db_prep_value(value, connection=connection, prepared=False)
+    768 
+    769     def has_default(self):
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/fields/__init__.py in get_db_prep_value(self, value, connection, prepared)
+    760         """
+    761         if not prepared:
+--> 762             value = self.get_prep_value(value)
+    763         return value
+    764 
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/fields/__init__.py in get_prep_value(self, value)
+   1824         if value is None:
+   1825             return None
+-> 1826         return int(value)
+   1827 
+   1828     def get_internal_type(self):
+
+ValueError: invalid literal for int() with base 10: '0.00'
+
+In [5]: exec(open("main.py").read())
+
+
+
+
+             ||---------------------------- * * * -------------------------\\
+             ||   ______                    _____                           \\
+       ######||   | ___ \           ()     /  ___|                           \\
+  ###########||   | |_/ /_ __ _   _ _ _ __ \ `--. _ __   __  _  ___ ___       \\
+#############||   | ___ \ '__| | | | | '_ \ `--. \ '_ \ / _\| |/ __/ _ \       \\
+   ##########||   | |_/ / |  | |_| | | | | /\__/ / |_) | (_ | | (__| __/       //
+        #####||   \____/|_|   \__,_|_|_| |_\____/| .__/ \__/|_|\___\___|      //
+      #######||                                  | |                         //
+             ||                                  |_|                        //
+             ||---------------------------- * * * -------------------------//
+
+
+
+
+
+Opening Serial Port...
+connected to port /dev/cu.usbmodem14321
+Received: 
+---------------------------------------------------------------------------
+IndexError                                Traceback (most recent call last)
+<ipython-input-5-e95e4a094d95> in <module>()
+----> 1 exec(open("main.py").read())
+
+<string> in <module>()
+
+IndexError: list index out of range
+
+In [6]: 
+
+In [6]: 
+
+In [6]: 
+
+In [6]: exec(open("main.py").read())
+
+
+
+
+             ||---------------------------- * * * -------------------------\\
+             ||   ______                    _____                           \\
+       ######||   | ___ \           ()     /  ___|                           \\
+  ###########||   | |_/ /_ __ _   _ _ _ __ \ `--. _ __   __  _  ___ ___       \\
+#############||   | ___ \ '__| | | | | '_ \ `--. \ '_ \ / _\| |/ __/ _ \       \\
+   ##########||   | |_/ / |  | |_| | | | | /\__/ / |_) | (_ | | (__| __/       //
+        #####||   \____/|_|   \__,_|_|_| |_\____/| .__/ \__/|_|\___\___|      //
+      #######||                                  | |                         //
+             ||                                  |_|                        //
+             ||---------------------------- * * * -------------------------//
+
+
+
+
+
+Opening Serial Port...
+connected to port /dev/cu.usbmodem14321
+Received: 967480,0.04,0.90,9.26,0.01,0.01,-0.00,34.07,-118.44,165.90,2,15,21, NAN,138.69
+Received: 969454,0.00,0.98,9.26,0.02,0.02,-0.00,34.07,-118.44,165.90,2,15,23, NAN,138.50
+Received: 971427,0.04,0.94,9.30,0.02,0.02,-0.00,34.07,-118.44,165.90,2,15,25, NAN,138.63
+Received: 973391,0.00,0.94,9.30,0.01,0.02,-0.00,34.07,-118.44,165.90,2,15,27, NAN,138.38
+Received: 975365,0.00,0.98,8.71,0.01,0.02,0.00,34.07,-118.44,165.90,2,15,29, NAN,138.94
+Received: 977329,0.00,1.02,9.34,0.02,0.02,-0.00,34.07,-118.44,165.90,2,15,31, NAN,138.63
+Received: 979295,0.04,0.94,9.30,0.02,0.02,-0.00,34.07,-118.44,165.90,2,15,33, NAN,138.63
+Received: 981270,0.04,0.98,9.22,0.02,0.02,-0.00,34.07,-118.44,165.90,2,15,35, NAN,138.69
+Received: 983236,0.00,0.98,9.26,0.02,0.02,-0.00,34.07,-118.44,165.90,2,15,37, NAN,138.81
+Received: 985210,0.00,0.90,9.26,0.01,0.02,-0.00,34.07,-118.44,165.90,2,15,39, NAN,138.88
+Received: 987173,0.00,1.02,9.30,0.02,0.02,-0.00,34.07,-118.44,165.90,2,15,41, NAN,138.81
+Received: 989149,0.00,0.98,9.30,0.01,0.02,-0.00,34.07,-118.44,165.90,2,15,43, NAN,138.50
+Received: 991122,0.00,0.94,9.10,0.02,0.02,0.00,34.07,-118.44,165.90,2,15,45, NAN,138.81
+Received: 993085,0.04,0.98,9.30,0.02,0.02,-0.00,34.07,-118.44,165.90,2,15,47, NAN,138.69
+Received: 995056,0.00,0.98,9.30,0.02,0.01,-0.00,34.07,-118.44,165.90,2,15,49, NAN,138.94
+Received: 997031,0.00,0.90,9.53,0.01,0.02,-0.00, NAN, NAN, NAN,0,0,0, NAN,138.69
+Received: 999027,0.00,0.94,9.22,0.02,0.02,-0.00, NAN, NAN, NAN,0,0,0, NAN,138.88
+Received: 1001053,0.00,0.98,9.34,0.01,0.02,-0.00, NAN, NAN, NAN,0,0,0, NAN,138.50
+Received: 1003011,0.04,0.94,9.41,0.01,0.02,-0.00,34.07,-118.44,165.90,2,15,56, NAN,138.81
+Received: 1004997,0.04,0.94,9.26,0.02,0.02,-0.00,34.07,-118.44,165.90,2,15,58, NAN,138.88
+Received: 1006988,0.04,0.94,9.30,0.01,0.02,-0.00,34.07,-118.44,165.90,2,16,0, NAN,138.75
+Received: 1010806,0.20,0.98,9.22,0.02,0.02,0.00,34.07,-118.44,165.90,2,16,4, NAN,138.88
+Received: 1012781,0.00,0.94,9.26,0.02,0.02,0.00,34.07,-118.44,165.90,2,16,6, NAN,138.63
+Received: 1014756,0.00,0.98,9.34,0.02,0.02,0.00,34.07,-118.44,165.90,2,16,8, NAN,138.69
+Received: 1016720,0.00,0.98,9.26,0.01,0.02,-0.00,34.07,-118.44,165.90,2,16,10, NAN,139.06
+Received: 1018696,0.00,0.94,9.30,0.01,0.02,-0.00,34.07,-118.44,165.90,2,16,12, NAN,138.75
+Received: 1020660,0.04,0.90,9.41,0.02,0.02,-0.00,34.07,-118.44,165.90,2,16,14, NAN,138.69
+Received: 1022635,0.04,0.94,9.30,0.02,0.02,-0.00,34.07,-118.44,165.90,2,16,16, NAN,138.69
+Received: 1024600,0.00,0.90,9.34,0.02,0.02,0.00,34.07,-118.44,165.90,2,16,18, NAN,139.06
+Received: 1026565,0.04,0.90,9.30,0.01,0.02,-0.00,34.07,-118.44,165.90,2,16,20, NAN,138.44
+Received: 1028539,0.04,0.98,9.30,0.02,0.02,0.00,34.07,-118.44,165.90,2,16,22, NAN,138.94
+Received: 1030512,0.04,0.94,9.30,0.02,0.02,-0.00,34.07,-118.44,165.90,2,16,24, NAN,138.88
+Received: 1032475,0.00,0.98,9.34,0.02,0.02,-0.00,34.07,-118.44,165.90,2,16,26, NAN,138.81
+Received: 1034449,0.04,0.94,8.90,0.01,0.02,0.00,34.07,-118.44,165.90,2,16,28, NAN,138.69
+Received: 1036422,0.00,0.94,9.34,0.01,0.02,0.00,34.07,-118.44,165.90,2,16,30, NAN,138.94
+Received: 1038386,0.00,0.94,9.30,0.02,0.02,0.00,34.07,-118.44,165.90,2,16,32, NAN,138.81
+Received: 1040360,0.00,0.94,9.34,0.01,0.02,0.00,34.07,-118.44,165.90,2,16,34, NAN,138.75
+Received: 1042326,0.00,0.94,9.30,0.01,0.02,-0.00,34.07,-118.44,165.90,2,16,36, NAN,138.94
+Received: 1044299,0.04,0.98,9.26,0.02,0.02,-0.00,34.07,-118.44,165.90,2,16,38, NAN,138.88
+Received: 1046264,0.04,0.98,9.22,0.02,0.02,0.00,34.07,-118.44,165.90,2,16,40, NAN,138.94
+Received: 1048239,0.00,0.98,9.18,0.01,0.02,0.00,34.07,-118.44,165.90,2,16,42, NAN,139.00
+Received: 1050202,0.00,0.98,9.26,0.02,0.02,-0.00,34.07,-118.44,165.90,2,16,44, NAN,138.88
+Received: 1052176,0.00,0.98,9.22,0.02,0.02,0.00,34.07,-118.44,165.90,2,16,46, NAN,138.94
+Received: 1054151,0.00,0.98,9.34,0.02,0.02,0.00,34.07,-118.44,165.90,2,16,48, NAN,138.75
+Received: 1056137,0.00,0.94,9.30,0.02,0.02,-0.00,34.07,-118.44,165.90,2,16,50, NAN,139.00
+Received: 1058074,0.00,1.02,9.30,0.02,0.01,-0.00,34.07,-118.44,165.90,2,16,52, NAN,138.69
+Received: 1060050,0.00,0.94,9.30,0.01,0.02,0.00,34.07,-118.44,165.90,2,16,54, NAN,138.88
+Received: 1062014,0.04,0.98,9.26,0.02,0.01,-0.00,34.07,-118.44,165.90,2,16,56, NAN,138.94
+Received: 1063989,0.04,0.94,9.34,0.02,0.02,-0.00,34.07,-118.44,165.90,2,16,58, NAN,139.00
+Received: 1065955,0.04,0.90,9.30,0.02,0.02,-0.00,34.07,-118.44,165.90,2,17,0, NAN,139.06
+Received: 
+Received: 1069892,0.00,1.02,9.26,0.02,0.02,-0.00,34.07,-118.44,165.90,2,17,4, NAN,138.94
+Received: 1071868,0.00,1.02,9.26,0.01,0.02,0.00,34.07,-118.44,165.90,2,17,6, NAN,139.19
+Received: 1073842,0.00,0.98,9.26,0.01,0.02,0.00,34.07,-118.44,165.90,2,17,8, NAN,138.81
+Received: 1075836,0.00,0.94,9.26,0.01,0.02,-0.00,34.07,-118.44,165.90,2,17,9, NAN,138.94
+^X^C---------------------------------------------------------------------------
+KeyboardInterrupt                         Traceback (most recent call last)
+<ipython-input-6-e95e4a094d95> in <module>()
+----> 1 exec(open("main.py").read())
+
+<string> in <module>()
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/serial/serialposix.py in read(self, size)
+    481         while len(read) < size:
+    482             try:
+--> 483                 ready, _, _ = select.select([self.fd, self.pipe_abort_read_r], [], [], timeout.time_left())
+    484                 if self.pipe_abort_read_r in ready:
+    485                     os.read(self.pipe_abort_read_r, 1000)
+
+KeyboardInterrupt: 
+
+In [7]: exec(open("main.py").read())
+
+
+
+
+             ||---------------------------- * * * -------------------------\\
+             ||   ______                    _____                           \\
+       ######||   | ___ \           ()     /  ___|                           \\
+  ###########||   | |_/ /_ __ _   _ _ _ __ \ `--. _ __   __  _  ___ ___       \\
+#############||   | ___ \ '__| | | | | '_ \ `--. \ '_ \ / _\| |/ __/ _ \       \\
+   ##########||   | |_/ / |  | |_| | | | | /\__/ / |_) | (_ | | (__| __/       //
+        #####||   \____/|_|   \__,_|_|_| |_\____/| .__/ \__/|_|\___\___|      //
+      #######||                                  | |                         //
+             ||                                  |_|                        //
+             ||---------------------------- * * * -------------------------//
+
+
+
+
+
+Opening Serial Port...
+connected to port /dev/cu.usbmodem14321
+Received: 1079739,-0.08,0.90,9.22,0.01,0.02,-0.00,34.07,-118.44,165.90,2,17,13, NAN,139.06
+Received: 1081712,0.00,0.98,9.30,0.02,0.01,-0.00,34.07,-118.44,165.90,2,17,15, NAN,139.13
+Received: 1083675,0.00,0.94,9.18,0.01,0.02,0.00,34.07,-118.44,165.90,2,17,17, NAN,139.06
+^C---------------------------------------------------------------------------
+KeyboardInterrupt                         Traceback (most recent call last)
+<ipython-input-7-e95e4a094d95> in <module>()
+----> 1 exec(open("main.py").read())
+
+<string> in <module>()
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/serial/serialposix.py in read(self, size)
+    481         while len(read) < size:
+    482             try:
+--> 483                 ready, _, _ = select.select([self.fd, self.pipe_abort_read_r], [], [], timeout.time_left())
+    484                 if self.pipe_abort_read_r in ready:
+    485                     os.read(self.pipe_abort_read_r, 1000)
+
+KeyboardInterrupt: 
+
+In [8]: exec(open("main.py").read())
+
+
+
+
+             ||---------------------------- * * * -------------------------\\
+             ||   ______                    _____                           \\
+       ######||   | ___ \           ()     /  ___|                           \\
+  ###########||   | |_/ /_ __ _   _ _ _ __ \ `--. _ __   __  _  ___ ___       \\
+#############||   | ___ \ '__| | | | | '_ \ `--. \ '_ \ / _\| |/ __/ _ \       \\
+   ##########||   | |_/ / |  | |_| | | | | /\__/ / |_) | (_ | | (__| __/       //
+        #####||   \____/|_|   \__,_|_|_| |_\____/| .__/ \__/|_|\___\___|      //
+      #######||                                  | |                         //
+             ||                                  |_|                        //
+             ||---------------------------- * * * -------------------------//
+
+
+
+
+
+Opening Serial Port...
+connected to port /dev/cu.usbmodem14321
+Received: 165.90,2,17,43, NAN,139.13
+---------------------------------------------------------------------------
+IndexError                                Traceback (most recent call last)
+<ipython-input-8-e95e4a094d95> in <module>()
+----> 1 exec(open("main.py").read())
+
+<string> in <module>()
+
+IndexError: list index out of range
+
+In [9]: exec(open("main.py").read())
+
+
+
+
+             ||---------------------------- * * * -------------------------\\
+             ||   ______                    _____                           \\
+       ######||   | ___ \           ()     /  ___|                           \\
+  ###########||   | |_/ /_ __ _   _ _ _ __ \ `--. _ __   __  _  ___ ___       \\
+#############||   | ___ \ '__| | | | | '_ \ `--. \ '_ \ / _\| |/ __/ _ \       \\
+   ##########||   | |_/ / |  | |_| | | | | /\__/ / |_) | (_ | | (__| __/       //
+        #####||   \____/|_|   \__,_|_|_| |_\____/| .__/ \__/|_|\___\___|      //
+      #######||                                  | |                         //
+             ||                                  |_|                        //
+             ||---------------------------- * * * -------------------------//
+
+
+
+
+
+Opening Serial Port...
+connected to port /dev/cu.usbmodem14321
+Received: ,-118.44,165.90,2,18,8, NAN,139.19
+---------------------------------------------------------------------------
+IndexError                                Traceback (most recent call last)
+<ipython-input-9-e95e4a094d95> in <module>()
+----> 1 exec(open("main.py").read())
+
+<string> in <module>()
+
+IndexError: list index out of range
+
+In [10]: exec(open("main.py").read())
+
+
+
+
+             ||---------------------------- * * * -------------------------\\
+             ||   ______                    _____                           \\
+       ######||   | ___ \           ()     /  ___|                           \\
+  ###########||   | |_/ /_ __ _   _ _ _ __ \ `--. _ __   __  _  ___ ___       \\
+#############||   | ___ \ '__| | | | | '_ \ `--. \ '_ \ / _\| |/ __/ _ \       \\
+   ##########||   | |_/ / |  | |_| | | | | /\__/ / |_) | (_ | | (__| __/       //
+        #####||   \____/|_|   \__,_|_|_| |_\____/| .__/ \__/|_|\___\___|      //
+      #######||                                  | |                         //
+             ||                                  |_|                        //
+             ||---------------------------- * * * -------------------------//
+
+
+
+
+
+Opening Serial Port...
+connected to port /dev/cu.usbmodem14321
+Received: .44,165.90,2,18,36, NAN,139.13
+Received: 1164433,-0.04,0.90,9.30,0.02,0.01,-0.00,34.07,-118.44,165.90,2,18,38, NAN,139.31
+Received: 1166396,0.00,0.90,9.26,0.01,0.02,-0.00,34.07,-118.44,165.90,2,18,40, NAN,139.38
+Received: 1168369,0.00,1.02,9.30,0.01,0.02,-0.00,34.07,-118.44,165.90,2,18,42, NAN,139.19
+Received: 1170342,0.00,0.90,9.30,0.02,0.02,-0.00,34.07,-118.44,165.90,2,18,44, NAN,139.06
+Received: 1172306,0.00,0.94,9.30,0.02,0.01,0.00, NAN, NAN, NAN,0,0,0, NAN,139.38
+Received: 1174323,0.04,0.98,9.30,0.02,0.02,-0.00, NAN, NAN, NAN,0,0,0, NAN,139.06
+^[[A
+Received: 1176272,0.00,0.90,9.30,0.02,0.02,-0.00, NAN, NAN, NAN,0,0,0, NAN,139.19
+^C---------------------------------------------------------------------------
+KeyboardInterrupt                         Traceback (most recent call last)
+<ipython-input-10-e95e4a094d95> in <module>()
+----> 1 exec(open("main.py").read())
+
+<string> in <module>()
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/serial/serialposix.py in read(self, size)
+    481         while len(read) < size:
+    482             try:
+--> 483                 ready, _, _ = select.select([self.fd, self.pipe_abort_read_r], [], [], timeout.time_left())
+    484                 if self.pipe_abort_read_r in ready:
+    485                     os.read(self.pipe_abort_read_r, 1000)
+
+KeyboardInterrupt: 
+
+In [11]: 
+
+In [11]: 
+
+In [11]: 
+
+In [11]: 
+
+In [11]: exec(open("main.py").read())
+
+
+
+
+             ||---------------------------- * * * -------------------------\\
+             ||   ______                    _____                           \\
+       ######||   | ___ \           ()     /  ___|                           \\
+  ###########||   | |_/ /_ __ _   _ _ _ __ \ `--. _ __   __  _  ___ ___       \\
+#############||   | ___ \ '__| | | | | '_ \ `--. \ '_ \ / _\| |/ __/ _ \       \\
+   ##########||   | |_/ / |  | |_| | | | | /\__/ / |_) | (_ | | (__| __/       //
+        #####||   \____/|_|   \__,_|_|_| |_\____/| .__/ \__/|_|\___\___|      //
+      #######||                                  | |                         //
+             ||                                  |_|                        //
+             ||---------------------------- * * * -------------------------//
+
+
+
+
+
+Opening Serial Port...
+connected to port /dev/cu.usbmodem14321
+Received: 1180294,0.00,1.02,9.26,0.02,0.01,-0.00,34.07,-118.44,165.90,2,18,53, NAN,139.19
+Received: 1182161,0.04,0.98,9.18,0.02,0.01,0.00,34.07,-118.44,165.90,2,18,55, NAN,139.31
+Received: 1184130,0.00,0.98,9.30,0.02,0.02,0.00,34.07,-118.44,165.90,2,18,57, NAN,139.19
+Received: 1186095,0.00,1.02,9.26,0.02,0.01,-0.00,34.07,-118.44,165.90,2,18,59, NAN,139.31
+Received: 1188066,0.00,0.98,9.30,0.01,0.02,-0.00,34.07,-118.44,165.90,2,19,1, NAN,139.50
+Received: 1190030,0.04,0.98,9.34,0.01,0.02,-0.00,34.07,-118.44,165.90,2,19,3, NAN,139.31
+Received: 1192005,0.00,0.98,9.30,0.02,0.01,0.00,34.07,-118.44,165.90,2,19,5, NAN,139.31
+Received: 1193979,0.00,0.94,9.34,0.02,0.01,-0.00,34.07,-118.44,165.90,2,19,7, NAN,139.50
+Received: 1195941,0.04,0.94,9.30,0.02,0.02,-0.00,34.07,-118.44,165.90,2,19,9, NAN,139.50
+Received: 1197917,0.00,0.94,9.30,0.02,0.02,0.00,34.07,-118.44,165.90,2,19,11, NAN,139.19
+Received: 1199881,0.04,0.94,9.30,0.02,0.01,-0.00,34.07,-118.44,165.90,2,19,13, NAN,139.31
+Received: 1201855,0.00,0.98,9.30,0.02,0.02,-0.00,34.07,-118.44,165.90,2,19,15, NAN,139.25
+Received: 1203819,0.00,0.94,9.34,0.02,0.01,-0.00,34.07,-118.44,165.90,2,19,17, NAN,139.25
+Received: 1205792,0.00,1.02,9.26,0.02,0.02,-0.00,34.07,-118.44,165.90,2,19,19, NAN,139.19
+Received: 1207764,0.00,0.94,9.30,0.02,0.02,-0.00,34.07,-118.44,165.90,2,19,21, NAN,139.50
+Received: 1209737,0.00,0.98,9.26,0.02,0.02,-0.00,34.07,-118.44,165.90,2,19,23, NAN,139.31
+Received: 1211701,0.00,0.98,9.34,0.02,0.02,-0.00,34.07,-118.44,165.90,2,19,25, NAN,139.25
+Received: 1213674,0.00,0.94,9.34,0.02,0.01,-0.00,34.07,-118.44,165.90,2,19,27, NAN,139.25
+Received: 1215638,0.00,0.94,9.30,0.02,0.01,0.00,34.07,-118.44,165.90,2,19,29, NAN,139.50
+Received: 1217613,0.00,0.94,9.30,0.02,0.02,-0.00,34.07,-118.44,165.90,2,19,31, NAN,139.19
+Received: 1219578,0.00,0.98,9.30,0.02,0.01,0.00,34.07,-118.44,165.90,2,19,33, NAN,139.31
+Received: 1221553,0.00,0.94,9.30,0.01,0.02,0.00,34.07,-118.44,165.90,2,19,35, NAN,139.19
+Received: 1223518,0.00,0.94,9.26,0.02,0.02,-0.00,34.07,-118.44,165.90,2,19,37, NAN,139.56
+Received: 1225491,0.00,0.98,9.34,0.01,0.02,-0.00,34.07,-118.44,165.90,2,19,39, NAN,139.25
+Received: 1227455,0.00,1.02,9.22,0.02,0.01,0.00,34.07,-118.44,165.90,2,19,41, NAN,139.06
+Received: 1229429,0.04,1.10,9.26,0.02,0.01,-0.00,34.07,-118.44,165.90,2,19,43, NAN,139.44
+Received: 1231403,0.04,0.98,9.26,0.02,0.01,-0.00,34.07,-118.44,165.90,2,19,45, NAN,139.44
+Received: 1233381,0.00,0.94,9.34,0.02,0.01,-0.00,34.07,-118.44,165.90,2,19,47, NAN,139.31
+Received: 1235343,0.00,0.94,9.30,0.02,0.02,-0.00, NAN, NAN, NAN,0,0,0, NAN,139.19
+Received: 1237339,0.04,0.94,9.26,0.02,0.02,0.00, NAN, NAN, NAN,0,0,0, NAN,139.31
+Received: 1239333,0.00,0.98,9.34,0.02,0.02,-0.00, NAN, NAN, NAN,0,0,0, NAN,139.50
+Received: 1241300,0.00,0.90,9.38,0.02,0.02,-0.00,34.07,-118.44,165.90,2,19,54, NAN,139.31
+Received: 1243207,0.00,0.94,9.34,0.01,0.01,-0.00,34.07,-118.44,165.90,2,19,56, NAN,139.31
+Received: 1245299,0.00,0.94,9.30,0.02,0.02,-0.00,34.07,-118.44,165.90,2,19,58, NAN,139.44
+Received: 1247147,0.00,1.02,9.26,0.02,0.01,0.00,34.07,-118.44,165.90,2,20,0, NAN,139.31
+Received: 1249119,0.04,0.94,9.22,0.01,0.02,-0.00,34.07,-118.44,165.90,2,20,2, NAN,139.38
+^C---------------------------------------------------------------------------
+KeyboardInterrupt                         Traceback (most recent call last)
+<ipython-input-11-e95e4a094d95> in <module>()
+----> 1 exec(open("main.py").read())
+
+<string> in <module>()
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/serial/serialposix.py in read(self, size)
+    481         while len(read) < size:
+    482             try:
+--> 483                 ready, _, _ = select.select([self.fd, self.pipe_abort_read_r], [], [], timeout.time_left())
+    484                 if self.pipe_abort_read_r in ready:
+    485                     os.read(self.pipe_abort_read_r, 1000)
+
+KeyboardInterrupt: 
+
+In [12]: exec(open("main.py").read())
+
+
+
+
+             ||---------------------------- * * * -------------------------\\
+             ||   ______                    _____                           \\
+       ######||   | ___ \           ()     /  ___|                           \\
+  ###########||   | |_/ /_ __ _   _ _ _ __ \ `--. _ __   __  _  ___ ___       \\
+#############||   | ___ \ '__| | | | | '_ \ `--. \ '_ \ / _\| |/ __/ _ \       \\
+   ##########||   | |_/ / |  | |_| | | | | /\__/ / |_) | (_ | | (__| __/       //
+        #####||   \____/|_|   \__,_|_|_| |_\____/| .__/ \__/|_|\___\___|      //
+      #######||                                  | |                         //
+             ||                                  |_|                        //
+             ||---------------------------- * * * -------------------------//
+
+
+
+
+
+Opening Serial Port...
+connected to port /dev/cu.usbmodem14321
+Received: 1253057,0.00,0.94,9.30,0.02,0.02,-0.00,34.07,-118.44,165.90,2,20,6, NAN,139.31
+---------------------------------------------------------------------------
+ValueError                                Traceback (most recent call last)
+<ipython-input-12-e95e4a094d95> in <module>()
+----> 1 exec(open("main.py").read())
+
+<string> in <module>()
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/manager.py in manager_method(self, *args, **kwargs)
+     80         def create_method(name, method):
+     81             def manager_method(self, *args, **kwargs):
+---> 82                 return getattr(self.get_queryset(), name)(*args, **kwargs)
+     83             manager_method.__name__ = method.__name__
+     84             manager_method.__doc__ = method.__doc__
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/query.py in create(self, **kwargs)
+    415         obj = self.model(**kwargs)
+    416         self._for_write = True
+--> 417         obj.save(force_insert=True, using=self.db)
+    418         return obj
+    419 
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/base.py in save(self, force_insert, force_update, using, update_fields)
+    727 
+    728         self.save_base(using=using, force_insert=force_insert,
+--> 729                        force_update=force_update, update_fields=update_fields)
+    730     save.alters_data = True
+    731 
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/base.py in save_base(self, raw, force_insert, force_update, using, update_fields)
+    757             if not raw:
+    758                 self._save_parents(cls, using, update_fields)
+--> 759             updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+    760         # Store the database on which the object was saved
+    761         self._state.db = using
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/base.py in _save_table(self, raw, cls, force_insert, force_update, using, update_fields)
+    840 
+    841             update_pk = meta.auto_field and not pk_set
+--> 842             result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+    843             if update_pk:
+    844                 setattr(self, meta.pk.attname, result)
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/base.py in _do_insert(self, manager, using, fields, update_pk, raw)
+    878         """
+    879         return manager._insert([self], fields=fields, return_id=update_pk,
+--> 880                                using=using, raw=raw)
+    881 
+    882     def delete(self, using=None, keep_parents=False):
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/manager.py in manager_method(self, *args, **kwargs)
+     80         def create_method(name, method):
+     81             def manager_method(self, *args, **kwargs):
+---> 82                 return getattr(self.get_queryset(), name)(*args, **kwargs)
+     83             manager_method.__name__ = method.__name__
+     84             manager_method.__doc__ = method.__doc__
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/query.py in _insert(self, objs, fields, return_id, raw, using)
+   1123         query = sql.InsertQuery(self.model)
+   1124         query.insert_values(fields, objs, raw=raw)
+-> 1125         return query.get_compiler(using=using).execute_sql(return_id)
+   1126     _insert.alters_data = True
+   1127     _insert.queryset_only = False
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/sql/compiler.py in execute_sql(self, return_id)
+   1278         self.return_id = return_id
+   1279         with self.connection.cursor() as cursor:
+-> 1280             for sql, params in self.as_sql():
+   1281                 cursor.execute(sql, params)
+   1282             if not (return_id and cursor):
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/sql/compiler.py in as_sql(self)
+   1231             value_rows = [
+   1232                 [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+-> 1233                 for obj in self.query.objs
+   1234             ]
+   1235         else:
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/sql/compiler.py in <listcomp>(.0)
+   1231             value_rows = [
+   1232                 [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+-> 1233                 for obj in self.query.objs
+   1234             ]
+   1235         else:
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/sql/compiler.py in <listcomp>(.0)
+   1230         if has_fields:
+   1231             value_rows = [
+-> 1232                 [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+   1233                 for obj in self.query.objs
+   1234             ]
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/sql/compiler.py in prepare_value(self, field, value)
+   1170                 raise FieldError('Window expressions are not allowed in this query.')
+   1171         else:
+-> 1172             value = field.get_db_prep_save(value, connection=self.connection)
+   1173         return value
+   1174 
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/fields/__init__.py in get_db_prep_save(self, value, connection)
+    765     def get_db_prep_save(self, value, connection):
+    766         """Return field's value prepared for saving into a database."""
+--> 767         return self.get_db_prep_value(value, connection=connection, prepared=False)
+    768 
+    769     def has_default(self):
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/fields/__init__.py in get_db_prep_value(self, value, connection, prepared)
+    760         """
+    761         if not prepared:
+--> 762             value = self.get_prep_value(value)
+    763         return value
+    764 
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/fields/__init__.py in get_prep_value(self, value)
+   1824         if value is None:
+   1825             return None
+-> 1826         return int(value)
+   1827 
+   1828     def get_internal_type(self):
+
+ValueError: invalid literal for int() with base 10: '0.00'
+
+In [13]: exec(open("main.py").read())
+
+
+
+
+             ||---------------------------- * * * -------------------------\\
+             ||   ______                    _____                           \\
+       ######||   | ___ \           ()     /  ___|                           \\
+  ###########||   | |_/ /_ __ _   _ _ _ __ \ `--. _ __   __  _  ___ ___       \\
+#############||   | ___ \ '__| | | | | '_ \ `--. \ '_ \ / _\| |/ __/ _ \       \\
+   ##########||   | |_/ / |  | |_| | | | | /\__/ / |_) | (_ | | (__| __/       //
+        #####||   \____/|_|   \__,_|_|_| |_\____/| .__/ \__/|_|\___\___|      //
+      #######||                                  | |                         //
+             ||                                  |_|                        //
+             ||---------------------------- * * * -------------------------//
+
+
+
+
+
+Opening Serial Port...
+connected to port /dev/cu.usbmodem14321
+Received: ,165.90,2,20,32, NAN,139.44
+---------------------------------------------------------------------------
+IndexError                                Traceback (most recent call last)
+<ipython-input-13-e95e4a094d95> in <module>()
+----> 1 exec(open("main.py").read())
+
+<string> in <module>()
+
+IndexError: list index out of range
+
+In [14]: exec(open("main.py").read())
+
+
+
+
+             ||---------------------------- * * * -------------------------\\
+             ||   ______                    _____                           \\
+       ######||   | ___ \           ()     /  ___|                           \\
+  ###########||   | |_/ /_ __ _   _ _ _ __ \ `--. _ __   __  _  ___ ___       \\
+#############||   | ___ \ '__| | | | | '_ \ `--. \ '_ \ / _\| |/ __/ _ \       \\
+   ##########||   | |_/ / |  | |_| | | | | /\__/ / |_) | (_ | | (__| __/       //
+        #####||   \____/|_|   \__,_|_|_| |_\____/| .__/ \__/|_|\___\___|      //
+      #######||                                  | |                         //
+             ||                                  |_|                        //
+             ||---------------------------- * * * -------------------------//
+
+
+
+
+
+Opening Serial Port...
+connected to port /dev/cu.usbmodem14321
+Received: ,34.07,-118.44,165.90,2,20,59, NAN,139.25
+Received: 1308205,0.04,0.94,9.34,0.02,0.01,-0.00,34.07,-118.44,165.90,2,21,1, NAN,139.56
+Received: 1310170,0.00,0.98,9.30,0.02,0.02,-0.00,34.07,-118.44,165.90,2,21,3, NAN,139.56
+Received: 1312145,0.00,0.94,9.26,0.02,0.02,-0.00,34.07,-118.44,165.90,2,21,5, NAN,139.44
+Received: 1314109,0.04,0.94,9.30,0.02,0.02,-0.00,34.07,-118.44,165.90,2,21,7, NAN,139.19
+Received: 1316084,0.00,1.02,9.30,0.01,0.02,-0.00,34.07,-118.44,165.90,2,21,9, NAN,139.19
+Received: 1318047,0.00,0.94,9.26,0.02,0.02,-0.00,34.07,-118.44,165.90,2,21,11, NAN,139.38
+Received: 1320023,0.04,1.02,9.10,0.01,0.02,0.00,34.07,-118.44,165.90,2,21,13, NAN,139.56
+Received: 1321986,0.04,0.94,9.34,0.02,0.02,0.00,34.07,-118.44,165.90,2,21,15, NAN,139.19
+Received: 1323960,0.00,0.90,9.34,0.02,0.01,-0.00,34.07,-118.44,165.90,2,21,17, NAN,139.44
+Received: 1325925,0.00,0.94,9.26,0.02,0.02,-0.01,34.07,-118.44,165.90,2,21,19, NAN,139.31
+Received: 1327897,0.04,0.98,9.30,0.02,0.02,-0.00,34.07,-118.44,165.90,2,21,21, NAN,139.44
+Received: 1329870,0.00,0.98,9.22,0.01,0.02,0.00,34.07,-118.44,165.90,2,21,23, NAN,139.56
+Received: 1331836,0.00,0.98,9.26,0.02,0.02,0.00,34.07,-118.44,165.90,2,21,25, NAN,139.31
+Received: 1333810,0.04,0.94,9.26,0.02,0.02,-0.00,34.07,-118.44,165.90,2,21,27, NAN,139.44
+Received: 1335774,0.00,0.98,9.30,0.02,0.02,0.00,34.07,-118.44,165.90,2,21,29, NAN,139.56
+Received: 1337750,0.00,0.98,9.30,0.02,0.02,-0.00,34.07,-118.44,165.90,2,21,31, NAN,139.31
+Received: 1339712,0.00,0.98,9.30,0.02,0.01,0.00,34.07,-118.44,165.90,2,21,33, NAN,139.38
+Received: 1341686,0.00,0.98,9.10,0.02,0.02,-0.00,34.07,-118.44,165.90,2,21,35, NAN,139.44
+Received: 1343652,0.00,1.02,9.26,0.01,0.02,0.00,34.07,-118.44,165.90,2,21,37, NAN,139.25
+Received: 1345625,0.00,0.94,9.34,0.02,0.02,-0.00,34.07,-118.44,165.90,2,21,39, NAN,139.44
+Received: 1347598,0.00,0.98,9.34,0.02,0.02,-0.00,34.07,-118.44,165.90,2,21,41, NAN,139.44
+Received: 1349559,0.00,0.94,9.26,0.02,0.02,0.00,34.07,-118.44,165.90,2,21,43, NAN,139.56
+Received: 1351540,0.00,0.94,9.30,0.01,0.02,0.00,34.07,-118.44,165.90,2,21,45, NAN,139.44
+Received: 1353523,0.00,0.94,9.34,0.02,0.02,-0.00, NAN, NAN, NAN,0,0,0, NAN,139.38
+Received: 1355524,0.00,0.86,9.34,0.01,0.02,-0.00,34.07,-118.44,165.90,2,21,48, NAN,139.31
+Received: 1359406,0.04,1.02,9.30,0.02,0.01,-0.00,34.07,-118.44,165.90,2,21,52, NAN,139.50
+Received: 1361380,0.04,0.94,9.34,0.02,0.02,-0.00,34.07,-118.44,165.90,2,21,54, NAN,139.31
+Received: 1363345,0.04,1.02,9.22,0.01,0.02,-0.00,34.07,-118.44,165.90,2,21,56, NAN,139.19
+Received: 1365319,0.04,0.90,9.30,0.02,0.01,-0.00,34.07,-118.44,165.90,2,21,58, NAN,139.56
+Received: 1367291,0.00,0.98,9.34,0.01,0.02,-0.00,34.07,-118.44,165.90,2,22,0, NAN,139.50
+Received: 1369263,0.04,0.94,9.34,0.02,0.02,0.00,34.07,-118.44,165.90,2,22,2, NAN,139.25
+Received: 1371227,0.04,0.98,9.26,0.01,0.02,0.00,34.07,-118.44,165.90,2,22,4, NAN,139.56
+Received: 1373200,0.00,0.90,9.30,0.01,0.02,-0.00,34.07,-118.44,165.90,2,22,6, NAN,139.06
+Received: 1375164,0.04,0.98,9.38,0.01,0.02,-0.00,34.07,-118.44,165.90,2,22,8, NAN,139.44
+Received: 1377136,-0.04,1.02,9.53,0.02,0.02,-0.00,34.07,-118.44,165.90,2,22,10, NAN,139.31
+Received: 1379110,0.04,0.94,9.34,0.01,0.02,-0.00,34.07,-118.44,165.90,2,22,12, NAN,139.38
+Received: 1381074,0.00,0.98,9.30,0.02,0.02,-0.00,34.07,-118.44,165.90,2,22,14, NAN,139.25
+Received: 1383048,0.00,0.98,9.30,0.02,0.02,-0.00,34.07,-118.44,165.90,2,22,16, NAN,139.44
+Received: 1385013,0.00,0.94,9.22,0.02,0.02,0.00,34.07,-118.44,165.90,2,22,18, NAN,139.50
+Received: 1386988,0.00,0.98,9.34,0.02,0.02,0.00,34.07,-118.44,165.90,2,22,20, NAN,139.50
+Received: 1388951,0.04,0.86,9.26,0.02,0.02,-0.00,34.07,-118.44,165.90,2,22,22, NAN,139.38
+Received: 1390927,0.00,0.94,9.34,0.01,0.02,0.00,34.07,-118.44,165.90,2,22,24, NAN,139.19
+Received: 1392890,0.04,0.94,9.26,0.01,0.02,-0.00,34.07,-118.44,165.90,2,22,26, NAN,139.44
+Received: 1394863,0.04,0.94,9.26,0.01,0.02,-0.00,34.07,-118.44,165.90,2,22,28, NAN,139.25
+Received: 1396837,0.00,1.02,9.26,0.02,0.02,-0.00,34.07,-118.44,165.90,2,22,30, NAN,139.44
+Received: 1398802,0.00,0.94,9.30,0.01,0.02,-0.00,34.07,-118.44,165.90,2,22,32, NAN,139.19
+Received: 1400774,0.00,0.94,9.22,0.01,0.02,-0.00,34.07,-118.44,165.90,2,22,34, NAN,139.31
+^[[AReceived: 1402738,0.04,0.94,9.22,0.02,0.02,0.00,34.07,-118.44,165.90,2,22,36, NAN,139.25
+^C---------------------------------------------------------------------------
+KeyboardInterrupt                         Traceback (most recent call last)
+<ipython-input-14-e95e4a094d95> in <module>()
+----> 1 exec(open("main.py").read())
+
+<string> in <module>()
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/serial/serialposix.py in read(self, size)
+    481         while len(read) < size:
+    482             try:
+--> 483                 ready, _, _ = select.select([self.fd, self.pipe_abort_read_r], [], [], timeout.time_left())
+    484                 if self.pipe_abort_read_r in ready:
+    485                     os.read(self.pipe_abort_read_r, 1000)
+
+KeyboardInterrupt: 
+
+In [15]: 
+
+In [15]: 
+
+In [15]: 
+
+In [15]: 
+
+In [15]: exec(open("main.py").read())
+
+
+
+
+             ||---------------------------- * * * -------------------------\\
+             ||   ______                    _____                           \\
+       ######||   | ___ \           ()     /  ___|                           \\
+  ###########||   | |_/ /_ __ _   _ _ _ __ \ `--. _ __   __  _  ___ ___       \\
+#############||   | ___ \ '__| | | | | '_ \ `--. \ '_ \ / _\| |/ __/ _ \       \\
+   ##########||   | |_/ / |  | |_| | | | | /\__/ / |_) | (_ | | (__| __/       //
+        #####||   \____/|_|   \__,_|_|_| |_\____/| .__/ \__/|_|\___\___|      //
+      #######||                                  | |                         //
+             ||                                  |_|                        //
+             ||---------------------------- * * * -------------------------//
+
+
+
+
+
+Opening Serial Port...
+connected to port /dev/cu.usbmodem14321
+Received: 1406674,0.00,0.98,9.34,0.02,0.02,-0.00,34.07,-118.44,165.90,2,22,40, NAN,139.44
+Received: 1408647,0.00,0.94,9.30,0.02,0.01,0.00,34.07,-118.44,165.90,2,22,42, NAN,138.94
+Received: 1410618,-0.04,0.90,9.22,0.02,0.02,-0.00, NAN, NAN, NAN,0,0,0, NAN,139.50
+Received: 1412646,0.00,0.94,9.34,0.02,0.02,-0.00, NAN, NAN, NAN,0,0,0, NAN,139.19
+Received: 1414602,0.00,0.94,9.34,0.02,0.02,-0.00, NAN, NAN, NAN,0,0,0, NAN,139.13
+Received: 1416583,0.00,1.02,9.30,0.02,0.02,0.00,34.07,-118.44,165.90,2,22,49, NAN,138.94
+Received: 1418599,0.04,0.94,9.30,0.02,0.02,-0.00,34.07,-118.44,165.90,2,22,51, NAN,139.31
+^C---------------------------------------------------------------------------
+KeyboardInterrupt                         Traceback (most recent call last)
+<ipython-input-15-e95e4a094d95> in <module>()
+----> 1 exec(open("main.py").read())
+
+<string> in <module>()
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/serial/serialposix.py in read(self, size)
+    481         while len(read) < size:
+    482             try:
+--> 483                 ready, _, _ = select.select([self.fd, self.pipe_abort_read_r], [], [], timeout.time_left())
+    484                 if self.pipe_abort_read_r in ready:
+    485                     os.read(self.pipe_abort_read_r, 1000)
+
+KeyboardInterrupt: 
+
+In [16]: 
+
+In [16]: 
+
+In [16]: 
+
+In [16]: exec(open("main.py").read())
+
+
+
+
+             ||---------------------------- * * * -------------------------\\
+             ||   ______                    _____                           \\
+       ######||   | ___ \           ()     /  ___|                           \\
+  ###########||   | |_/ /_ __ _   _ _ _ __ \ `--. _ __   __  _  ___ ___       \\
+#############||   | ___ \ '__| | | | | '_ \ `--. \ '_ \ / _\| |/ __/ _ \       \\
+   ##########||   | |_/ / |  | |_| | | | | /\__/ / |_) | (_ | | (__| __/       //
+        #####||   \____/|_|   \__,_|_|_| |_\____/| .__/ \__/|_|\___\___|      //
+      #######||                                  | |                         //
+             ||                                  |_|                        //
+             ||---------------------------- * * * -------------------------//
+
+
+
+
+
+Opening Serial Port...
+connected to port /dev/cu.usbmodem14321
+Received: 65.90,2,23,17, NAN,139.06
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-16-e95e4a094d95> in <module>()
+----> 1 exec(open("main.py").read())
+
+<string> in <module>()
+
+NameError: name 'prinr' is not defined
+
+In [17]: 
+
+In [17]: 
+
+In [17]: 
+
+In [17]: exec(open("main.py").read())
+
+
+
+
+             ||---------------------------- * * * -------------------------\\
+             ||   ______                    _____                           \\
+       ######||   | ___ \           ()     /  ___|                           \\
+  ###########||   | |_/ /_ __ _   _ _ _ __ \ `--. _ __   __  _  ___ ___       \\
+#############||   | ___ \ '__| | | | | '_ \ `--. \ '_ \ / _\| |/ __/ _ \       \\
+   ##########||   | |_/ / |  | |_| | | | | /\__/ / |_) | (_ | | (__| __/       //
+        #####||   \____/|_|   \__,_|_|_| |_\____/| .__/ \__/|_|\___\___|      //
+      #######||                                  | |                         //
+             ||                                  |_|                        //
+             ||---------------------------- * * * -------------------------//
+
+
+
+
+
+Opening Serial Port...
+connected to port /dev/cu.usbmodem14321
+Received: ,0.02,0.00,34.07,-118.44,165.90,2,23,43, NAN,139.06
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-17-e95e4a094d95> in <module>()
+----> 1 exec(open("main.py").read())
+
+<string> in <module>()
+
+TypeError: must be str, not int
+
+In [18]: 
+
+In [18]: 
+
+In [18]: 
+
+In [18]: exec(open("main.py").read())
+
+
+
+
+             ||---------------------------- * * * -------------------------\\
+             ||   ______                    _____                           \\
+       ######||   | ___ \           ()     /  ___|                           \\
+  ###########||   | |_/ /_ __ _   _ _ _ __ \ `--. _ __   __  _  ___ ___       \\
+#############||   | ___ \ '__| | | | | '_ \ `--. \ '_ \ / _\| |/ __/ _ \       \\
+   ##########||   | |_/ / |  | |_| | | | | /\__/ / |_) | (_ | | (__| __/       //
+        #####||   \____/|_|   \__,_|_|_| |_\____/| .__/ \__/|_|\___\___|      //
+      #######||                                  | |                         //
+             ||                                  |_|                        //
+             ||---------------------------- * * * -------------------------//
+
+
+
+
+
+Opening Serial Port...
+connected to port /dev/cu.usbmodem14321
+Received: 00,0.90,9.26,0.01,0.02,0.00,34.07,-118.44,165.90,2,24,8, NAN,138.81
+Length: ------ 67
+Received: 1497270,0.00,0.98,9.26,0.01,0.02,-0.00,34.07,-118.44,165.90,2,24,10, NAN,138.63
+Length: ------ 79
+Received: 1499245,0.00,0.98,9.26,0.02,0.01,-0.00,34.07,-118.44,165.90,2,24,12, NAN,138.38
+Length: ------ 79
+Received: 1501217,0.04,0.94,9.10,0.02,0.02,0.00,34.07,-118.44,165.90,2,24,14, NAN,138.63
+Length: ------ 78
+Received: 1503180,0.04,0.94,9.26,0.01,0.02,-0.00,34.07,-118.44,165.90,2,24,16, NAN,138.69
+Length: ------ 79
+Received: 1505156,0.04,0.98,9.26,0.02,0.02,-0.00,34.07,-118.44,165.90,2,24,18, NAN,138.75
+Length: ------ 79
+Received: 1507120,0.00,0.90,9.26,0.02,0.02,-0.00,34.07,-118.44,165.90,2,24,20, NAN,138.69
+Length: ------ 79
+Received: 1509095,0.04,0.98,9.26,0.02,0.02,-0.00,34.07,-118.44,165.90,2,24,22, NAN,138.81
+Length: ------ 79
+Received: 1511068,0.00,0.94,9.26,0.02,0.02,0.00,34.07,-118.44,165.90,2,24,24, NAN,138.56
+Length: ------ 78
+Received: 1513033,0.00,0.98,9.34,0.02,0.02,0.00,34.07,-118.44,165.90,2,24,26, NAN,138.69
+Length: ------ 78
+Received: 1515009,0.04,0.98,9.22,0.02,0.02,0.00,34.07,-118.44,165.90,2,24,28, NAN,138.69
+Length: ------ 78
+Received: 1516969,0.00,0.90,9.30,0.01,0.02,0.00,34.07,-118.44,165.90,2,24,30, NAN,138.50
+Length: ------ 78
+Received: 1518944,0.00,0.90,9.30,0.02,0.02,0.00,34.07,-118.44,165.90,2,24,32, NAN,138.94
+Length: ------ 78
+Received: 1520917,0.00,0.90,9.34,0.02,0.02,-0.00,34.07,-118.44,165.90,2,24,34, NAN,138.75
+Length: ------ 79
+Received: 1522882,0.04,1.02,9.34,0.02,0.02,-0.00,34.07,-118.44,165.90,2,24,36, NAN,138.81
+Length: ------ 79
+Received: 1524856,0.00,1.06,9.38,0.01,0.02,-0.00,34.07,-118.44,165.90,2,24,38, NAN,139.00
+Length: ------ 79
+Received: 1526822,0.00,0.94,9.30,0.02,0.02,-0.00,34.07,-118.44,165.90,2,24,40, NAN,138.50
+Length: ------ 79
+Received: 1528812,0.04,0.94,9.26,0.02,0.02,0.00, NAN, NAN, NAN,0,0,0, NAN,138.63
+Length: ------ 70
+Received: 1530816,0.00,0.98,9.34,0.02,0.02,0.00, NAN, NAN, NAN,0,0,0, NAN,138.44
+Length: ------ 70
+Received: 1532800,0.00,0.94,9.30,0.02,0.02,0.00, NAN, NAN, NAN,0,0,0, NAN,138.81
+Length: ------ 70
+Received: 1534756,0.00,1.02,9.30,0.02,0.02,0.00,34.07,-118.44,165.90,2,24,47, NAN,138.81
+Length: ------ 78
+Received: 1536723,0.00,0.98,9.30,0.02,0.02,-0.00,34.07,-118.44,165.90,2,24,49, NAN,138.63
+Length: ------ 79
+Received: 1538756,0.00,0.94,9.34,0.02,0.02,0.00,34.07,-118.44,165.90,2,24,51, NAN,138.81
+Length: ------ 78
+Received: 1540653,0.00,1.06,9.26,0.02,0.02,-0.01,34.07,-118.44,165.90,2,24,53, NAN,138.56
+Length: ------ 79
+Received: 1542576,0.00,0.94,9.34,0.01,0.02,0.00,34.07,-118.44,165.90,2,24,55, NAN,138.69
+Length: ------ 78
+Received: 1544550,0.00,0.94,9.30,0.02,0.02,-0.00,34.07,-118.44,165.90,2,24,57, NAN,138.56
+Length: ------ 79
+Received: 1546522,0.00,0.94,9.49,0.02,0.02,-0.00,34.07,-118.44,165.90,2,24,59, NAN,138.56
+Length: ------ 79
+Received: 1548487,0.00,0.90,9.30,0.02,0.02,-0.00,34.07,-118.44,165.90,2,25,1, NAN,138.63
+Length: ------ 78
+Received: 1550452,0.04,1.02,9.02,0.02,0.02,0.00,34.07,-118.44,165.90,2,25,3, NAN,138.75
+Length: ------ 77
+Received: 1552424,0.04,0.90,9.22,0.02,0.02,-0.00,34.07,-118.44,165.90,2,25,5, NAN,138.81
+Length: ------ 78
+Received: 1554398,0.00,0.94,9.30,0.02,0.02,-0.00,34.07,-118.44,165.90,2,25,7, NAN,138.50
+Length: ------ 78
+Received: 1556372,0.04,0.98,9.34,0.02,0.02,-0.00,34.07,-118.44,165.90,2,25,9, NAN,138.81
+Length: ------ 78
+Received: 1558336,0.04,0.94,9.30,0.02,0.02,-0.00,34.07,-118.44,165.90,2,25,11, NAN,138.63
+Length: ------ 79
+Received: 1560307,0.00,0.98,9.30,0.02,0.02,-0.00,34.07,-118.44,165.90,2,25,13, NAN,138.50
+Length: ------ 79
+Received: 1562281,0.00,0.94,9.26,0.01,0.02,-0.00,34.07,-118.44,165.90,2,25,15, NAN,138.75
+Length: ------ 79
+Received: 1564244,0.00,1.02,9.26,0.02,0.02,0.00,34.07,-118.44,165.90,2,25,17, NAN,138.69
+Length: ------ 78
+Received: 1566218,0.00,0.94,9.22,0.01,0.02,-0.01,34.07,-118.44,165.90,2,25,19, NAN,138.44
+Length: ------ 79
+Received: 1568183,0.00,0.94,9.34,0.02,0.02,-0.00,34.07,-118.44,165.90,2,25,21, NAN,138.63
+Length: ------ 79
+Received: 1570156,0.00,0.94,9.26,0.01,0.02,0.00,34.07,-118.44,165.90,2,25,23, NAN,138.50
+Length: ------ 78
+Received: 1572128,0.00,0.98,9.22,0.02,0.02,-0.00,34.07,-118.44,165.90,2,25,25, NAN,138.63
+Length: ------ 79
+Received: 1574093,0.00,0.94,9.26,0.02,0.02,-0.00,34.07,-118.44,165.90,2,25,27, NAN,138.56
+Length: ------ 79
+Received: 1576068,-0.04,1.02,9.30,0.02,0.02,-0.00,34.07,-118.44,165.90,2,25,29, NAN,138.50
+Length: ------ 80
+Received: 1578042,0.00,0.98,9.34,0.02,0.02,-0.00,34.07,-118.44,165.90,2,25,31, NAN,138.56
+Length: ------ 79
+Received: 1580007,0.00,0.94,9.22,0.02,0.02,-0.00,34.07,-118.44,165.90,2,25,33, NAN,138.50
+Length: ------ 79
+Received: 1581981,0.00,0.94,9.34,0.02,0.02,-0.00,34.07,-118.44,165.90,2,25,35, NAN,138.56
+Length: ------ 79
+Received: 1583945,0.00,0.94,9.26,0.02,0.01,-0.00,34.07,-118.44,165.90,2,25,37, NAN,138.56
+Length: ------ 79
+Received: 1585920,0.00,0.98,9.34,0.02,0.02,0.00,34.07,-118.44,165.90,2,25,39, NAN,138.56
+Length: ------ 78
+Received: 1587898,0.00,0.98,9.26,0.02,0.02,-0.00,34.07,-118.44,165.90,2,25,41, NAN,138.50
+Length: ------ 79
+Received: 1589867,0.04,0.86,9.30,0.01,0.02,0.00,34.07,-118.44,165.90,2,25,43, NAN,138.69
+Length: ------ 78
+Received: 1591839,0.00,0.90,9.34,0.02,0.01,-0.00,34.07,-118.44,165.90,2,25,44, NAN,138.56
+Length: ------ 79
+Received: 1593908,0.00,0.98,9.34,0.02,0.02,0.00,34.07,-118.44,165.90,2,25,46, NAN,138.50
+Length: ------ 78
+Received: 1595761,0.00,1.10,9.06,0.02,0.01,-0.00,34.07,-118.44,165.90,2,25,48, NAN,138.38
+Length: ------ 79
+Received: 1597832,0.00,0.94,9.22,0.01,0.02,-0.00,34.07,-118.44,165.90,2,25,50, NAN,138.31
+Length: ------ 79
+Received: 1599799,0.04,0.86,9.30,0.02,0.01,0.00,34.07,-118.44,165.90,2,25,52, NAN,138.38
+Length: ------ 78
+Received: 1601672,0.04,0.98,9.26,0.02,0.02,-0.00,34.07,-118.44,165.90,2,25,54, NAN,138.50
+Length: ------ 79
+Received: 1603637,0.00,0.90,9.26,0.01,0.02,-0.00,34.07,-118.44,165.90,2,25,56, NAN,138.63
+Length: ------ 79
+Received: 1605613,0.00,0.98,9.30,0.02,0.01,-0.00,34.07,-118.44,165.90,2,25,58, NAN,138.38
+Length: ------ 79
+Received: 1607577,0.00,0.94,9.30,0.02,0.02,-0.00,34.07,-118.44,165.90,2,26,0, NAN,138.44
+Length: ------ 78
+^C---------------------------------------------------------------------------
+KeyboardInterrupt                         Traceback (most recent call last)
+<ipython-input-18-e95e4a094d95> in <module>()
+----> 1 exec(open("main.py").read())
+
+<string> in <module>()
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/serial/serialposix.py in read(self, size)
+    481         while len(read) < size:
+    482             try:
+--> 483                 ready, _, _ = select.select([self.fd, self.pipe_abort_read_r], [], [], timeout.time_left())
+    484                 if self.pipe_abort_read_r in ready:
+    485                     os.read(self.pipe_abort_read_r, 1000)
+
+KeyboardInterrupt: 
+
+In [19]: exec(open("main.py").read())
+
+
+
+
+             ||---------------------------- * * * -------------------------\\
+             ||   ______                    _____                           \\
+       ######||   | ___ \           ()     /  ___|                           \\
+  ###########||   | |_/ /_ __ _   _ _ _ __ \ `--. _ __   __  _  ___ ___       \\
+#############||   | ___ \ '__| | | | | '_ \ `--. \ '_ \ / _\| |/ __/ _ \       \\
+   ##########||   | |_/ / |  | |_| | | | | /\__/ / |_) | (_ | | (__| __/       //
+        #####||   \____/|_|   \__,_|_|_| |_\____/| .__/ \__/|_|\___\___|      //
+      #######||                                  | |                         //
+             ||                                  |_|                        //
+             ||---------------------------- * * * -------------------------//
+
+
+
+
+
+Opening Serial Port...
+connected to port /dev/cu.usbmodem14321
+Received: 1611516,0.04,1.02,9.61,0.02,0.01,-0.00,34.07,-118.44,165.90,2,26,4, NAN,138.50
+78
+Received: 1613492,0.00,0.94,9.34,0.02,0.02,0.00,34.07,-118.44,165.90,2,26,6, NAN,138.13
+77
+Received: 1615457,0.00,0.90,9.34,0.02,0.02,-0.00,34.07,-118.44,165.90,2,26,8, NAN,138.56
+78
+Received: 1617431,0.00,0.94,9.26,0.02,0.01,-0.00,34.07,-118.44,165.90,2,26,10, NAN,138.06
+79
+Received: 1619395,0.00,0.94,9.38,0.02,0.02,-0.00,34.07,-118.44,165.90,2,26,12, NAN,138.56
+79
+Received: 1621370,0.00,0.94,9.26,0.02,0.02,-0.00,34.07,-118.44,165.90,2,26,14, NAN,138.38
+79
+Received: 1623345,0.12,1.02,9.30,0.01,0.01,-0.00,34.07,-118.44,165.90,2,26,16, NAN,138.50
+79
+Received: 1625308,0.00,0.90,9.26,0.02,0.02,0.00,34.07,-118.44,165.90,2,26,18, NAN,138.38
+78
+Received: 1627283,-0.04,0.98,9.22,0.02,0.01,0.00,34.07,-118.44,165.90,2,26,20, NAN,138.63
+79
+Received: 1629248,0.00,0.94,9.34,0.01,0.01,-0.00,34.07,-118.44,165.90,2,26,22, NAN,138.44
+79
+Received: 1631220,0.00,0.94,9.26,0.02,0.02,-0.00,34.07,-118.44,165.90,2,26,24, NAN,138.50
+79
+Received: 1633183,0.00,0.94,9.30,0.01,0.02,-0.00,34.07,-118.44,165.90,2,26,26, NAN,138.63
+79
+Received: 1635159,0.00,0.94,9.30,0.01,0.02,0.00,34.07,-118.44,165.90,2,26,28, NAN,138.50
+78
+Received: 1637125,0.00,0.90,9.38,0.02,0.02,0.00,34.07,-118.44,165.90,2,26,30, NAN,138.38
+78
+Received: 1639100,0.00,0.94,9.30,0.02,0.01,-0.00,34.07,-118.44,165.90,2,26,32, NAN,138.38
+79
+^C---------------------------------------------------------------------------
+KeyboardInterrupt                         Traceback (most recent call last)
+<ipython-input-19-e95e4a094d95> in <module>()
+----> 1 exec(open("main.py").read())
+
+<string> in <module>()
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/serial/serialposix.py in read(self, size)
+    481         while len(read) < size:
+    482             try:
+--> 483                 ready, _, _ = select.select([self.fd, self.pipe_abort_read_r], [], [], timeout.time_left())
+    484                 if self.pipe_abort_read_r in ready:
+    485                     os.read(self.pipe_abort_read_r, 1000)
+
+KeyboardInterrupt: 
+
+In [20]: exec(open("main.py").read())
+
+
+
+
+             ||---------------------------- * * * -------------------------\\
+             ||   ______                    _____                           \\
+       ######||   | ___ \           ()     /  ___|                           \\
+  ###########||   | |_/ /_ __ _   _ _ _ __ \ `--. _ __   __  _  ___ ___       \\
+#############||   | ___ \ '__| | | | | '_ \ `--. \ '_ \ / _\| |/ __/ _ \       \\
+   ##########||   | |_/ / |  | |_| | | | | /\__/ / |_) | (_ | | (__| __/       //
+        #####||   \____/|_|   \__,_|_|_| |_\____/| .__/ \__/|_|\___\___|      //
+      #######||                                  | |                         //
+             ||                                  |_|                        //
+             ||---------------------------- * * * -------------------------//
+
+
+
+
+
+Opening Serial Port...
+connected to port /dev/cu.usbmodem14321
+Received: 1641064,0.00,0.98,9.22,0.02,0.01,0.00,34.07,-118.44,165.90,2,26,34, NAN,138.19
+15
+Received: 1643037,0.04,1.10,9.22,0.02,0.01,-0.00,34.07,-118.44,165.90,2,26,36, NAN,138.19
+15
+Received: 1645008,0.00,0.94,9.30,0.02,0.01,-0.00,34.07,-118.44,165.90,2,26,38, NAN,138.06
+15
+Received: 1646972,0.00,0.98,9.26,0.02,0.02,-0.00,34.07,-118.44,165.90,2,26,40, NAN,138.56
+15
+Received: 1648966,0.00,1.02,9.26,0.01,0.02,-0.00,34.07,-118.44,165.90,2,26,42, NAN,138.31
+15
+Received: 1650931,0.04,0.94,9.30,0.02,0.02,-0.00, NAN, NAN, NAN,0,0,0, NAN,138.38
+15
+Received: 
+1
+Received: 1654950,0.00,0.98,9.34,0.02,0.02,-0.00,34.07,-118.44,165.90,2,26,47, NAN,137.88
+15
+Received: 1656924,-0.08,0.90,9.26,0.02,0.02,0.00,34.07,-118.44,165.90,2,26,49, NAN,138.06
+15
+Received: 1658792,0.00,0.98,9.26,0.02,0.01,-0.00,34.07,-118.44,165.90,2,26,51, NAN,138.19
+15
+^C---------------------------------------------------------------------------
+KeyboardInterrupt                         Traceback (most recent call last)
+<ipython-input-20-e95e4a094d95> in <module>()
+----> 1 exec(open("main.py").read())
+
+<string> in <module>()
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/serial/serialposix.py in read(self, size)
+    481         while len(read) < size:
+    482             try:
+--> 483                 ready, _, _ = select.select([self.fd, self.pipe_abort_read_r], [], [], timeout.time_left())
+    484                 if self.pipe_abort_read_r in ready:
+    485                     os.read(self.pipe_abort_read_r, 1000)
+
+KeyboardInterrupt: 
+
+In [21]: exec(open("main.py").read())
+
+
+
+
+             ||---------------------------- * * * -------------------------\\
+             ||   ______                    _____                           \\
+       ######||   | ___ \           ()     /  ___|                           \\
+  ###########||   | |_/ /_ __ _   _ _ _ __ \ `--. _ __   __  _  ___ ___       \\
+#############||   | ___ \ '__| | | | | '_ \ `--. \ '_ \ / _\| |/ __/ _ \       \\
+   ##########||   | |_/ / |  | |_| | | | | /\__/ / |_) | (_ | | (__| __/       //
+        #####||   \____/|_|   \__,_|_|_| |_\____/| .__/ \__/|_|\___\___|      //
+      #######||                                  | |                         //
+             ||                                  |_|                        //
+             ||---------------------------- * * * -------------------------//
+
+
+
+
+
+Opening Serial Port...
+connected to port /dev/cu.usbmodem14321
+Received: 1664694,0.00,0.94,9.26,0.02,0.02,-0.00,34.07,-118.44,165.90,2,26,57, NAN,137.94
+---------------------------------------------------------------------------
+ValueError                                Traceback (most recent call last)
+<ipython-input-21-e95e4a094d95> in <module>()
+----> 1 exec(open("main.py").read())
+
+<string> in <module>()
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/manager.py in manager_method(self, *args, **kwargs)
+     80         def create_method(name, method):
+     81             def manager_method(self, *args, **kwargs):
+---> 82                 return getattr(self.get_queryset(), name)(*args, **kwargs)
+     83             manager_method.__name__ = method.__name__
+     84             manager_method.__doc__ = method.__doc__
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/query.py in create(self, **kwargs)
+    415         obj = self.model(**kwargs)
+    416         self._for_write = True
+--> 417         obj.save(force_insert=True, using=self.db)
+    418         return obj
+    419 
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/base.py in save(self, force_insert, force_update, using, update_fields)
+    727 
+    728         self.save_base(using=using, force_insert=force_insert,
+--> 729                        force_update=force_update, update_fields=update_fields)
+    730     save.alters_data = True
+    731 
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/base.py in save_base(self, raw, force_insert, force_update, using, update_fields)
+    757             if not raw:
+    758                 self._save_parents(cls, using, update_fields)
+--> 759             updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+    760         # Store the database on which the object was saved
+    761         self._state.db = using
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/base.py in _save_table(self, raw, cls, force_insert, force_update, using, update_fields)
+    840 
+    841             update_pk = meta.auto_field and not pk_set
+--> 842             result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+    843             if update_pk:
+    844                 setattr(self, meta.pk.attname, result)
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/base.py in _do_insert(self, manager, using, fields, update_pk, raw)
+    878         """
+    879         return manager._insert([self], fields=fields, return_id=update_pk,
+--> 880                                using=using, raw=raw)
+    881 
+    882     def delete(self, using=None, keep_parents=False):
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/manager.py in manager_method(self, *args, **kwargs)
+     80         def create_method(name, method):
+     81             def manager_method(self, *args, **kwargs):
+---> 82                 return getattr(self.get_queryset(), name)(*args, **kwargs)
+     83             manager_method.__name__ = method.__name__
+     84             manager_method.__doc__ = method.__doc__
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/query.py in _insert(self, objs, fields, return_id, raw, using)
+   1123         query = sql.InsertQuery(self.model)
+   1124         query.insert_values(fields, objs, raw=raw)
+-> 1125         return query.get_compiler(using=using).execute_sql(return_id)
+   1126     _insert.alters_data = True
+   1127     _insert.queryset_only = False
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/sql/compiler.py in execute_sql(self, return_id)
+   1278         self.return_id = return_id
+   1279         with self.connection.cursor() as cursor:
+-> 1280             for sql, params in self.as_sql():
+   1281                 cursor.execute(sql, params)
+   1282             if not (return_id and cursor):
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/sql/compiler.py in as_sql(self)
+   1231             value_rows = [
+   1232                 [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+-> 1233                 for obj in self.query.objs
+   1234             ]
+   1235         else:
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/sql/compiler.py in <listcomp>(.0)
+   1231             value_rows = [
+   1232                 [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+-> 1233                 for obj in self.query.objs
+   1234             ]
+   1235         else:
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/sql/compiler.py in <listcomp>(.0)
+   1230         if has_fields:
+   1231             value_rows = [
+-> 1232                 [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+   1233                 for obj in self.query.objs
+   1234             ]
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/sql/compiler.py in prepare_value(self, field, value)
+   1170                 raise FieldError('Window expressions are not allowed in this query.')
+   1171         else:
+-> 1172             value = field.get_db_prep_save(value, connection=self.connection)
+   1173         return value
+   1174 
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/fields/__init__.py in get_db_prep_save(self, value, connection)
+    765     def get_db_prep_save(self, value, connection):
+    766         """Return field's value prepared for saving into a database."""
+--> 767         return self.get_db_prep_value(value, connection=connection, prepared=False)
+    768 
+    769     def has_default(self):
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/fields/__init__.py in get_db_prep_value(self, value, connection, prepared)
+    760         """
+    761         if not prepared:
+--> 762             value = self.get_prep_value(value)
+    763         return value
+    764 
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/django/db/models/fields/__init__.py in get_prep_value(self, value)
+   1824         if value is None:
+   1825             return None
+-> 1826         return int(value)
+   1827 
+   1828     def get_internal_type(self):
+
+ValueError: invalid literal for int() with base 10: '0.00'
+
+In [22]: exec(open("main.py").read())
+
+
+
+
+             ||---------------------------- * * * -------------------------\\
+             ||   ______                    _____                           \\
+       ######||   | ___ \           ()     /  ___|                           \\
+  ###########||   | |_/ /_ __ _   _ _ _ __ \ `--. _ __   __  _  ___ ___       \\
+#############||   | ___ \ '__| | | | | '_ \ `--. \ '_ \ / _\| |/ __/ _ \       \\
+   ##########||   | |_/ / |  | |_| | | | | /\__/ / |_) | (_ | | (__| __/       //
+        #####||   \____/|_|   \__,_|_|_| |_\____/| .__/ \__/|_|\___\___|      //
+      #######||                                  | |                         //
+             ||                                  |_|                        //
+             ||---------------------------- * * * -------------------------//
+
+
+
+
+
+Opening Serial Port...
+connected to port /dev/cu.usbmodem14321
+Received: .90,2,27,23, NAN,138.19
+---------------------------------------------------------------------------
+IndexError                                Traceback (most recent call last)
+<ipython-input-22-e95e4a094d95> in <module>()
+----> 1 exec(open("main.py").read())
+
+<string> in <module>()
+
+IndexError: list index out of range
+
+In [23]: 
+
+In [23]: 
+
+In [23]: 
+
+In [23]: 
+
+In [23]: 
+
+In [23]: exec(open("main.py").read())
+
+
+
+
+             ||---------------------------- * * * -------------------------\\
+             ||   ______                    _____                           \\
+       ######||   | ___ \           ()     /  ___|                           \\
+  ###########||   | |_/ /_ __ _   _ _ _ __ \ `--. _ __   __  _  ___ ___       \\
+#############||   | ___ \ '__| | | | | '_ \ `--. \ '_ \ / _\| |/ __/ _ \       \\
+   ##########||   | |_/ / |  | |_| | | | | /\__/ / |_) | (_ | | (__| __/       //
+        #####||   \____/|_|   \__,_|_|_| |_\____/| .__/ \__/|_|\___\___|      //
+      #######||                                  | |                         //
+             ||                                  |_|                        //
+             ||---------------------------- * * * -------------------------//
+
+
+
+
+
+Opening Serial Port...
+connected to port /dev/cu.usbmodem14321
+Received: 1710016,0.00,0.98,9.26,0.01,0.02,-0.00, NAN, NAN, NAN,0,0,0, NAN,138.00
+---------------------------------------------------------------------------
+IndexError                                Traceback (most recent call last)
+<ipython-input-23-e95e4a094d95> in <module>()
+----> 1 exec(open("main.py").read())
+
+<string> in <module>()
+
+IndexError: list index out of range
+
+In [24]: exec(open("main.py").read())
+
+
+
+
+             ||---------------------------- * * * -------------------------\\
+             ||   ______                    _____                           \\
+       ######||   | ___ \           ()     /  ___|                           \\
+  ###########||   | |_/ /_ __ _   _ _ _ __ \ `--. _ __   __  _  ___ ___       \\
+#############||   | ___ \ '__| | | | | '_ \ `--. \ '_ \ / _\| |/ __/ _ \       \\
+   ##########||   | |_/ / |  | |_| | | | | /\__/ / |_) | (_ | | (__| __/       //
+        #####||   \____/|_|   \__,_|_|_| |_\____/| .__/ \__/|_|\___\___|      //
+      #######||                                  | |                         //
+             ||                                  |_|                        //
+             ||---------------------------- * * * -------------------------//
+
+
+
+
+
+Opening Serial Port...
+connected to port /dev/cu.usbmodem14321
+Received: 1733639,0.00,1.06,9.30,0.02,0.02,-0.00,34.07,-118.44,151.30,2,28,6, NAN,137.75
+---------------------------------------------------------------------------
+IndexError                                Traceback (most recent call last)
+<ipython-input-24-e95e4a094d95> in <module>()
+----> 1 exec(open("main.py").read())
+
+<string> in <module>()
+
+IndexError: list index out of range
+
+In [25]: exec(open("main.py").read())
+
+
+
+
+             ||---------------------------- * * * -------------------------\\
+             ||   ______                    _____                           \\
+       ######||   | ___ \           ()     /  ___|                           \\
+  ###########||   | |_/ /_ __ _   _ _ _ __ \ `--. _ __   __  _  ___ ___       \\
+#############||   | ___ \ '__| | | | | '_ \ `--. \ '_ \ / _\| |/ __/ _ \       \\
+   ##########||   | |_/ / |  | |_| | | | | /\__/ / |_) | (_ | | (__| __/       //
+        #####||   \____/|_|   \__,_|_|_| |_\____/| .__/ \__/|_|\___\___|      //
+      #######||                                  | |                         //
+             ||                                  |_|                        //
+             ||---------------------------- * * * -------------------------//
+
+
+
+
+
+Opening Serial Port...
+connected to port /dev/cu.usbmodem14321
+['44', '151.30', '2', '28', '34', ' NAN', '137.50']
+---------------------------------------------------------------------------
+IndexError                                Traceback (most recent call last)
+<ipython-input-25-e95e4a094d95> in <module>()
+----> 1 exec(open("main.py").read())
+
+<string> in <module>()
+
+IndexError: list index out of range
+
+In [26]: 
+
+In [26]: 
+
+In [26]: 
+
+In [26]: 
+
+In [26]: exec(open("main.py").read())
+
+
+
+
+             ||---------------------------- * * * -------------------------\\
+             ||   ______                    _____                           \\
+       ######||   | ___ \           ()     /  ___|                           \\
+  ###########||   | |_/ /_ __ _   _ _ _ __ \ `--. _ __   __  _  ___ ___       \\
+#############||   | ___ \ '__| | | | | '_ \ `--. \ '_ \ / _\| |/ __/ _ \       \\
+   ##########||   | |_/ / |  | |_| | | | | /\__/ / |_) | (_ | | (__| __/       //
+        #####||   \____/|_|   \__,_|_|_| |_\____/| .__/ \__/|_|\___\___|      //
+      #######||                                  | |                         //
+             ||                                  |_|                        //
+             ||---------------------------- * * * -------------------------//
+
+
+
+
+
+Opening Serial Port...
+connected to port /dev/cu.usbmodem14321
+Received: 7.44
+['7.44']
+---------------------------------------------------------------------------
+IndexError                                Traceback (most recent call last)
+<ipython-input-26-e95e4a094d95> in <module>()
+----> 1 exec(open("main.py").read())
+
+<string> in <module>()
+
+IndexError: list index out of range
+
+In [27]: exec(open("main.py").read())
+
+
+
+
+             ||---------------------------- * * * -------------------------\\
+             ||   ______                    _____                           \\
+       ######||   | ___ \           ()     /  ___|                           \\
+  ###########||   | |_/ /_ __ _   _ _ _ __ \ `--. _ __   __  _  ___ ___       \\
+#############||   | ___ \ '__| | | | | '_ \ `--. \ '_ \ / _\| |/ __/ _ \       \\
+   ##########||   | |_/ / |  | |_| | | | | /\__/ / |_) | (_ | | (__| __/       //
+        #####||   \____/|_|   \__,_|_|_| |_\____/| .__/ \__/|_|\___\___|      //
+      #######||                                  | |                         //
+             ||                                  |_|                        //
+             ||---------------------------- * * * -------------------------//
+
+
+
+
+
+Opening Serial Port...
+connected to port /dev/cu.usbmodem14321
+Received: 30,2,29,29, NAN,136.69
+['30', '2', '29', '29', ' NAN', '136.69']
+---------------------------------------------------------------------------
+IndexError                                Traceback (most recent call last)
+<ipython-input-27-e95e4a094d95> in <module>()
+----> 1 exec(open("main.py").read())
+
+<string> in <module>()
+
+IndexError: list index out of range
+
+In [28]: 
+
+In [28]: 
+
+In [28]: 
+
+In [28]: exec(open("main.py").read())
+
+
+
+
+             ||---------------------------- * * * -------------------------\\
+             ||   ______                    _____                           \\
+       ######||   | ___ \           ()     /  ___|                           \\
+  ###########||   | |_/ /_ __ _   _ _ _ __ \ `--. _ __   __  _  ___ ___       \\
+#############||   | ___ \ '__| | | | | '_ \ `--. \ '_ \ / _\| |/ __/ _ \       \\
+   ##########||   | |_/ / |  | |_| | | | | /\__/ / |_) | (_ | | (__| __/       //
+        #####||   \____/|_|   \__,_|_|_| |_\____/| .__/ \__/|_|\___\___|      //
+      #######||                                  | |                         //
+             ||                                  |_|                        //
+             ||---------------------------- * * * -------------------------//
+
+
+
+
+
+Opening Serial Port...
+connected to port /dev/cu.usbmodem14321
+Received: b'30,2,29,56, NAN,136.31\r\n'
+['30', '2', '29', '56', ' NAN', '136.31']
+Received: b'1845906,0.00,0.94,9.30,0.02,0.01,-0.00,34.07,-118.44,151.30,2,29,58, NAN,136.06\r\n'
+['1845906', '0.00', '0.94', '9.30', '0.02', '0.01', '-0.00', '34.07', '-118.44', '151.30', '2', '29', '58', ' NAN', '136.06']
+Received: b'1847877,0.04,0.90,9.30,0.02,0.02,-0.00,34.07,-118.44,151.30,2,30,0, NAN,136.69\r\n'
+['1847877', '0.04', '0.90', '9.30', '0.02', '0.02', '-0.00', '34.07', '-118.44', '151.30', '2', '30', '0', ' NAN', '136.69']
+Received: b'1849842,-0.04,1.02,9.18,0.02,0.02,-0.00,34.07,-118.44,151.30,2,30,2, NAN,135.75\r\n'
+['1849842', '-0.04', '1.02', '9.18', '0.02', '0.02', '-0.00', '34.07', '-118.44', '151.30', '2', '30', '2', ' NAN', '135.75']
+Received: b'1851816,0.00,0.98,9.22,0.02,0.01,-0.00,34.07,-118.44,151.30,2,30,4, NAN,135.94\r\n'
+['1851816', '0.00', '0.98', '9.22', '0.02', '0.01', '-0.00', '34.07', '-118.44', '151.30', '2', '30', '4', ' NAN', '135.94']
+Received: b'1853780,0.00,0.94,9.30,0.02,0.01,0.00,34.07,-118.44,151.30,2,30,6, NAN,135.81\r\n'
+['1853780', '0.00', '0.94', '9.30', '0.02', '0.01', '0.00', '34.07', '-118.44', '151.30', '2', '30', '6', ' NAN', '135.81']
+Received: b'1855756,0.00,1.02,9.34,0.02,0.02,0.00,34.07,-118.44,151.30,2,30,8, NAN,136.06\r\n'
+['1855756', '0.00', '1.02', '9.34', '0.02', '0.02', '0.00', '34.07', '-118.44', '151.30', '2', '30', '8', ' NAN', '136.06']
+Received: b'1857720,0.00,0.94,9.30,0.01,0.01,-0.00,34.07,-118.44,151.30,2,30,10, NAN,135.50\r\n'
+['1857720', '0.00', '0.94', '9.30', '0.01', '0.01', '-0.00', '34.07', '-118.44', '151.30', '2', '30', '10', ' NAN', '135.50']
+Received: b'1859695,0.00,0.98,9.26,0.02,0.01,-0.00,34.07,-118.44,151.30,2,30,12, NAN,135.69\r\n'
+['1859695', '0.00', '0.98', '9.26', '0.02', '0.01', '-0.00', '34.07', '-118.44', '151.30', '2', '30', '12', ' NAN', '135.69']
+Received: b'1861657,0.00,0.98,9.30,0.02,0.02,-0.00,34.07,-118.44,151.30,2,30,14, NAN,135.75\r\n'
+['1861657', '0.00', '0.98', '9.30', '0.02', '0.02', '-0.00', '34.07', '-118.44', '151.30', '2', '30', '14', ' NAN', '135.75']
+Received: b'1863629,0.00,0.94,9.30,0.02,0.02,-0.00,34.07,-118.44,151.30,2,30,16, NAN,135.94\r\n'
+['1863629', '0.00', '0.94', '9.30', '0.02', '0.02', '-0.00', '34.07', '-118.44', '151.30', '2', '30', '16', ' NAN', '135.94']
+Received: b'1865602,0.04,0.98,9.30,0.02,0.02,-0.00,34.07,-118.44,151.30,2,30,18, NAN,135.88\r\n'
+['1865602', '0.04', '0.98', '9.30', '0.02', '0.02', '-0.00', '34.07', '-118.44', '151.30', '2', '30', '18', ' NAN', '135.88']
+Received: b'1867566,0.00,0.94,9.38,0.02,0.01,-0.00,34.07,-118.44,151.30,2,30,20, NAN,136.19\r\n'
+['1867566', '0.00', '0.94', '9.38', '0.02', '0.01', '-0.00', '34.07', '-118.44', '151.30', '2', '30', '20', ' NAN', '136.19']
+Received: b'1869541,0.00,0.94,9.30,0.01,0.02,-0.00,34.07,-118.44,151.30,2,30,22, NAN,136.19\r\n'
+['1869541', '0.00', '0.94', '9.30', '0.01', '0.02', '-0.00', '34.07', '-118.44', '151.30', '2', '30', '22', ' NAN', '136.19']
+Received: b'1871515,0.00,0.98,9.26,0.02,0.01,-0.00,34.07,-118.44,151.30,2,30,24, NAN,136.19\r\n'
+['1871515', '0.00', '0.98', '9.26', '0.02', '0.01', '-0.00', '34.07', '-118.44', '151.30', '2', '30', '24', ' NAN', '136.19']
+Received: b'1873476,0.04,0.94,9.22,0.02,0.02,-0.00,34.07,-118.44,151.30,2,30,26, NAN,135.94\r\n'
+['1873476', '0.04', '0.94', '9.22', '0.02', '0.02', '-0.00', '34.07', '-118.44', '151.30', '2', '30', '26', ' NAN', '135.94']
+Received: b'1875450,0.00,0.98,9.26,0.02,0.02,-0.00,34.07,-118.44,151.30,2,30,28, NAN,135.81\r\n'
+['1875450', '0.00', '0.98', '9.26', '0.02', '0.02', '-0.00', '34.07', '-118.44', '151.30', '2', '30', '28', ' NAN', '135.81']
+Received: b'1877425,0.00,0.94,9.34,0.02,0.02,-0.00,34.07,-118.44,151.30,2,30,30, NAN,136.31\r\n'
+['1877425', '0.00', '0.94', '9.34', '0.02', '0.02', '-0.00', '34.07', '-118.44', '151.30', '2', '30', '30', ' NAN', '136.31']
+Received: b'1879390,0.00,0.98,9.26,0.02,0.02,-0.00,34.07,-118.44,151.30,2,30,32, NAN,135.81\r\n'
+['1879390', '0.00', '0.98', '9.26', '0.02', '0.02', '-0.00', '34.07', '-118.44', '151.30', '2', '30', '32', ' NAN', '135.81']
+Received: b'1881355,0.00,0.98,9.34,0.01,0.02,-0.00,34.07,-118.44,151.30,2,30,34, NAN,136.13\r\n'
+['1881355', '0.00', '0.98', '9.34', '0.01', '0.02', '-0.00', '34.07', '-118.44', '151.30', '2', '30', '34', ' NAN', '136.13']
+Received: b'1883328,-0.04,0.98,9.34,0.02,0.01,-0.00,34.07,-118.44,151.30,2,30,36, NAN,135.94\r\n'
+['1883328', '-0.04', '0.98', '9.34', '0.02', '0.01', '-0.00', '34.07', '-118.44', '151.30', '2', '30', '36', ' NAN', '135.94']
+Received: b'1885292,0.04,0.94,9.41,0.02,0.02,0.00, NAN, NAN, NAN,0,0,0, NAN,135.94\r\n'
+['1885292', '0.04', '0.94', '9.41', '0.02', '0.02', '0.00', ' NAN', ' NAN', ' NAN', '0', '0', '0', ' NAN', '135.94']
+Received: b'1887304,0.00,0.94,9.30,0.02,0.02,0.00,34.07,-118.44,151.30,2,30,40, NAN,135.94\r\n'
+['1887304', '0.00', '0.94', '9.30', '0.02', '0.02', '0.00', '34.07', '-118.44', '151.30', '2', '30', '40', ' NAN', '135.94']
+Received: b'1889252,0.00,0.98,9.14,0.02,0.02,-0.00, NAN, NAN, NAN,0,0,0, NAN,135.50\r\n'
+['1889252', '0.00', '0.98', '9.14', '0.02', '0.02', '-0.00', ' NAN', ' NAN', ' NAN', '0', '0', '0', ' NAN', '135.50']
+Received: b'1891240,0.00,0.94,9.30,0.02,0.02,-0.00, NAN, NAN, NAN,0,0,0, NAN,135.88\r\n'
+['1891240', '0.00', '0.94', '9.30', '0.02', '0.02', '-0.00', ' NAN', ' NAN', ' NAN', '0', '0', '0', ' NAN', '135.88']
+Received: b'1893235,0.00,0.94,9.30,0.02,0.02,-0.00,34.07,-118.44,151.30,2,30,45, NAN,135.63\r\n'
+['1893235', '0.00', '0.94', '9.30', '0.02', '0.02', '-0.00', '34.07', '-118.44', '151.30', '2', '30', '45', ' NAN', '135.63']
+Received: b'1895256,0.04,0.86,9.26,0.02,0.02,0.00,34.07,-118.44,151.30,2,30,47, NAN,135.56\r\n'
+['1895256', '0.04', '0.86', '9.26', '0.02', '0.02', '0.00', '34.07', '-118.44', '151.30', '2', '30', '47', ' NAN', '135.56']
+Received: b'1897107,0.00,0.98,9.30,0.02,0.01,-0.00,34.07,-118.44,151.30,2,30,49, NAN,135.63\r\n'
+['1897107', '0.00', '0.98', '9.30', '0.02', '0.01', '-0.00', '34.07', '-118.44', '151.30', '2', '30', '49', ' NAN', '135.63']
+Received: b'1899080,0.00,0.90,9.22,0.02,0.01,0.00,34.07,-118.44,151.30,2,30,51, NAN,135.69\r\n'
+['1899080', '0.00', '0.90', '9.22', '0.02', '0.01', '0.00', '34.07', '-118.44', '151.30', '2', '30', '51', ' NAN', '135.69']
+Received: b'1901043,0.00,0.94,9.30,0.02,0.02,-0.00,34.07,-118.44,151.30,2,30,53, NAN,135.81\r\n'
+['1901043', '0.00', '0.94', '9.30', '0.02', '0.02', '-0.00', '34.07', '-118.44', '151.30', '2', '30', '53', ' NAN', '135.81']
+Received: b'1903019,0.00,0.98,9.26,0.01,0.02,0.00,34.07,-118.44,151.30,2,30,55, NAN,135.81\r\n'
+['1903019', '0.00', '0.98', '9.26', '0.01', '0.02', '0.00', '34.07', '-118.44', '151.30', '2', '30', '55', ' NAN', '135.81']
+Received: b'1904983,0.00,0.98,9.30,0.02,0.01,-0.01,34.07,-118.44,151.30,2,30,57, NAN,136.13\r\n'
+['1904983', '0.00', '0.98', '9.30', '0.02', '0.01', '-0.01', '34.07', '-118.44', '151.30', '2', '30', '57', ' NAN', '136.13']
+Received: b'1906959,0.00,0.98,9.34,0.01,0.02,-0.00,34.07,-118.44,151.30,2,30,59, NAN,135.94\r\n'
+['1906959', '0.00', '0.98', '9.34', '0.01', '0.02', '-0.00', '34.07', '-118.44', '151.30', '2', '30', '59', ' NAN', '135.94']
+Received: b'1908931,0.04,0.98,9.26,0.02,0.02,-0.00,34.07,-118.44,151.30,2,31,1, NAN,136.06\r\n'
+['1908931', '0.04', '0.98', '9.26', '0.02', '0.02', '-0.00', '34.07', '-118.44', '151.30', '2', '31', '1', ' NAN', '136.06']
+Received: b'1910894,0.00,1.02,9.30,0.02,0.02,-0.00,34.07,-118.44,151.30,2,31,3, NAN,135.94\r\n'
+['1910894', '0.00', '1.02', '9.30', '0.02', '0.02', '-0.00', '34.07', '-118.44', '151.30', '2', '31', '3', ' NAN', '135.94']
+Received: b'1912865,0.00,0.90,9.30,0.01,0.02,-0.00,34.07,-118.44,151.30,2,31,5, NAN,135.94\r\n'
+['1912865', '0.00', '0.90', '9.30', '0.01', '0.02', '-0.00', '34.07', '-118.44', '151.30', '2', '31', '5', ' NAN', '135.94']
+Received: b'1914839,0.00,0.98,9.22,0.02,0.02,0.00,34.07,-118.44,151.30,2,31,7, NAN,136.06\r\n'
+['1914839', '0.00', '0.98', '9.22', '0.02', '0.02', '0.00', '34.07', '-118.44', '151.30', '2', '31', '7', ' NAN', '136.06']
+Received: b'1916805,0.00,0.90,9.34,0.01,0.02,-0.00,34.07,-118.44,151.30,2,31,9, NAN,135.75\r\n'
+['1916805', '0.00', '0.90', '9.34', '0.01', '0.02', '-0.00', '34.07', '-118.44', '151.30', '2', '31', '9', ' NAN', '135.75']
+Received: b'1918778,0.04,0.94,9.30,0.02,0.01,-0.00,34.07,-118.44,151.30,2,31,11, NAN,135.56\r\n'
+['1918778', '0.04', '0.94', '9.30', '0.02', '0.01', '-0.00', '34.07', '-118.44', '151.30', '2', '31', '11', ' NAN', '135.56']
+Received: b'1920742,0.00,0.98,9.26,0.02,0.01,-0.00,34.07,-118.44,151.30,2,31,13, NAN,135.81\r\n'
+['1920742', '0.00', '0.98', '9.26', '0.02', '0.01', '-0.00', '34.07', '-118.44', '151.30', '2', '31', '13', ' NAN', '135.81']
+Received: b'1922716,0.00,0.94,9.30,0.01,0.02,0.00,34.07,-118.44,151.30,2,31,15, NAN,135.69\r\n'
+['1922716', '0.00', '0.94', '9.30', '0.01', '0.02', '0.00', '34.07', '-118.44', '151.30', '2', '31', '15', ' NAN', '135.69']
+Received: b'1924690,0.00,0.98,9.38,0.02,0.02,-0.00,34.07,-118.44,151.30,2,31,17, NAN,135.94\r\n'
+['1924690', '0.00', '0.98', '9.38', '0.02', '0.02', '-0.00', '34.07', '-118.44', '151.30', '2', '31', '17', ' NAN', '135.94']
+Received: b'1926654,0.00,0.98,9.30,0.02,0.01,-0.00,34.07,-118.44,151.30,2,31,19, NAN,135.75\r\n'
+['1926654', '0.00', '0.98', '9.30', '0.02', '0.01', '-0.00', '34.07', '-118.44', '151.30', '2', '31', '19', ' NAN', '135.75']
+Received: b'1928628,0.04,0.86,9.26,0.01,0.02,-0.00,34.07,-118.44,151.30,2,31,21, NAN,135.81\r\n'
+['1928628', '0.04', '0.86', '9.26', '0.01', '0.02', '-0.00', '34.07', '-118.44', '151.30', '2', '31', '21', ' NAN', '135.81']
+Received: b'1930592,0.04,0.94,9.30,0.02,0.01,-0.00,34.07,-118.44,151.30,2,31,23, NAN,135.63\r\n'
+['1930592', '0.04', '0.94', '9.30', '0.02', '0.01', '-0.00', '34.07', '-118.44', '151.30', '2', '31', '23', ' NAN', '135.63']
+Received: b'1932566,0.04,0.94,9.22,0.01,0.02,-0.00,34.07,-118.44,151.30,2,31,25, NAN,136.00\r\n'
+['1932566', '0.04', '0.94', '9.22', '0.01', '0.02', '-0.00', '34.07', '-118.44', '151.30', '2', '31', '25', ' NAN', '136.00']
+Received: b'1936494,0.00,0.90,9.30,0.01,0.02,0.00,34.07,-118.44,151.30,2,31,29, NAN,135.75\r\n'
+['1936494', '0.00', '0.90', '9.30', '0.01', '0.02', '0.00', '34.07', '-118.44', '151.30', '2', '31', '29', ' NAN', '135.75']
+Received: b'1938469,0.00,0.94,9.34,0.01,0.02,0.00,34.07,-118.44,151.30,2,31,31, NAN,135.19\r\n'
+['1938469', '0.00', '0.94', '9.34', '0.01', '0.02', '0.00', '34.07', '-118.44', '151.30', '2', '31', '31', ' NAN', '135.19']
+Received: b'1940442,0.04,0.94,9.22,0.02,0.02,0.00,34.07,-118.44,151.30,2,31,33, NAN,135.44\r\n'
+['1940442', '0.04', '0.94', '9.22', '0.02', '0.02', '0.00', '34.07', '-118.44', '151.30', '2', '31', '33', ' NAN', '135.44']
+Received: b'1942415,0.00,0.94,9.30,0.01,0.02,-0.01,34.07,-118.44,151.30,2,31,35, NAN,135.69\r\n'
+['1942415', '0.00', '0.94', '9.30', '0.01', '0.02', '-0.01', '34.07', '-118.44', '151.30', '2', '31', '35', ' NAN', '135.69']
+Received: b'1944387,0.00,0.94,9.26,0.02,0.02,-0.00,34.07,-118.44,151.30,2,31,37, NAN,135.81\r\n'
+['1944387', '0.00', '0.94', '9.26', '0.02', '0.02', '-0.00', '34.07', '-118.44', '151.30', '2', '31', '37', ' NAN', '135.81']
+Received: b'1946355,0.00,1.02,9.30,0.02,0.02,0.00,34.07,-118.44,151.30,2,31,39, NAN,135.69\r\n'
+['1946355', '0.00', '1.02', '9.30', '0.02', '0.02', '0.00', '34.07', '-118.44', '151.30', '2', '31', '39', ' NAN', '135.69']
+Received: b'1948325,0.00,1.02,9.22,0.02,0.02,-0.00, NAN, NAN, NAN,0,0,0, NAN,135.44\r\n'
+['1948325', '0.00', '1.02', '9.22', '0.02', '0.02', '-0.00', ' NAN', ' NAN', ' NAN', '0', '0', '0', ' NAN', '135.44']
+Received: b'1950319,0.00,0.94,9.34,0.02,0.02,-0.00,34.07,-118.44,151.30,2,31,42, NAN,135.25\r\n'
+['1950319', '0.00', '0.94', '9.34', '0.02', '0.02', '-0.00', '34.07', '-118.44', '151.30', '2', '31', '42', ' NAN', '135.25']
+Received: b'1952356,0.00,1.02,9.30,0.02,0.02,-0.00,34.07,-118.44,151.30,2,31,44, NAN,135.56\r\n'
+['1952356', '0.00', '1.02', '9.30', '0.02', '0.02', '-0.00', '34.07', '-118.44', '151.30', '2', '31', '44', ' NAN', '135.56']
+Received: b'1954334,0.00,0.90,9.30,0.02,0.01,-0.00,34.07,-118.44,151.30,2,31,46, NAN,135.44\r\n'
+['1954334', '0.00', '0.90', '9.30', '0.02', '0.01', '-0.00', '34.07', '-118.44', '151.30', '2', '31', '46', ' NAN', '135.44']
+Received: b'1956303,0.00,0.90,9.14,0.01,0.02,-0.00,34.07,-118.44,151.30,2,31,48, NAN,135.69\r\n'
+['1956303', '0.00', '0.90', '9.14', '0.01', '0.02', '-0.00', '34.07', '-118.44', '151.30', '2', '31', '48', ' NAN', '135.69']
+Received: b'1958164,0.00,0.94,9.22,0.01,0.02,0.00,34.07,-118.44,151.30,2,31,50, NAN,135.44\r\n'
+['1958164', '0.00', '0.94', '9.22', '0.01', '0.02', '0.00', '34.07', '-118.44', '151.30', '2', '31', '50', ' NAN', '135.44']
+Received: b'1960138,0.04,0.90,9.26,0.02,0.02,-0.00,34.07,-118.44,151.30,2,31,52, NAN,135.69\r\n'
+['1960138', '0.04', '0.90', '9.26', '0.02', '0.02', '-0.00', '34.07', '-118.44', '151.30', '2', '31', '52', ' NAN', '135.69']
+Received: b'1962110,0.04,0.90,9.30,0.02,0.02,-0.00,34.07,-118.44,151.30,2,31,54, NAN,135.44\r\n'
+['1962110', '0.04', '0.90', '9.30', '0.02', '0.02', '-0.00', '34.07', '-118.44', '151.30', '2', '31', '54', ' NAN', '135.44']
+Received: b'1964075,0.00,0.98,9.30,0.02,0.02,-0.00,34.07,-118.44,151.30,2,31,56, NAN,135.75\r\n'
+['1964075', '0.00', '0.98', '9.30', '0.02', '0.02', '-0.00', '34.07', '-118.44', '151.30', '2', '31', '56', ' NAN', '135.75']
+Received: b'1966047,-0.04,0.94,9.22,0.02,0.02,0.00,34.07,-118.44,151.30,2,31,58, NAN,135.63\r\n'
+['1966047', '-0.04', '0.94', '9.22', '0.02', '0.02', '0.00', '34.07', '-118.44', '151.30', '2', '31', '58', ' NAN', '135.63']
+Received: b'1968022,0.04,0.94,9.26,0.01,0.02,-0.00,34.07,-118.44,151.30,2,32,0, NAN,135.88\r\n'
+['1968022', '0.04', '0.94', '9.26', '0.01', '0.02', '-0.00', '34.07', '-118.44', '151.30', '2', '32', '0', ' NAN', '135.88']
+Received: b'1969984,0.00,0.98,9.30,0.01,0.02,0.00,34.07,-118.44,151.30,2,32,2, NAN,136.06\r\n'
+['1969984', '0.00', '0.98', '9.30', '0.01', '0.02', '0.00', '34.07', '-118.44', '151.30', '2', '32', '2', ' NAN', '136.06']
+Received: b'1971959,0.04,0.98,9.26,0.02,0.01,-0.00,34.07,-118.44,151.30,2,32,4, NAN,136.19\r\n'
+['1971959', '0.04', '0.98', '9.26', '0.02', '0.01', '-0.00', '34.07', '-118.44', '151.30', '2', '32', '4', ' NAN', '136.19']
+Received: b'1973923,0.00,0.94,9.34,0.01,0.02,-0.00,34.07,-118.44,151.30,2,32,6, NAN,136.00\r\n'
+['1973923', '0.00', '0.94', '9.34', '0.01', '0.02', '-0.00', '34.07', '-118.44', '151.30', '2', '32', '6', ' NAN', '136.00']
+Received: b'1975898,0.04,0.90,9.26,0.02,0.02,0.00,34.07,-118.44,151.30,2,32,8, NAN,136.06\r\n'
+['1975898', '0.04', '0.90', '9.26', '0.02', '0.02', '0.00', '34.07', '-118.44', '151.30', '2', '32', '8', ' NAN', '136.06']
+^C---------------------------------------------------------------------------
+KeyboardInterrupt                         Traceback (most recent call last)
+<ipython-input-28-e95e4a094d95> in <module>()
+----> 1 exec(open("main.py").read())
+
+<string> in <module>()
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/serial/serialposix.py in read(self, size)
+    481         while len(read) < size:
+    482             try:
+--> 483                 ready, _, _ = select.select([self.fd, self.pipe_abort_read_r], [], [], timeout.time_left())
+    484                 if self.pipe_abort_read_r in ready:
+    485                     os.read(self.pipe_abort_read_r, 1000)
+
+KeyboardInterrupt: 
+
+In [29]: exec(open("main.py").read())
+
+
+
+
+             ||---------------------------- * * * -------------------------\\
+             ||   ______                    _____                           \\
+       ######||   | ___ \           ()     /  ___|                           \\
+  ###########||   | |_/ /_ __ _   _ _ _ __ \ `--. _ __   __  _  ___ ___       \\
+#############||   | ___ \ '__| | | | | '_ \ `--. \ '_ \ / _\| |/ __/ _ \       \\
+   ##########||   | |_/ / |  | |_| | | | | /\__/ / |_) | (_ | | (__| __/       //
+        #####||   \____/|_|   \__,_|_|_| |_\____/| .__/ \__/|_|\___\___|      //
+      #######||                                  | |                         //
+             ||                                  |_|                        //
+             ||---------------------------- * * * -------------------------//
+
+
+
+
+
+Opening Serial Port...
+connected to port /dev/cu.usbmodem14321
+Received: b'1981809,0.04,0.90,9.30,0.01,0.02,-0.00,34.07,-118.44,151.30,2,32,14, NAN,136.00\r\n'
+["b'1981809", '0.04', '0.90', '9.30', '0.01', '0.02', '-0.00', '34.07', '-118.44', '151.30', '2', '32', '14', ' NAN', "136.00\\r\\n'"]
+Received: b'1983773,0.00,0.98,9.22,0.02,0.01,-0.00,34.07,-118.44,151.30,2,32,16, NAN,135.94\r\n'
+["b'1983773", '0.00', '0.98', '9.22', '0.02', '0.01', '-0.00', '34.07', '-118.44', '151.30', '2', '32', '16', ' NAN', "135.94\\r\\n'"]
+Received: b'1985747,0.00,0.94,9.22,0.01,0.02,0.00,34.07,-118.44,151.30,2,32,18, NAN,135.75\r\n'
+["b'1985747", '0.00', '0.94', '9.22', '0.01', '0.02', '0.00', '34.07', '-118.44', '151.30', '2', '32', '18', ' NAN', "135.75\\r\\n'"]
+Received: b'1987712,0.00,0.94,9.30,0.02,0.02,-0.00,34.07,-118.44,151.30,2,32,20, NAN,136.06\r\n'
+["b'1987712", '0.00', '0.94', '9.30', '0.02', '0.02', '-0.00', '34.07', '-118.44', '151.30', '2', '32', '20', ' NAN', "136.06\\r\\n'"]
+Received: b'1989684,0.04,0.90,9.26,0.02,0.01,0.00,34.07,-118.44,151.30,2,32,22, NAN,136.06\r\n'
+["b'1989684", '0.04', '0.90', '9.26', '0.02', '0.01', '0.00', '34.07', '-118.44', '151.30', '2', '32', '22', ' NAN', "136.06\\r\\n'"]
+Received: b'1991649,0.00,0.94,9.34,0.02,0.02,-0.00,34.07,-118.44,151.30,2,32,24, NAN,136.06\r\n'
+["b'1991649", '0.00', '0.94', '9.34', '0.02', '0.02', '-0.00', '34.07', '-118.44', '151.30', '2', '32', '24', ' NAN', "136.06\\r\\n'"]
+Received: b'1993623,0.00,1.06,9.30,0.01,0.02,0.00,34.07,-118.44,151.30,2,32,26, NAN,136.00\r\n'
+["b'1993623", '0.00', '1.06', '9.30', '0.01', '0.02', '0.00', '34.07', '-118.44', '151.30', '2', '32', '26', ' NAN', "136.00\\r\\n'"]
+Received: b'1995597,0.04,0.94,9.22,0.01,0.02,-0.00,34.07,-118.44,151.30,2,32,28, NAN,136.00\r\n'
+["b'1995597", '0.04', '0.94', '9.22', '0.01', '0.02', '-0.00', '34.07', '-118.44', '151.30', '2', '32', '28', ' NAN', "136.00\\r\\n'"]
+^C---------------------------------------------------------------------------
+KeyboardInterrupt                         Traceback (most recent call last)
+<ipython-input-29-e95e4a094d95> in <module>()
+----> 1 exec(open("main.py").read())
+
+<string> in <module>()
+
+~/Desktop/Django-projects/Reach-Sentinel-Lite/reachSentinelLite/lib/python3.6/site-packages/serial/serialposix.py in read(self, size)
+    481         while len(read) < size:
+    482             try:
+--> 483                 ready, _, _ = select.select([self.fd, self.pipe_abort_read_r], [], [], timeout.time_left())
+    484                 if self.pipe_abort_read_r in ready:
+    485                     os.read(self.pipe_abort_read_r, 1000)
+
+KeyboardInterrupt: 
+
+In [30]: 

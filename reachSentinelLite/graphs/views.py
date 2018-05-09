@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import JsonResponse, HttpResponse
 import django.middleware
 
-from graphs.models import Telemetry
+from graphs.models import Telemetry, TimeInit
 
 import json
 import requests
@@ -32,6 +32,9 @@ def alldata(request):
 	i = 0
 	for x in Telemetry.objects.all():
 		# Need to find a way to use iterator
+
+		# convert to '11-28-2017 00:19:06'
+
 		aa = [None] * 9
 		aa[0] = x.timestamp
 		aa[1] = x.accel_x
@@ -52,6 +55,9 @@ def getdata(request, sensor):
 	i = 0
 	for x in Telemetry.objects.all():
 		# Need to find a way to use iterator
+
+		# convert to '11-28-2017 00:19:06'
+
 		aa = [None] * 9
 		aa[0] = x.timestamp
 		aa[1] = x.accel_x

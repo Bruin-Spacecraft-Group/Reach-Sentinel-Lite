@@ -56,7 +56,7 @@ function showGraph(graphNum) {
 }
 
 function showGraph(graphNum, numPoints) { // ---------- * * * ---------- MAKE IT BASED OFF TIME, NOT NUMBER OF DATAPOINTS
-	//document.getElementById("dataText").innerHTML = "";
+	var numPoints = numPoints;//*60*1000;
 	var dataxhttp = new XMLHttpRequest();
 	dataxhttp.open("GET", "/graphs/getdata/" + graphNum, true);
 	dataxhttp.send();
@@ -64,22 +64,19 @@ function showGraph(graphNum, numPoints) { // ---------- * * * ---------- MAKE IT
 	dataxhttp.onreadystatechange = function() {
 		if (dataxhttp.readyState == 4 && (dataxhttp.status == 200 || dataxhttp.status == 0)) {
 			datum = JSON.parse(dataxhttp.response)['stuff'];
-			console.log("Temp data length: " + datum.length);
+			var temp = new Array();
 			var data = new Array();
-
-			if (datum.length <= numPoints) {
-				for (var i = 0; i < datum.length; i++) {
-					datum[i][0] = new Date(datum[i][0]);
-					data.push(datum[i]);
-				}
-			} else {
-				for (var i = datum.length-numPoints; i < datum.length; i++) {
-					datum[i][0] = new Date(datum[i][0]);
+			for (var i = 0; i < datum.length; i++) {
+				datum[i][0] = datum[i][0]/60000;
+				temp.push(datum[i][0]);
+			}
+			var maxTime = Math.max(...temp);
+			for (var i = 0; i < datum.length; i++) {
+				if (datum[i][0] >= (maxTime - numPoints)) {
 					data.push(datum[i]);
 				}
 			}
 			if (document.getElementById("textdiv").style.width != "0px") {
-				console.log("Text div size is big then\n\n\n\n\n\n\n\n");
 				exchangeSize("graphdiv", "textdiv");
 			}
 			var graph = drawGraph(data);
@@ -87,39 +84,6 @@ function showGraph(graphNum, numPoints) { // ---------- * * * ---------- MAKE IT
 	};
 }
 
-// ---------- * * * ---------- GET DATA BY TIME, NOT DATAPOINTS --- HERE!!!
-// ---------- * * * ---------- TIME -> MAJOR FACTOR
-/*
-function showGraph(graphNum, numMinutes) {
-	var timeRange = numMinutes*60*1000;
-	var curTime = new Date();
-	var curTimeMills = curTime.getTime();
-	var startTime = curTimeMills - timeRange;
-
-	var dataxhttp = new XMLHttpRequest();
-	dataxhttp.open("GET", "/graphs/getdata/" + graphNum, true);
-	dataxhttp.send();
-	var j = 0;
-
-	dataxhttp.onreadystatechange = function() {
-		if (dataxhttp.readyState == 4 && (dataxhttp.status == 200 || dataxhttp.status == 0)) {
-			datum = JSON.parse(dataxhttp.response)['stuff'];
-			console.log("Temp data length: " + datum.length);
-			var data = new Array();
-
-			for (var i = 0; i < datum.length; i++) {
-				var objTime = Date(datum[i][0]);
-				objTimeMills = objTime.getTime();
-				if (objTimeMills >= startTime) {
-					datum[i][0] = objTime;
-					data.push(datum[i]);
-				}
-			}
-			drawGraph(data);
-		}
-	};
-}
-*/
 // ---------- * * * ---------- CHECK HOW TO FORMAT THIS PART; CAN MAKE <P> BUT WILL IT AFFECT GRAPH ELEMS?
 function showText(graphNum) {
 	var dataxhttp = new XMLHttpRequest();

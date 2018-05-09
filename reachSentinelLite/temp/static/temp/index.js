@@ -3,24 +3,25 @@ var text = false;
 var tenmins = false;
 var thirtymins = false;
 
-
+/*
 window.intervalId = setInterval(function(){
 	if (full_data) {
-		showGraph(TEMP, 10);
+		showGraph(TEMP, 1);
 	} else if (text) {
 		showText(TEMP);
 	}
 	 else if (tenmins) {
-	 	showGraph(TEMP, 8);
-	 } else if (thirtymins) {
-	 	showGraph(TEMP, 7);
-	 } else {
 	 	showGraph(TEMP, 10);
+	 } else if (thirtymins) {
+	 	showGraph(TEMP, 30);
+	 } else {
+	 	showGraph(TEMP, 15);
 	 }
 }, 10);
+*/
 
 
-//showGraph(TEMP, 10);
+showGraph(TEMP, 4);
 //showText(TEMP);
 
 

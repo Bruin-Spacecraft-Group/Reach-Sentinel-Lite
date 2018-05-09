@@ -27,11 +27,12 @@ ABSTIME = 0
 
 # Create your models here.
 class Telemetry(models.Model):
-	timestamp = models.CharField(max_length=200) # unsigned long
+	timestamp = models.FloatField(default = 0)
+	#timestamp = models.CharField(max_length=200) # unsigned long
 	#timestamp = models.DateTimeField()
-	accel_x = models.IntegerField(default = 0)
-	accel_y = models.IntegerField(default = 0)
-	accel_z = models.IntegerField(default = 0)
+	accel_x = models.FloatField(default = 0)
+	accel_y = models.FloatField(default = 0)
+	accel_z = models.FloatField(default = 0)
 	gyro_x = models.FloatField(default = 0)
 	gyro_y = models.FloatField(default = 0)
 	gyro_z = models.FloatField(default = 0)
@@ -66,10 +67,40 @@ class Telemetry(models.Model):
 	'''
 
 	def __str__(self):
-		return self.timestamp 
+		return str(self.timestamp) 
 
 class IsLive(models.Model):
 	isLive = models.BooleanField(default=False) 
 
 	def __str__(self):
 		return str(self.isLive)
+
+
+class TimeInit(models.Model):
+	timeInit = models.FloatField(default = 0)
+
+	def __str__(self):
+		return str(self.timeInit)
+
+	def currTime(self):
+		return self.timeInit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,19 +1,24 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title>Index - temp</title>
+	<title>Index - accel_x</title>
 	{% load static %}
 	<link rel="stylesheet" type="text/css" href="{% static 'graphs/style.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'testGraph/dygraphs/dygraph.css' %}">
 	<script type="text/javascript" src="{% static 'testGraph/dygraphs/dygraph.js' %}"></script>
 </head>
 <body>
-	<p>Acceleration</p><br>
-	<div id="graphdiv"></div>
+	<p id="title">Acceleration-X</p><br>
+	<div class="graphdiv", id="graphdiv"></div>
 	<div id="textdiv"></div>
-	<p id="warning">WARNING!!! Some data points missing</p>
-
 	<br>
+
+	<button id="full_data">Full data</button>
+	<button id="text">Text</button>
+	<button id="tenmins">10 mins</button>
+	<button id="thirtymins">30 min</button>
+
+	<p id="warning"></p>
 	
 	<script type="text/javascript" src="{% static 'graphs/index.js' %}"></script>
 	<script type="text/javascript" src="{% static 'accel/index.js' %}"></script>
