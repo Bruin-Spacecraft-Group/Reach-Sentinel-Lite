@@ -147,6 +147,7 @@ dataString = '' # --------------------- * * * ----------------------------------
 while ser.isOpen():
 	try:
 		#get data
+<<<<<<< HEAD
 		print('reading...')
 		dataString = str(ser.readline())
 		print(dataString)
@@ -333,4 +334,5 @@ while ser.isOpen():
 			barometer=data[1],
 			temp=data[2])
 		new_data.save()
+
 	'''
