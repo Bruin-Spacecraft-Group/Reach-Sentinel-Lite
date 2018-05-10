@@ -1,5 +1,5 @@
 import math
-
+from serialStuff import readFromSerial
 class DataObject:
 	"""data structure for telemetry data"""
 	def __init__(self):
@@ -29,6 +29,27 @@ class DataObject:
 		self.pos_x, self.pos_y, self.pos_z = 0, 0, 0
 
 		self.accx_calib, self.accy_calib, self.accz_calib = 0, 0, 0
+
+	def calibrate(self, ser, txtfile, accelIndex):
+		iterations = float(input("How many iterations for calibration? "))
+		i = 0
+		x_calib, y_calib, z_calib = 0,0,0
+		print(accelIndex)
+		while i < iterations:
+			data = readFromSerial(ser, txtfile)
+			if data == -1:
+				continue
+			x_calib += data[accelIndex[0]]
+			y_calib += data[accelIndex[1]]
+			z_calib += data[accelIndex[2]]	
+			i += 1
+
+		if iterations != 0:			
+			self.accx_calib = x_calib/iterations
+			self.accy_calib = y_calib/iterations
+			self.accz_calib = z_calib/iterations
+
+		self.printCalibration()
 
 	def printCalibration(self):
 		print('Calibration: ' + str(self.accx_calib) + ','+ str(self.accy_calib) + ','+ str(self.accz_calib))
