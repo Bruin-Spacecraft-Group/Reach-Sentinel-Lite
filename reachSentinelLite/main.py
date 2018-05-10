@@ -20,7 +20,12 @@ import acceleration
 
 from graphs.models import Telemetry, IsLive, TimeInit  # exec(open("main.py").read())
 ##Initiate variables
+DEBUG = True
 FIRST = True
+oldGPSTime = 0
+GPSInit()
+myData = DataObject()
+dropped = 0
 
 lat2 = 0
 lon2 = 0
@@ -41,16 +46,16 @@ ACCELZ = 3
 GYROX = 4
 GYROY = 5
 GYROZ = 6
-GPS_LAT = 7
-GPS_LONG = 8
-GPS_ALT = 9
-GPS_HR = 10
-GPS_MIN = 11
-GPS_SEC = 12
+GPSLAT = 7
+GPSLONG = 8
+GPSALT = 9
+GPSHR = 10
+GPSMIN = 11
+GPSSEC = 12
 TEMP = 13
 PRESSURE = 14
 ALTITUDE = 15
-BARO_TEMP = 16
+BAROTEMP = 16
 
 '''
 MAGX = 7
@@ -85,20 +90,6 @@ print(
 	'             ||---------------------------- * * * -------------------------//\n')
 
 print("\n\n\n")
-'''
-new_data = Telemetry.objects.create(  # -------------- * * * -------------- SAVE TO DATABASE
-timestamp='11-28-2017 00:19:06', 
-accel_x   = 8, 
-accel_y   = 16, 
-accel_z   = 256, 
-gyro_x    = -86, 
-gyro_y    = -62, 
-gyro_z    = 69,
-barometer = 99420,
-temp      = 74)
-new_data.save()
-'''
-
 
 # Dabatase checks
 if TimeInit.objects.count() != 0:
@@ -113,6 +104,9 @@ if Telemetry.objects.count() != 0:
 
 if Telemetry.objects.count() == 0:
 	Telemetry.objects.create() # zero data-point
+	if (DEBUG):
+		exec(open("dummyTelem.py").read())
+		print("READ dummyTelem.py")
 
 if IsLive.objects.count() != 0:  # ------------------ * * * ------------------ REQUIRES TESTING
 	for elem in IsLive.objects.all():
@@ -144,87 +138,199 @@ FILENAME = FILENAME.replace(':', '_')
 txtfile = open(FILENAME, "w")
 txtfile.write('Project Reach Raw Data starting at ' + date)
 
+print('Telemetry initiated')
+
 isFirst = True
+dataString = '' # --------------------- * * * ----------------------------------- EDIT!!!
 
 ##Main Processing Loop
 while ser.isOpen():
-	#get data
-	dataString = str(ser.readline())
-	print('Received: ' + dataString)
-	txtfile.write(dataString)
-	dataString = dataString[2:len(dataString)-5]
-	print('Received: ' + dataString)
+	try:
+		#get data
+		print('reading...')
+		dataString = str(ser.readline())
+		print(dataString)
+		'''
+		if(dataString == "b''"):
+			dropped += 1
+		'''
+	except:
+		print("could not read")
+		continue
 
-	'''
-	LAST YEAR'S ORDER LEFT FOR REFERENCE, IS NOT USED
-	parse string 
-	create array with elements deliminated by spaces
-	contents should be as follows
-	data[0] = timestamp
-	data[1] = pressure
-	data[2] = temperature
-	data[3] = gyroX
-	data[4] = gyroY
-	data[5] = gyroZ
-	data[6] = accelX
-	data[7] = accelY
-	data[8] = accelZ
-	data[9] = gps Time
-	data[10] = lon
-	data[11] = lat
-	data[12] = gpsAlt
-	data[13] = speed
-	data[14] = course
-	'''
-	data = dataString.split(",")
-	# convert to integer from string then try printing
-	'''
-	for i in range(len(data)):
-		if (data[i] == 'NAN'):
-			data[i] = 0
-	'''
+	try:
+		print('Writing to textfile')
+		txtfile.write(dataString)
+		txtfile.flush()
+	except:
+		pass
 
-	for i in range(len(data)):
-		if "NAN" in data[i]:
-			data[i] = 0.0
+	try:
+		dataString = dataString[2:len(dataString)-5]
+		print('Received: ' + dataString)
+		data = dataString.split(",")
+		#had problems with only reading in a few data 
+		if (len(data) < 6):
+			print("not enough data")
 			continue
-		data[i] = float(data[i])
+
+		#adjust for NANs
+		print('Checking for NANs')
+		nans = 0
+		for i in range(len(data)):
+			if "NAN" in data[i]:
+				data[i] = float('nan')
+				nans += 1
+				continue
+			data[i] = float(data[i])
+		print('NANs: ' + str(nans))
+
+		#Populate data object
+		print('Populating data object...')
+		myData.timestamp = data[TIMESTAMP]
+		myData.accel_x = data[ACCELX]
+		myData.accel_y = data[ACCELY]
+		myData.accel_z = data[ACCELZ]
+		myData.gyro_x = data[GYROX]
+		myData.gyro_y = data[GYROY]
+		myData.gyro_z = data[GYROZ]
+		myData.gps_lat = data[GPSLON]
+		myData.gps_lon = data[GPSLAT]
+		myData.gps_alt = data[GPSALT]
+		myData.gps_hour = data[GPSHOUR]
+		myData.gps_min = data[GPSMIN]
+		myData.gps_sec = data[GPSSEC]
+		#myData.mag_x = data[MAGX]
+		#myData.mag_y = data[MAGY]
+		#myData.mag_z = data[MAGZ]
+		#myData.mag_head = data[MAGHEAD]
+		myData.temp = data[TEMP]
+		myData.press = data[PRESS]
+		myData.altitude = data[ALTITUDE]
+		myData.baro_temp = data[BAROTEMP]
+			
+		print(data)
+
+		if (isFirst):
+			TimeInit.objects.get().timeInit = datetime.datetime.now() - data[TIMESTAMP]
+			isFirst = False
+
+		print("Timestamp", data[TIMESTAMP])
+
+		print('--------')
+
+		new_data = Telemetry.objects.create(  # -------------- * * * -------------- SAVE TO DATABASE
+		timestamp = data[TIMESTAMP], 
+		accel_x   = data[ACCELX], 
+		accel_y   = data[ACCELY], 
+		accel_z   = data[ACCELZ], 
+		gyro_x    = data[GYROX], 
+		gyro_y    = data[GYROY], 
+		gyro_z    = data[GYROZ],
+		barometer = data[ALTITUDE],
+		#temp = data[TEMP]
+		)
+		new_data.save()
+
+		#for the first few iterations, just take the 
+		#accelerometer data to calibrate the offsets
+
+		if(count<6):
+			print('Calibrating...')
+			myData.accx_calib += myData.accel_x
+			myData.accy_calib += myData.accel_y
+			myData.accz_calib += myData.accel_z
+			count+=1
+			#establish spacecraft time
+			oldtime = myData.timestamp
 		
-	print(data)
+		else:
+			print('processing...')
+			if(count==6):
+				myData.accx_calib = myData.accx_calib/6
+				myData.accy_calib = myData.accy_calib/6
+				myData.accz_calib = myData.accz_calib/6
+				count+=1
+				myData.printCalibration()
+				#print('Calibration: ' + str(ACCX_CALIB) + ', ' + str(ACCY_CALIB) + ', ' + str(ACCZ_CALIB))
+		
+			##DO STUFF WITH DATA
+			#establish time elapsed
+			dt = (myData.timestamp - oldtime)/1000.0 #convert ms to s
+			oldtime = myData.timestamp
+			print(str(dt))
+			'''
+			append altitude calculated from pressure
+			data.append(altitudeCalc(data[1]))
+			'''
+			#process acceleration
+			acceleration.findInertialFrameAccel(myData, dt)
+			#myAcceleration = acceleration.findInertialFrameAccel(data[ACCELX], data[ACCELY], data[ACCELZ], data[GYROX], data[GYROY], data[GYROZ], dt, [ACCX_CALIB, ACCY_CALIB, ACCZ_CALIB])
+			print('found acceleration')
+			#integrate to find velocity and positino
+			acceleration.calculateVelocityAndPosition(myData, dt)
+			print('found vel and pos')
+			#Process GPS coordinates
+			if myData.gps_sec != oldGPSTime:
+				processCoordinates(myData.gps_lon, myData.gps_lat, myData.gps_alt)
+				print('processed coordinates')
+			'''
+			#append absolute time
+			data.append(time.time())
+			'''
+			finalData = ""
+			for i in range(len(data)-1):
+				#print data[i]
+				finalData = finalData + str(data[i]) + ", "
+				'''
+				finalData contents should be as follows, 
+				as a string separated by commas:
+				relative spacecraft time 
+				raw accelX
+				raw accelY
+				raw accelZ
+				gyroX
+				gyroY
+				gyroZ
+				magX - NO
+				magY - NO
+				magZ - NO
+				magHead - NO
+				temp(C)
+				altitude
+				inertial accelX
+				inertial accelY
+				inertial accelZ
+				velX
+				velY
+				velZ
+				posX
+				posY
+				posZ
+				absTime - NO
+				'''
+			print(finalData)
+			myData.printData()
+			print(dropped)
+	except:
+		print('failed\n')
+		print(dropped)
+		continue #maybe this should be a continue?
+		######SAVE TO DATABASE
 
-	if (isFirst):
-		TimeInit.objects.get().timeInit = datetime.datetime.now() - data[TIMESTAMP]
-		isFirst = False
-
-
-
-
-	print("Timestamp", data[TIMESTAMP])
-
-	print('--------')
-
-	new_data = Telemetry.objects.create(  # -------------- * * * -------------- SAVE TO DATABASE
-	timestamp = data[TIMESTAMP], 
-	accel_x   = data[ACCELX], 
-	accel_y   = data[ACCELY], 
-	accel_z   = data[ACCELZ], 
-	gyro_x    = data[GYROX], 
-	gyro_y    = data[GYROY], 
-	gyro_z    = data[GYROZ],
-	barometer = data[ALTITUDE],
-	#temp = data[TEMP]
-	)
-	new_data.save()
-
-
-
-
-
-
-
-
-
-
-
-
-
+	#TODO -- might actually want to implement the data object. 
+	#At this point it's confusing where the processed data ends up
+	'''
+	try:
+		new_data = Telemetry.objects.create(  #-------------- * * * -------------- SAVE TO DATABASE
+			timestamp=myData.timestamp, 
+			accel_x=data[6], 
+			accel_y= data[7], 
+			accel_z= data[8], 
+			gyro_x=data[3], 
+			gyro_y=data[4], 
+			gyro_z= data[5],
+			barometer=data[1],
+			temp=data[2])
+		new_data.save()
+	'''
