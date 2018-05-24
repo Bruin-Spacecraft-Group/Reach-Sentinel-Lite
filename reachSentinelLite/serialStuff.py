@@ -24,7 +24,8 @@ def readFromSerial(ser, txtfile):
 		try:
 			#get data
 			print('reading...')
-			dataString = str(ser.readline())
+			#dataString = str(ser.readline())
+			dataString = ser.readline().decode()
 			print("Recieved: " + dataString)
 			'''
 			if(dataString == "b''"):
@@ -45,10 +46,12 @@ def readFromSerial(ser, txtfile):
 
 		#create data array
 		try:
+			'''
 			#cut off extra characters
 			#first two characters are b'
 			#last 5, are \r\n'
 			dataString = dataString[2:len(dataString)-5]
+			'''
 			data = dataString.split(",")
 			
 			#ensure full packet recieved
