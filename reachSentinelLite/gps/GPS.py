@@ -86,7 +86,8 @@ def processCoordinates(longitude, latitude, altitude):
     dt = newTime - oldTime
     print("time elapsed: " + str(dt)) 
     calcVelGPS(lat1, lon1, lat2, lon2, dt)
-    '''import random
+    '''
+import random
 import time
 import math
 from .velocityFromGps import calcVelGPS

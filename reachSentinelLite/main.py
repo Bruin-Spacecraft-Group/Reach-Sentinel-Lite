@@ -17,6 +17,8 @@ from communication.sendUDP import initSocket, sendPacket, killSocket
 from altimeter.altitudeCalculation import altitudeCalc
 import acceleration
 #from accel import findInertialFrameAccel
+from serialStuff import openSerialPort, readFromSerial
+from DataObject import DataObject
 
 from graphs.models import Telemetry, IsLive, TimeInit  # exec(open("main.py").read())
 ##Initiate variables
@@ -142,12 +144,65 @@ print('Telemetry initiated')
 
 isFirst = True
 dataString = '' # --------------------- * * * ----------------------------------- EDIT!!!
+myData.calibrate(ser, txtfile, [ACCELX, ACCELY, ACCELZ])
+
+'''
+while True:
+	data = readFromSerial(ser, txtfile)
+	if data == -1: continue
+	print('step 1')
+	print('step 2')
+	print('step 3')
+	print('populated')
+
+	new_data = Telemetry.objects.create(  # -------------- * * * -------------- SAVE TO DATABASE
+		timestamp = data[TIMESTAMP], 
+		accel_x   = data[ACCELX], 
+		accel_y   = data[ACCELY], 
+		accel_z   = data[ACCELZ], 
+		gyro_x    = data[GYROX], 
+		gyro_y    = data[GYROY], 
+		gyro_z    = data[GYROZ],
+		barometer = data[ALTITUDE],
+		#temp = data[TEMP]
+		)
+	new_data.save()
+
+ 	
+	###PROCESS
+	#establish time elapsed
+	dt = (myData.timestamp - oldtime)/1000.0 #convert ms to s
+	print(myData.timestamp)
+	print(oldtime)
+	oldtime = myData.timestamp
+	print(str(dt))
+	
+	# append altitude calculated from pressure
+	# data.append(altitudeCalc(data[1]))
+	
+	#process acceleration
+	acceleration.findInertialFrameAccel(myData, dt)
+	print('found acceleration')
+	#integrate to find velocity and positino
+	acceleration.calculateVelocityAndPosition(myData, dt)
+	print('found vel and pos')
+	#Process GPS coordinates
+	if myData.gps_sec != oldGPSTime:
+		oldGPSTime = myData.gps_sec
+		processCoordinates(myData.gps_lon, myData.gps_lat, myData.gps_alt)
+		print('processed coordinates')
+	
+	#append absolute time
+	# data.append(time.time())
+	
+	myData.printData()
+	#print(dropped)
+'''
 
 ##Main Processing Loop
 while ser.isOpen():
 	try:
 		#get data
-<<<<<<< HEAD
 		print('reading...')
 		dataString = str(ser.readline())
 		print(dataString)
