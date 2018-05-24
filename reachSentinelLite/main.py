@@ -11,7 +11,7 @@ from gps.GPS import GPSInit, saveCoor, processCoordinates, calcVelGPS
 #from communication.sendUDP import initSocket, sendPacket, killSocket
 from altimeter.altitudeCalculation import altitudeCalc
 import acceleration
-from serialStuff import openSerialPort, readFromSerial 
+from serialStuff import openSerialPort, readFromSerial
 from DataObject import DataObject
 #from accel import findInertialFrameAccel
 
@@ -129,13 +129,13 @@ while True:
 		#Save raw data to database
 		#TODO: Why are we doing this??
 		new_data = Telemetry.objects.create(  #-------------- * * * -------------- SAVE TO DATABASE
-			#timestamp=myData.timestamp, 
+			#timestamp=myData.timestamp,
 			timestamp = datetime.datetime.now(),
-			accel_x=data[ACCELX], 
-			accel_y= data[ACCELY], 
-			accel_z= data[ACCELZ], 
-			gyro_x=data[GYROX], 
-			gyro_y=data[GYROY], 
+			accel_x=data[ACCELX],
+			accel_y= data[ACCELY],
+			accel_z= data[ACCELZ],
+			gyro_x=data[GYROX],
+			gyro_y=data[GYROY],
 			gyro_z= data[GYROZ],
 			#mag_x = data[MAGX],
 			#mag_y = data[MAGY],
@@ -180,19 +180,19 @@ while True:
 		print('failed\n')
 		#print(dropped)
 		continue #maybe this should be a continue?
-		
 
-	#TODO -- might actually want to implement the data object. 
+
+	#TODO -- might actually want to implement the data object.
 	#At this point it's confusing where the processed data ends up
 	'''
 	try:
 		new_data = Telemetry.objects.create(  #-------------- * * * -------------- SAVE TO DATABASE
-			timestamp=myData.timestamp, 
-			accel_x=data[6], 
-			accel_y= data[7], 
-			accel_z= data[8], 
-			gyro_x=data[3], 
-			gyro_y=data[4], 
+			timestamp=myData.timestamp,
+			accel_x=data[6],
+			accel_y= data[7],
+			accel_z= data[8],
+			gyro_x=data[3],
+			gyro_y=data[4],
 			gyro_z= data[5],
 			barometer=data[1],
 			temp=data[2])
