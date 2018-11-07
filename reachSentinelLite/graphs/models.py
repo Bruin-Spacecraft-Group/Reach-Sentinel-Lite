@@ -24,6 +24,7 @@ POS_X = 0
 POS_Y = 0
 POS_Z = 0
 ABSTIME = 0
+KARTHIK = 0
 
 # Create your models here.
 class Telemetry(models.Model):
@@ -67,10 +68,10 @@ class Telemetry(models.Model):
 	'''
 
 	def __str__(self):
-		return str(self.timestamp) 
+		return str(self.timestamp)
 
 class IsLive(models.Model):
-	isLive = models.BooleanField(default=False) 
+	isLive = models.BooleanField(default=False)
 
 	def __str__(self):
 		return str(self.isLive)
@@ -84,23 +85,3 @@ class TimeInit(models.Model):
 
 	def currTime(self):
 		return self.timeInit
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
