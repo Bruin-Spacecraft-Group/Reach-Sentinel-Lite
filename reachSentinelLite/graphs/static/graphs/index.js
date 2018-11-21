@@ -84,6 +84,50 @@ function showGraph(graphNum, numPoints) { // ---------- * * * ---------- MAKE IT
 	};
 }
 
+function showGraph(graphNum, clicked, type){
+	var numPoints = 15;
+if (clicked){
+	var type = type;
+	if (type == 1){
+		numPoints = 3600;
+	} else if (type ==2){
+		showText(graphNum);
+		return;
+	} else if (type ==3){
+		numPoints = 10;
+	} else if (type ==4){
+		numPoints = 30;
+	}
+	}
+	var dataxhttp = new XMLHttpRequest();
+	dataxhttp.open("GET", "/graphs/getdata/" + graphNum, true);
+	dataxhttp.send();
+	var j = 0;
+	dataxhttp.onreadystatechange = function() {
+		if (dataxhttp.readyState == 4 && (dataxhttp.status == 200 || dataxhttp.status == 0)) {
+			datum = JSON.parse(dataxhttp.response)['stuff'];
+			var temp = new Array();
+			var data = new Array();
+			for (var i = 0; i < datum.length; i++) {
+				datum[i][0] = datum[i][0]/60000;
+				temp.push(datum[i][0]);
+			}
+			var maxTime = Math.max(...temp);
+			for (var i = 0; i < datum.length; i++) {
+				if (datum[i][0] >= (maxTime - numPoints)) {
+					data.push(datum[i]);
+				}
+			}
+			if (document.getElementById("textdiv").style.width != "0px") {
+				exchangeSize("graphdiv", "textdiv");
+			}
+			var graph = drawGraph(data);
+		}
+	};
+}
+
+
+
 // ---------- * * * ---------- CHECK HOW TO FORMAT THIS PART; CAN MAKE <P> BUT WILL IT AFFECT GRAPH ELEMS?
 function showText(graphNum) {
 	var dataxhttp = new XMLHttpRequest();
@@ -123,9 +167,3 @@ var BARO = 7;
 var TEMP = 8;
 
 var currentSource = document.currentScript.src;
-
-
-
-
-
-
