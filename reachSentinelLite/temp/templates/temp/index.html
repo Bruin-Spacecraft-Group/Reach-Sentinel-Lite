@@ -3,9 +3,9 @@
 <head>
 	<title>Index - temp</title>
 	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'graphs/style.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'testGraph/dygraphs/dygraph.css' %}">
 	<script type="text/javascript" src="{% static 'testGraph/dygraphs/dygraph.js' %}"></script>
-	<link rel="stylesheet" type="text/css" href="{% static 'graphs/style.css' %}">
 </head>
 <body>
 	<p id="title">Temperature</p><br>
@@ -19,7 +19,7 @@
 	<button id="thirtymins">30 min</button>
 
 	<p id="warning"></p>
-	
+
 	<script type="text/javascript" src="{% static 'graphs/index.js' %}"></script>
 	<script type="text/javascript" src="{% static 'temp/index.js' %}"></script>
 </body>

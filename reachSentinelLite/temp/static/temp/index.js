@@ -38,17 +38,17 @@ document.getElementById("full_data").onclick = function() {
 document.getElementById("text").onclick = function() {
 	document.getElementById("title").innerHTML = "Temperature";
 	clicked = true;
-	currentType = 1;
+	currentType = 2;
 };
 
 document.getElementById("tenmins").onclick = function() {
 	document.getElementById("title").innerHTML = "Temperature: 10 mins";
 	clicked = true;
-	currentType = 1;
+	currentType = 3;
 };
 
 document.getElementById("thirtymins").onclick = function() {
 	document.getElementById("title").innerHTML = "Temperature: 30 mins";
 	clicked = true;
-	currentType = 1;
+	currentType = 4;
 };
