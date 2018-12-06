@@ -1,26 +1,7 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-	<title>Index - accel_x</title>
-	{% load static %}
-	<link rel="stylesheet" type="text/css" href="{% static 'graphs/style.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static 'testGraph/dygraphs/dygraph.css' %}">
-	<script type="text/javascript" src="{% static 'testGraph/dygraphs/dygraph.js' %}"></script>
-</head>
-<body>
-	<p id="title">Acceleration-X</p><br>
-	<div class="graphdiv", id="graphdiv"></div>
-	<div id="textdiv"></div>
-	<br>
-
-	<button id="full_data">Full data</button>
-	<button id="text">Text</button>
-	<button id="tenmins">10 mins</button>
-	<button id="thirtymins">30 min</button>
-
-	<p id="warning"></p>
-	
-	<script type="text/javascript" src="{% static 'graphs/index.js' %}"></script>
-	<script type="text/javascript" src="{% static 'accel/index.js' %}"></script>
-</body>
-</html>
+{% extends "graphs/base.html" %}
+{% load static %}
+{% block titleMain %}Index - accel_x{% endblock %}
+{% block title %} Acceleration-X {% endblock %}
+{% block whatToGraph %}
+<script type="text/javascript" src="{% static 'accel/index.js' %}"></script>
+{% endblock %}
