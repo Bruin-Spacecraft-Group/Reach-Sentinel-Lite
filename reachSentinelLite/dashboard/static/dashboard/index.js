@@ -28,25 +28,9 @@ function getCookie(name) {
 }
 
 document.getElementById("update").onclick = function() {
-	console.log("Button clicked");
-	var x = document.getElementsByTagName('iframe')
+	var x = document.getElementsByTagName('iframe');
 	for (var i = 0; i < x.length; i++) {
 		x[i].contentWindow.location.reload();
 	}
-	update();
+	//update(); // EDIT: may be redundant, check and remove
 }
-
-//------------------------
-//import Dygraphs;
-// should do something upon POST to file
-var ACCEL_X = 1;
-var ACCEL_Y = 2;
-var ACCEL_Z = 3;
-var GYRO_X = 4;
-var GYRO_Y = 5;
-var GYRO_Z = 6;
-var BARO = 7;
-var TEMP = 8;
-
-var currentSource = document.currentScript.src;
-
