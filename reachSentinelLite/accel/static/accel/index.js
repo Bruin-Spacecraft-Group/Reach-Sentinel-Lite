@@ -1,9 +1,13 @@
 var clicked = false;
-var currFrame = 40*MINS;
+var currFrame = 4*MINS;
 
 
-window.intervalId = setInterval(showGraph(ACCEL_X, clicked, currFrame), 10);
+//window.intervalId = setInterval(showGraph(ACCEL_X, clicked, currFrame), 1000);
+setInterval(function() { myfunc() }, 1000);
 
+function myfunc() {
+	showGraph(ACCEL_X, clicked, currFrame);
+}
 
 // showGraph(ACCEL_X, 10);
 
