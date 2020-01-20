@@ -1,12 +1,11 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-	<title>	Dashboard - Reach </title>
-	{% load static %}
-	<link rel="stylesheet" type="text/css" href="{% static 'testGraph/style.css' %}">
-</head>
-<body>
-	<p style="font-size: 300%; color: brown; font-family: 'Impact'">BRUIN SPACE - Project Reach</p>
+{% extends "reachSentinelLite/base.html" %}
+{% load static %}
+{% block titleMain %}Dashboard - Reach{% endblock %}
+{% load static %}
+{% block mainBody %}
+<!--
+	Instead of iframes, what about chart placeholder divs, where we have the specific data div name as the class name?
+-->
 	<iframe src="{% url 'temp:index' %}" height="330" width="630" style="border: 1px solid white"></iframe>
 	<iframe src="{% url 'accel:index' %}" height="330" width="630" style="border: 1px solid white"></iframe>
 	<iframe src="{% url 'accel:index' %}" height="330" width="630" style="border: 1px solid white"></iframe>
@@ -14,9 +13,8 @@
 	<iframe src="{% url 'testGraph:index' %}" height="330" width="630" style="border: 1px solid white"></iframe>
 
 	<br>
-	<button id="update">Update {% csrf_token %}</button>
+	<button id="update">UPDATE {% csrf_token %}</button>
 	<p id="updateText">Button</p>
-	
+
 	<script type="text/javascript" src="{% static 'dashboard/index.js' %}"></script>
-</body>
-</html>
+{% endblock %}

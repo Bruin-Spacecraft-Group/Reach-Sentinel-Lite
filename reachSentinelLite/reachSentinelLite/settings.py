@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'reachSentinelLite.apps.ReachSentinelLiteConfig',
     'testGraph.apps.TestgraphConfig',
     'dashboard.apps.DashboardConfig',
     'graphs.apps.GraphsConfig',

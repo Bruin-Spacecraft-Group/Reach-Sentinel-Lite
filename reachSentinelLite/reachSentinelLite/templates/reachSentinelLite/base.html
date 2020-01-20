@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>{% block titleMain %}{% endblock %}</title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'reachSentinelLite/style.css' %}">
+</head>
+<body>
+	<div id="pageBanner" style="margin: 0px;">
+		<i><span id="pageBannerMain">SPARTAN</span></i>
+		<span id="pageBannerSub"> GROUND OPERATIONS - REACH </span>
+	</div>
+	{% block mainBody %}{% endblock %}
+	<script type="text/javascript" src="{% static 'constants.js' %}"></script>
+</body>
+</html>

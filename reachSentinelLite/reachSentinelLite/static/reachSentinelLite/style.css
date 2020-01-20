@@ -1,0 +1,57 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  background-color: #1e1e1e;
+  margin: 10px;
+  border: 5px solid #C1FDFF;
+  padding: 0px 20px 0px 20px;
+  color: white;
+  font-family: 'Andale Mono', monospace;
+}
+
+button {
+  color: white;
+  font-family: 'Andale Mono'; /* monospace */
+  font-weight: 900;
+  font-size: 150%;
+  background-color: #004577;
+  border: 0.5em solid #004577;
+  min-width: 6.5em;
+  height: 2.5em;
+}
+
+button:hover {
+  background-color: #6DA9C7; /*005878; /*#742700;*/
+  border: 0.5em solid #6DA9C7; /*005878; /*#742700;*/
+}
+
+button:focus {
+  background-color: #6DA9C7; /*005878; /*#742700;*/
+  border-color: #6DA9C7; /*005878; /*#742700;*/
+}
+
+button:active {
+  background-color: #6DA9C7; /*005878; /*#742700;*/
+  border-color: #6DA9C7; /*005878; /*#742700;*/
+}
+
+#pageBanner {
+  margin: 0px;
+  color: #518FAC;
+}
+
+#pageBannerMain {
+  font-weight: 900;
+  font-size: 500%;
+  font-family: 'Montserrat', sans-serif;
+  color: inherit;
+}
+
+#pageBannerSub {
+  font-weight: 400;
+  font-size: 300%;
+  font-family: 'Montserrat Subrayada', sans-serif;
+}
