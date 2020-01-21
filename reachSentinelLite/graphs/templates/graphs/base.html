@@ -6,15 +6,20 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'graphs/style.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'testGraph/dygraphs/dygraph.css' %}">
 	<script type="text/javascript" src="{% static 'testGraph/dygraphs/dygraph.js' %}"></script>
+	<script type="text/javascript" src="{% static 'node_modules/chart.js/dist/Chart.js' %}"></script>
 </head>
 <body>
-
 	<p id="title">
     {% block title %}{% endblock %}
-  </p><br>
-	<div class="graphdiv", id="graphdiv"></div>
-	<div id="textdiv"></div>
-	<br>
+  </p>
+
+	<!-- change names -->
+	<div class="graphdiv", id="graphdiv">
+		<canvas class="drawChart", id="drawChart"></canvas>
+		<div id="textdiv"></div>
+	</div>
+
+	<br><br><br><br><br><br> <!-- 6 -->
 
 	<button id="full_data">Full data</button>
 	<button id="text">Text</button>

@@ -40,6 +40,21 @@ button {
   height: 2.5em; /* 2.5 */
 }
 
+button:hover {
+  background-color: #6DA9C7; /*005878; /*#742700;*/
+  border: 0.5em solid #6DA9C7; /*005878; /*#742700;*/
+}
+
+button:focus {
+  background-color: #6DA9C7; /*005878; /*#742700;*/
+  border-color: #6DA9C7; /*005878; /*#742700;*/
+}
+
+button:active {
+  background-color: #6DA9C7; /*005878; /*#742700;*/
+  border-color: #6DA9C7; /*005878; /*#742700;*/
+}
+
 #graphdiv {
 	height: 200px;
 	width: 600px;

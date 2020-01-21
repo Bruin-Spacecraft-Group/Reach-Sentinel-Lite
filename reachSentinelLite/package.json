@@ -1,0 +1,18 @@
+{
+  "name": "reachSentinelLite",
+  "version": "1.0.0",
+  "description": "Ground Operations, Project Reach, Bruin Spacecraft Group at UCLA",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chart.js": "^2.9.3",
+    "requirejs": "^2.3.6"
+  }
+}

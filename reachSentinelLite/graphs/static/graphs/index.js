@@ -22,25 +22,71 @@ function exchangeSize(one, two) {
 }
 
 function drawGraph(dataArray) {
-	g = new Dygraph(
-		document.getElementById("graphdiv"),
-		dataArray,
-		{
-			color: "#C1FDFF",
-			showRoller: false,
-			height: document.getElementById("graphdiv").style.height,
-			width: document.getElementById("graphdiv").style.width,
-			axisLineColor: "#C1FDFF", //"#C1FDFF",
-			axisLineWidth: 3,
-			strokeWidth: 3.0,
-			fillGraph: true
+	var lbls = new Array();
+	var tgt = new Array();
+	for (var i = 0; i < dataArray.length; i++) {
+		lbls.push(dataArray[i][0]);
+		tgt.push(dataArray[i][1]);
+	}
+
+	console.log(dataArray);
+	console.log(lbls);
+	console.log(tgt);
+
+	var ctx = document.getElementById("drawChart").getContext("2d");
+
+	var data = {
+		labels: lbls,
+		datasets: [{
+			label: "Testing this out",
+			backgroundColor: "#c1fdff", //"#1e1e1e",
+			borderColor: "#c1fdff",
+			data: tgt,
+			fill: false,
+			lineTension: 0
+		}]
+	}
+
+	var options = {
+		responsive: true,
+		title: {
+			display: true,
+			text: "TEMPERATURE"
+		},
+		tooltips: {
+			mode: "index",
+			intersect: false
+		},
+		hover: {
+			mode: "nearest",
+			intersect: true
+		},
+		scales: {
+			x: {
+				display: true,
+				scaleLabel: {
+					display: true,
+					labelString: "Time elapsed"
+				}
+			},
+			y: {
+				display: true,
+				scaleLabel: {
+					display: true,
+					labelString: "Temp"
+				}
+			}
 		}
-		);
-	return g;
+	};
+
+	var myLineChart = new Chart(ctx, {
+		type: "line",
+		data: data,
+		options: options
+	});
+
 }
 
-// Get ALL the data ---> must give user a warning?
-// REDO THIS
 function showGraph(graphNum) {
 	console.log(arguments.callee.name + " -- 1");
 	var dataxhttp = new XMLHttpRequest();
@@ -62,17 +108,6 @@ function showGraph(graphNum) {
 	};
 }
 
-// should we standardize the time units to seconds
-// graphNum: desired graph number, find nums at the ____ file
-// clicked: whether in initial state or have clicked an option -> default 15 mins timeframe displayed
-// type: display type desired -> may need to work a bit more on this
-// 			-1: text view
-//		 > 0: time in milliseconds
-
-// EXPLORATIONS
-// How to have fixed Y-axis?
-// For example, for temp, need only between 70-74
-// But then, how do we handle outliers? Maybe a blip on the side to note them...
 function showGraph(graphNum, clicked, type){
 	var numTime = type;
 
@@ -102,13 +137,11 @@ function showGraph(graphNum, clicked, type){
 			if (document.getElementById("textdiv").style.width != "0px") {
 				exchangeSize("graphdiv", "textdiv");
 			}
-			var graph = drawGraph(data);
+			drawGraph(data);
 		}
 	};
 }
 
-// ---------- * * * ---------- CHECK HOW TO FORMAT THIS PART; CAN MAKE <P> BUT WILL IT AFFECT GRAPH ELEMS?
-// graphNum: desired graph number, find nums at ____ file
 function showText(graphNum) {
 	var dataxhttp = new XMLHttpRequest();
 	dataxhttp.open("GET", "/graphs/getdata/" + graphNum, true);

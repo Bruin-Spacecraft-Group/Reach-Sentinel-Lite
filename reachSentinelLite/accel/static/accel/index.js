@@ -1,8 +1,6 @@
 var clicked = false;
 var currFrame = 4*MINS;
 
-
-//window.intervalId = setInterval(showGraph(ACCEL_X, clicked, currFrame), 1000);
 setInterval(function() { myfunc() }, 1000);
 
 function myfunc() {
