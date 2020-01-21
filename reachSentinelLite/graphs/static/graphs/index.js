@@ -26,9 +26,14 @@ function drawGraph(dataArray) {
 		document.getElementById("graphdiv"),
 		dataArray,
 		{
-			showRoller: true,
+			color: "#C1FDFF",
+			showRoller: false,
 			height: document.getElementById("graphdiv").style.height,
 			width: document.getElementById("graphdiv").style.width,
+			axisLineColor: "#C1FDFF", //"#C1FDFF",
+			axisLineWidth: 3,
+			strokeWidth: 3.0,
+			fillGraph: true
 		}
 		);
 	return g;

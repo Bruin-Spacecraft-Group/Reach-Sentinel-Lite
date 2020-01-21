@@ -16,7 +16,6 @@ body {
 body {
 	background-color: #1e1e1e;
 	margin:10px;
-	border: 5px solid #C1FDFF;
 	padding: 0px 20px 0px 20px;
 	color: white;
 	font-family: 'Andale Mono'
@@ -25,16 +24,20 @@ body {
 
 p {
 	margin: 10px 0px 0px 10px;
-	color: blue;
-	font-family: monospace;
+	color: white;
+	font-family: "Andale Mono", monospace;
 	font-size: 200%;
 }
 
 button {
-	border: 1px solid black;
-	font-family: monospace;
-	background-color: gray;
-	color: white;
+  color: white;
+  font-family: 'Andale Mono'; /* monospace */
+  font-weight: 900;
+  font-size: 75%;
+  background-color: #004577;
+  border: 0.5em solid #004577; /* half? */
+  min-width: 6.5em;
+  height: 2.5em; /* 2.5 */
 }
 
 #graphdiv {
