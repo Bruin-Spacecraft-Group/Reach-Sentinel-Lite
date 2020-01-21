@@ -6,6 +6,7 @@
 1. First, you must download the following:
 	 - download Django from the Django website, ideally for python-3: https://www.djangoproject.com/
 	 - pip install the packages: 'pyserial, requests, and numpy' (if in a later step a ModuleNotFoundError occurs, download the package listed with the error)
+	 - download Nodejs from the Nodejs website. It is highly recommended that you get the lTS version as they are stable: https://nodejs.org/en/
 2. Download the repo to a dedicated directory, ideally called **Reach-Sentinel-Lite**
 	 - `git init`
 	 - `git clone https://github.com/Bruin-Spacecraft-Group/Reach-Sentinel-Lite`
