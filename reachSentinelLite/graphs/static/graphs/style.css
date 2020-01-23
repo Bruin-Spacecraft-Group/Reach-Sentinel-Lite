@@ -55,9 +55,14 @@ button:active {
   border-color: #6DA9C7; /*005878; /*#742700;*/
 }
 
+canvas {
+	background-color: none;
+	margin: 0px;
+}
+
 #graphdiv {
-	height: 200px;
-	width: 600px;
+	height: 300px; /* 200px; */
+	width: 300px; /* 600px; */
 }
 
 #textdiv {

@@ -29,61 +29,62 @@ function drawGraph(dataArray) {
 		tgt.push(dataArray[i][1]);
 	}
 
-	console.log(dataArray);
-	console.log(lbls);
-	console.log(tgt);
-
 	var ctx = document.getElementById("drawChart").getContext("2d");
+	ctx.canvas.height = "300px";
+	ctx.canvas.width = "300px";
 
 	var data = {
 		labels: lbls,
 		datasets: [{
-			label: "Testing this out",
-			backgroundColor: "#c1fdff", //"#1e1e1e",
 			borderColor: "#c1fdff",
 			data: tgt,
-			fill: false,
-			lineTension: 0
+			lineTension: 0,
+			color: "white"
 		}]
 	}
 
 	var options = {
 		responsive: true,
-		title: {
-			display: true,
-			text: "TEMPERATURE"
-		},
 		tooltips: {
 			mode: "index",
 			intersect: false
 		},
-		hover: {
-			mode: "nearest",
-			intersect: true
+		legend: {
+			display: false
 		},
 		scales: {
-			x: {
+			xAxes: [{
 				display: true,
+				gridLines: {
+					display: true,
+					color: "#5f5f5f"
+				},
 				scaleLabel: {
 					display: true,
 					labelString: "Time elapsed"
 				}
-			},
-			y: {
+			}],
+			yAxes: [{
 				display: true,
-				scaleLabel: {
+				gridLines: {
 					display: true,
-					labelString: "Temp"
+					color: "#5f5f5f"
 				}
-			}
+			}]
+		},
+		hover: {
+			animationDuration: 0
 		}
 	};
 
+	Chart.defaults.global.defaultFontColor = "white";
 	var myLineChart = new Chart(ctx, {
 		type: "line",
 		data: data,
 		options: options
 	});
+
+	return myLineChart;
 
 }
 
@@ -137,7 +138,7 @@ function showGraph(graphNum, clicked, type){
 			if (document.getElementById("textdiv").style.width != "0px") {
 				exchangeSize("graphdiv", "textdiv");
 			}
-			drawGraph(data);
+			var mygraph = drawGraph(data);
 		}
 	};
 }
