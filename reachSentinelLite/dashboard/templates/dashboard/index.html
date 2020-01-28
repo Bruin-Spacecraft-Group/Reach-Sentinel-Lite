@@ -6,12 +6,16 @@
 <!--
 	Instead of iframes, what about chart placeholder divs, where we have the specific data div name as the class name?
 -->
-	<iframe src="{% url 'temp:index' %}" height="330" width="630" style="border: 1px solid #1e1e1e;"></iframe>
-	<iframe src="{% url 'accel:index' %}" height="330" width="630" style="border: 1px solid #1e1e1e;"></iframe>
-	<iframe src="{% url 'accel:index' %}" height="330" width="630" style="border: 1px solid #1e1e1e;"></iframe>
-	<iframe src="{% url 'temp:index' %}" height="330" width="630" style="border: 1px solid #1e1e1e;"></iframe>
 
-	<!--iframe src="{% url 'testGraph:index' %}" height="330" width="630" style="border: 1px solid #1e1e1e;"></iframe-->
+	<div class="chartDiv">
+		<canvas class="drawChart", id="drawChart"></canvas>
+		<div class="textDiv"></div>
+	</div>
+
+	<!--iframe src="{% url 'temp:index' %}" height="330" width="630" style="border: 1px solid #1e1e1e;"></iframe>
+	<iframe src="{% url 'temp:index' %}" height="330" width="630" style="border: 1px solid #1e1e1e;"></iframe>
+	<iframe src="{% url 'temp:index' %}" height="330" width="630" style="border: 1px solid #1e1e1e;"></iframe>
+	<iframe src="{% url 'temp:index' %}" height="330" width="630" style="border: 1px solid #1e1e1e;"></iframe-->
 
 	<!--br>
 	<button id="update">UPDATE {% csrf_token %}</button>

@@ -15,9 +15,7 @@ import django
 from gps.GPS import GPSInit, saveCoor, processCoordinates, calcVelGPS
 from communication.sendUDP import initSocket, sendPacket, killSocket
 from altimeter.altitudeCalculation import altitudeCalc
-import acceleration
 #from accel import findInertialFrameAccel
-from serialStuff import openSerialPort, readFromSerial
 from DataObject import DataObject
 
 from graphs.models import Telemetry, IsLive, TimeInit  # exec(open("main.py").read())
@@ -146,59 +144,6 @@ isFirst = True
 dataString = '' # --------------------- * * * ----------------------------------- EDIT!!!
 myData.calibrate(ser, txtfile, [ACCELX, ACCELY, ACCELZ])
 
-'''
-while True:
-	data = readFromSerial(ser, txtfile)
-	if data == -1: continue
-	print('step 1')
-	print('step 2')
-	print('step 3')
-	print('populated')
-
-	new_data = Telemetry.objects.create(  # -------------- * * * -------------- SAVE TO DATABASE
-		timestamp = data[TIMESTAMP], 
-		accel_x   = data[ACCELX], 
-		accel_y   = data[ACCELY], 
-		accel_z   = data[ACCELZ], 
-		gyro_x    = data[GYROX], 
-		gyro_y    = data[GYROY], 
-		gyro_z    = data[GYROZ],
-		barometer = data[ALTITUDE],
-		#temp = data[TEMP]
-		)
-	new_data.save()
-
- 	
-	###PROCESS
-	#establish time elapsed
-	dt = (myData.timestamp - oldtime)/1000.0 #convert ms to s
-	print(myData.timestamp)
-	print(oldtime)
-	oldtime = myData.timestamp
-	print(str(dt))
-	
-	# append altitude calculated from pressure
-	# data.append(altitudeCalc(data[1]))
-	
-	#process acceleration
-	acceleration.findInertialFrameAccel(myData, dt)
-	print('found acceleration')
-	#integrate to find velocity and positino
-	acceleration.calculateVelocityAndPosition(myData, dt)
-	print('found vel and pos')
-	#Process GPS coordinates
-	if myData.gps_sec != oldGPSTime:
-		oldGPSTime = myData.gps_sec
-		processCoordinates(myData.gps_lon, myData.gps_lat, myData.gps_alt)
-		print('processed coordinates')
-	
-	#append absolute time
-	# data.append(time.time())
-	
-	myData.printData()
-	#print(dropped)
-'''
-
 ##Main Processing Loop
 while ser.isOpen():
 	try:
@@ -225,7 +170,7 @@ while ser.isOpen():
 		dataString = dataString[2:len(dataString)-5]
 		print('Received: ' + dataString)
 		data = dataString.split(",")
-		#had problems with only reading in a few data 
+		#had problems with only reading in a few data
 		if (len(data) < 6):
 			print("not enough data")
 			continue
@@ -264,7 +209,7 @@ while ser.isOpen():
 		myData.press = data[PRESS]
 		myData.altitude = data[ALTITUDE]
 		myData.baro_temp = data[BAROTEMP]
-			
+
 		print(data)
 
 		if (isFirst):
@@ -276,19 +221,19 @@ while ser.isOpen():
 		print('--------')
 
 		new_data = Telemetry.objects.create(  # -------------- * * * -------------- SAVE TO DATABASE
-		timestamp = data[TIMESTAMP], 
-		accel_x   = data[ACCELX], 
-		accel_y   = data[ACCELY], 
-		accel_z   = data[ACCELZ], 
-		gyro_x    = data[GYROX], 
-		gyro_y    = data[GYROY], 
+		timestamp = data[TIMESTAMP],
+		accel_x   = data[ACCELX],
+		accel_y   = data[ACCELY],
+		accel_z   = data[ACCELZ],
+		gyro_x    = data[GYROX],
+		gyro_y    = data[GYROY],
 		gyro_z    = data[GYROZ],
 		barometer = data[ALTITUDE],
 		#temp = data[TEMP]
 		)
 		new_data.save()
 
-		#for the first few iterations, just take the 
+		#for the first few iterations, just take the
 		#accelerometer data to calibrate the offsets
 
 		if(count<6):
@@ -299,7 +244,7 @@ while ser.isOpen():
 			count+=1
 			#establish spacecraft time
 			oldtime = myData.timestamp
-		
+
 		else:
 			print('processing...')
 			if(count==6):
@@ -309,7 +254,7 @@ while ser.isOpen():
 				count+=1
 				myData.printCalibration()
 				#print('Calibration: ' + str(ACCX_CALIB) + ', ' + str(ACCY_CALIB) + ', ' + str(ACCZ_CALIB))
-		
+
 			##DO STUFF WITH DATA
 			#establish time elapsed
 			dt = (myData.timestamp - oldtime)/1000.0 #convert ms to s
@@ -319,14 +264,7 @@ while ser.isOpen():
 			append altitude calculated from pressure
 			data.append(altitudeCalc(data[1]))
 			'''
-			#process acceleration
-			acceleration.findInertialFrameAccel(myData, dt)
-			#myAcceleration = acceleration.findInertialFrameAccel(data[ACCELX], data[ACCELY], data[ACCELZ], data[GYROX], data[GYROY], data[GYROZ], dt, [ACCX_CALIB, ACCY_CALIB, ACCZ_CALIB])
-			print('found acceleration')
-			#integrate to find velocity and positino
-			acceleration.calculateVelocityAndPosition(myData, dt)
-			print('found vel and pos')
-			#Process GPS coordinates
+
 			if myData.gps_sec != oldGPSTime:
 				processCoordinates(myData.gps_lon, myData.gps_lat, myData.gps_alt)
 				print('processed coordinates')
@@ -339,9 +277,9 @@ while ser.isOpen():
 				#print data[i]
 				finalData = finalData + str(data[i]) + ", "
 				'''
-				finalData contents should be as follows, 
+				finalData contents should be as follows,
 				as a string separated by commas:
-				relative spacecraft time 
+				relative spacecraft time
 				raw accelX
 				raw accelY
 				raw accelZ
@@ -374,17 +312,17 @@ while ser.isOpen():
 		continue #maybe this should be a continue?
 		######SAVE TO DATABASE
 
-	#TODO -- might actually want to implement the data object. 
+	#TODO -- might actually want to implement the data object.
 	#At this point it's confusing where the processed data ends up
 	'''
 	try:
 		new_data = Telemetry.objects.create(  #-------------- * * * -------------- SAVE TO DATABASE
-			timestamp=myData.timestamp, 
-			accel_x=data[6], 
-			accel_y= data[7], 
-			accel_z= data[8], 
-			gyro_x=data[3], 
-			gyro_y=data[4], 
+			timestamp=myData.timestamp,
+			accel_x=data[6],
+			accel_y= data[7],
+			accel_z= data[8],
+			gyro_x=data[3],
+			gyro_y=data[4],
 			gyro_z= data[5],
 			barometer=data[1],
 			temp=data[2])
