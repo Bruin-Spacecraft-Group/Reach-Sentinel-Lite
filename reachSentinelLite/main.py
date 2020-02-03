@@ -13,8 +13,6 @@ import os
 import django
 
 from gps.GPS import GPSInit, saveCoor, processCoordinates, calcVelGPS
-from communication.sendUDP import initSocket, sendPacket, killSocket
-from altimeter.altitudeCalculation import altitudeCalc
 #from accel import findInertialFrameAccel
 from DataObject import DataObject
 
