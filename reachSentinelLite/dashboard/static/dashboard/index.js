@@ -27,6 +27,7 @@ function getCookie(name) {
     return cookieValue;
 }
 
+/*
 document.getElementById("update").onclick = function() {
 	var x = document.getElementsByTagName('iframe');
 	for (var i = 0; i < x.length; i++) {
@@ -34,3 +35,4 @@ document.getElementById("update").onclick = function() {
 	}
 	//update(); // EDIT: may be redundant, check and remove
 }
+*/

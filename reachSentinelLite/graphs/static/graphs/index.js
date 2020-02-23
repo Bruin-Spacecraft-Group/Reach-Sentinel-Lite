@@ -8,7 +8,11 @@ function clearDiv(divName) {
 
 function exchangeSize(one, two) {
 
-	document.getElementById(two).innerHTML = "";
+	if (two=="textDiv") {
+		document.getElementsByClassName(two)[0].innerHTML="";
+	} else {
+		document.getElementById(two).innerHTML="";
+	}
 
 	// Hardcode for now
 	//document.getElementById(one).style.height = document.getElementById(two).style.height;
@@ -17,8 +21,14 @@ function exchangeSize(one, two) {
 	document.getElementById(one).style.height = "200px";
 	document.getElementById(one).style.width = "600px";
 
-	document.getElementById(two).style.width = "0px";
-	document.getElementById(two).style.height = "0px";
+	if (two="textDiv") {
+		document.getElementsByClassName(two)[0].style.width = "0px";
+		document.getElementsByClassName(two)[0].style.height = "0px";
+	} else {
+		document.getElementById(two).style.width = "0px";
+		document.getElementById(two).style.height = "0px";
+	}
+
 }
 
 function drawGraph(dataArray) {
@@ -135,9 +145,10 @@ function showGraph(graphNum, clicked, type){
 				}
 			}
 
-			if (document.getElementById("textdiv").style.width != "0px") {
-				exchangeSize("graphdiv", "textdiv");
+			if (document.getElementsByClassName("textDiv")[0].style.width != "0px") {
+				exchangeSize("drawChart", "textDiv");
 			}
+
 			var mygraph = drawGraph(data);
 		}
 	};

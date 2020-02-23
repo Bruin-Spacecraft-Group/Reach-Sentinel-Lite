@@ -7,10 +7,10 @@
 	Instead of iframes, what about chart placeholder divs, where we have the specific data div name as the class name?
 -->
 
-	<!--div class="chartDiv">
+	<div class="graphDiv">
 		<canvas class="drawChart", id="drawChart"></canvas>
 		<div class="textDiv"></div>
-	</div-->
+	</div>
 
 	<iframe src="{% url 'temp:index' %}" height="330" width="630" style="border: 1px solid #1e1e1e;"></iframe>
 	<iframe src="{% url 'temp:index' %}" height="330" width="630" style="border: 1px solid #1e1e1e;"></iframe>
@@ -21,5 +21,12 @@
 	<button id="update">UPDATE {% csrf_token %}</button>
 	<p id="updateText">Button</p-->
 
+	{% endblock %}
+	{% block toLoad %}
 	<script type="text/javascript" src="{% static 'dashboard/index.js' %}"></script>
-{% endblock %}
+	<script type="text/javascript" src="{% static 'node_modules/chart.js/dist/Chart.js' %}"></script>
+	<script type="text/javascript" src="{% static 'graphs/index.js' %}"></script>
+	<script>
+		showGraph(TEMP, false, 40*MINS);
+	</script>
+	{% endblock %}
