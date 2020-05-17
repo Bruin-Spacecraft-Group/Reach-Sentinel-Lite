@@ -60,13 +60,25 @@ canvas {
 	margin: 0px;
 }
 
-#graphdiv {
-	height: 300px; /* 200px; */
-	width: 300px; /* 600px; */
+.graphContainer {
+	height: 330px; /* 200px; */
+	width: 630px; /* 600px; */
 }
 
-#textdiv {
+.textDiv {
 	word-break: break-all;
+}
+
+.buttonContainer {
+	margin: 0px;
+	padding: 0px;
+}
+
+.graphTitle {
+	margin: 10px 0px 0px 10px;
+	color: white;
+	font-family: "Andale Mono", monospace;
+	font-size: 200%;
 }
 
 #warning {

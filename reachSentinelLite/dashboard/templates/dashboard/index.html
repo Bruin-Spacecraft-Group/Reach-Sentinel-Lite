@@ -2,20 +2,36 @@
 {% load static %}
 {% block titleMain %}Dashboard - Reach{% endblock %}
 {% load static %}
+{% block loadLinks %}
+<link rel="stylesheet" type="text/css" href="{% static 'graphs/style.css' %}">
+{% endblock %}
 {% block mainBody %}
 <!--
 	Instead of iframes, what about chart placeholder divs, where we have the specific data div name as the class name?
 -->
 
-	<div class="graphDiv">
-		<canvas class="drawChart", id="drawChart"></canvas>
-		<div class="textDiv"></div>
+	<div class="graphContainer">
+		<div class="graphTitle">TEMPERATURE</div>
+		<br>
+		<div class="graphDiv">
+			<canvas class="drawChart", id="drawChart"></canvas>
+			<div class="textDiv"></div>
+		</div>
+		<br>
+		<div class="buttonContainer">
+			<button id="full_data">Full data</button>
+			<button id="text">Text</button>
+			<button id="tenmins">10 mins</button>
+			<button id="thirtymins">30 mins</button>
+		</div>
 	</div>
 
-	<iframe src="{% url 'temp:index' %}" height="330" width="630" style="border: 1px solid #1e1e1e;"></iframe>
-	<iframe src="{% url 'temp:index' %}" height="330" width="630" style="border: 1px solid #1e1e1e;"></iframe>
-	<iframe src="{% url 'temp:index' %}" height="330" width="630" style="border: 1px solid #1e1e1e;"></iframe>
-	<iframe src="{% url 'temp:index' %}" height="330" width="630" style="border: 1px solid #1e1e1e;"></iframe>
+
+	<br>
+
+
+
+
 
 	<!--br>
 	<button id="update">UPDATE {% csrf_token %}</button>

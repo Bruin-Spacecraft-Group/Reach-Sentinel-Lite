@@ -4,6 +4,7 @@
 	<title>{% block titleMain %}{% endblock %}</title>
 	{% load static %}
 	<link rel="stylesheet" type="text/css" href="{% static 'reachSentinelLite/style.css' %}">
+	{% block loadLinks %}{% endblock %}
 </head>
 <body>
 
