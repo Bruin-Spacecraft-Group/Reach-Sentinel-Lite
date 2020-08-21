@@ -11,6 +11,7 @@ function exchangeSize(one, two) {
 	if (two=="textDiv") {
 		document.getElementsByClassName(two)[0].innerHTML="";
 	} else {
+		// reset the inside part of drawChart to what it is before graphs are applied
 		document.getElementById(two).innerHTML="";
 	}
 
@@ -21,7 +22,7 @@ function exchangeSize(one, two) {
 	document.getElementById(one).style.height = "200px";
 	document.getElementById(one).style.width = "600px";
 
-	if (two="textDiv") {
+	if (two=="textDiv") {
 		document.getElementsByClassName(two)[0].style.width = "0px";
 		document.getElementsByClassName(two)[0].style.height = "0px";
 	} else {
@@ -30,6 +31,8 @@ function exchangeSize(one, two) {
 	}
 
 }
+
+var curChart;
 
 function drawGraph(dataArray) {
 	var lbls = new Array();
@@ -82,19 +85,36 @@ function drawGraph(dataArray) {
 				}
 			}]
 		},
-		hover: {
-			animationDuration: 0
+		animation: {
+			duration: 0
 		}
 	};
+	
+	if (curChart)
+	{
+		//curChart.data.labels = lbls;
+		//curChart.data.datasets[0].data = tgt;
+		curChart.destroy();
+		
+		Chart.defaults.global.defaultFontColor = "white";
+		curChart = new Chart(ctx, {
+			type: "line",
+			data: data,
+			options: options
+		});
 
-	Chart.defaults.global.defaultFontColor = "white";
-	var myLineChart = new Chart(ctx, {
-		type: "line",
-		data: data,
-		options: options
-	});
+	}
+	else
+	{
+		Chart.defaults.global.defaultFontColor = "white";
+		curChart = new Chart(ctx, {
+			type: "line",
+			data: data,
+			options: options
+		});
+	}
 
-	return myLineChart;
+	//return curChart;
 
 }
 
@@ -132,6 +152,7 @@ function showGraph(graphNum, clicked, type){
 
 	var dataxhttp = new XMLHttpRequest();
 	dataxhttp.open("GET", "/graphs/getdata/" + graphNum, true);
+	//dataxhttp.open("GET", "/graphs/testdata/" + graphNum, true);
 	dataxhttp.send();
 	dataxhttp.onreadystatechange = function() {
 		if (dataxhttp.readyState == 4 && (dataxhttp.status == 200 || dataxhttp.status == 0)) {
@@ -157,15 +178,16 @@ function showGraph(graphNum, clicked, type){
 function showText(graphNum) {
 	var dataxhttp = new XMLHttpRequest();
 	dataxhttp.open("GET", "/graphs/getdata/" + graphNum, true);
+	//dataxhttp.open("GET", "/graphs/testdata/" + graphNum, true);
 	dataxhttp.send();
 	dataxhttp.onreadystatechange = function() {
 		if (dataxhttp.readyState == 4 && (dataxhttp.status == 200 || dataxhttp.status == 0)) {
 			datum = JSON.parse(dataxhttp.response)['stuff'];
 
-			if (document.getElementById("graphdiv").style.width != "0px") {
-				exchangeSize("textdiv", "graphdiv");
+			if (document.getElementById("drawChart").style.width != "0px") {
+				exchangeSize("textDiv", "drawChart");
 			}
-			document.getElementById("textdiv").innerHTML = datum[datum.length-1][1];
+			document.getElementById("textDiv").innerHTML = datum[datum.length-1][1];
 		}
 	};
 }

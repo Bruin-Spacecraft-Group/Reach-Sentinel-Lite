@@ -8,6 +8,8 @@ import json
 import requests
 import serial
 
+import random
+
 # Create your views here.
 def index(request):
 	return render(request, 'graphs/index.html')
@@ -72,3 +74,14 @@ def getdata(request, sensor):
 		data[i] = [aa[0], aa[int(sensor)]]
 		i = i + 1
 	return JsonResponse({'stuff': data})
+
+test_num_calls = 0;
+
+def testdata(request, sensor):
+    global test_num_calls
+    data = [None] * (50 + test_num_calls)
+    test_num_calls += 1
+    for i in range(0, len(data)):
+        random.seed(i)
+        data[i] = [float(i*60000), random.uniform(0, 5)]
+    return JsonResponse({'stuff': data})

@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 '''
 DO NOT DELETE:
 exec(open("main.py").read()) --> to run this program from shell
@@ -11,8 +13,9 @@ import math
 import numpy as np
 import os
 import django
+import sys
 
-from gps.GPS import GPSInit, saveCoor, processCoordinates, calcVelGPS
+from gps.GPS import GPSInit, saveCoor, processCoordinates_a, calcVelGPS
 #from accel import findInertialFrameAccel
 from DataObject import DataObject
 
@@ -76,16 +79,16 @@ django.setup()
 
 print("\n\n\n")
 print(
-	'             ||---------------------------- * * * -------------------------\\\\\n'\
-	'             ||   ______                    _____                           \\\\\n'\
-	'       ######||   | ___ \           ()     /  ___|                           \\\\\n'\
-	'  ###########||   | |_/ /_ __ _   _ _ _ __ \ `--. _ __   __  _  ___ ___       \\\\\n'\
-	"#############||   | ___ \ '__| | | | | '_ \ `--. \ '_ \ / _\| |/ __/ _ \       \\\\\n"\
-	'   ##########||   | |_/ / |  | |_| | | | | /\__/ / |_) | (_ | | (__| __/       //\n'\
-	'        #####||   \____/|_|   \__,_|_|_| |_\____/| .__/ \__/|_|\___\___|      //\n'\
-	'      #######||                                  | |                         //\n'\
-	'             ||                                  |_|                        //\n'\
-	'             ||---------------------------- * * * -------------------------//\n')
+	'			  ||---------------------------- * * * -------------------------\\\\\n'\
+	'			  ||   ______					 _____							 \\\\\n'\
+	'		######||   | ___ \			 ()		/  ___|							  \\\\\n'\
+	'  ###########||   | |_/ /_ __ _   _ _ _ __ \ `--. _ __	  __  _	 ___ ___	   \\\\\n'\
+	"#############||   | ___ \ '__| | | | | '_ \ `--. \ '_ \ / _\| |/ __/ _ \		\\\\\n"\
+	'	##########||   | |_/ / |  | |_| | | | | /\__/ / |_) | (_ | | (__| __/		//\n'\
+	'		 #####||   \____/|_|   \__,_|_|_| |_\____/| .__/ \__/|_|\___\___|	   //\n'\
+	'	   #######||								  | |						  //\n'\
+	'			  ||								  |_|						 //\n'\
+	'			  ||---------------------------- * * * -------------------------//\n')
 
 print("\n\n\n")
 
@@ -106,28 +109,40 @@ if Telemetry.objects.count() == 0:
 		exec(open("dummyTelem.py").read())
 		print("READ dummyTelem.py")
 
-if IsLive.objects.count() != 0:  # ------------------ * * * ------------------ REQUIRES TESTING
+if IsLive.objects.count() != 0:	 # ------------------ * * * ------------------ REQUIRES TESTING
 	for elem in IsLive.objects.all():
 		elem.delete()
 
 downlink = IsLive.objects.create() # ----------------- * * * ----------------- INITIALLY FALSE, ON BUTTON-CLICK IN DASH, TRUE
 
-try:
-	print("Opening Serial Port...")
-	#initiate serial port to read data from
-	SERIAL_PORT = '/dev/cu.usbmodem14311'  # '/dev/cu.usbmodem14321'
-	ser = serial.Serial(
-	    port=SERIAL_PORT,
-	    baudrate=9600,
-	    timeout=3,                         # give up reading after 3 seconds
-	    parity=serial.PARITY_ODD,
-	    stopbits=serial.STOPBITS_TWO,
-	    bytesize=serial.SEVENBITS
-	)
-	print("connected to port " + SERIAL_PORT)
-except:
-	print("<== Error connecting to " + SERIAL_PORT + " ==>")
-	exit()
+TYPE = 1
+TEST_PORT = "/dev/pts/6"
+
+if (TYPE == 0): # OPTION 0: run normally
+	try:
+		print("Opening Serial Port...")
+		#initiate serial port to read data from
+		SERIAL_PORT = '/dev/cu.usbmodem14311'  # '/dev/cu.usbmodem14321'
+		ser = serial.Serial(
+			port=SERIAL_PORT,
+			baudrate=9600,
+			timeout=3,						   # give up reading after 3 seconds
+			parity=serial.PARITY_ODD,
+			stopbits=serial.STOPBITS_TWO,
+			bytesize=serial.SEVENBITS
+		)
+		print("connected to port " + SERIAL_PORT)
+	except Exception as e: 
+		print(repr(e))
+		print("<== Error connecting to " + SERIAL_PORT + " ==>")
+		exit()
+else: # OPTION 1: READ FROM DEBUG
+	try:
+		ser = serial.Serial(TEST_PORT, 9600) # pass in /dev/pts/# through the var above
+	except Exception as e: 
+		print(repr(e))
+		print("<== Error connecting to " + TEST_PORT + " ==>")
+		exit()
 
 ##create plain text file to save raw data as backup for database
 date = str(datetime.datetime.now())
@@ -193,10 +208,10 @@ while ser.isOpen():
 		myData.gyro_x = data[GYROX]
 		myData.gyro_y = data[GYROY]
 		myData.gyro_z = data[GYROZ]
-		myData.gps_lat = data[GPSLON]
+		myData.gps_lat = data[GPSLONG]
 		myData.gps_lon = data[GPSLAT]
 		myData.gps_alt = data[GPSALT]
-		myData.gps_hour = data[GPSHOUR]
+		myData.gps_hour = data[GPSHR]
 		myData.gps_min = data[GPSMIN]
 		myData.gps_sec = data[GPSSEC]
 		#myData.mag_x = data[MAGX]
@@ -204,15 +219,16 @@ while ser.isOpen():
 		#myData.mag_z = data[MAGZ]
 		#myData.mag_head = data[MAGHEAD]
 		myData.temp = data[TEMP]
-		myData.press = data[PRESS]
+		myData.press = data[PRESSURE]
 		myData.altitude = data[ALTITUDE]
 		myData.baro_temp = data[BAROTEMP]
 
 		print(data)
 
-		if (isFirst):
-			TimeInit.objects.get().timeInit = datetime.datetime.now() - data[TIMESTAMP]
-			isFirst = False
+		#if (isFirst):
+		#	print("TODO: FIX TIMEINIT")
+		#	TimeInit.objects.get().timeInit = datetime.datetime.now().timestamp() - data[TIMESTAMP]
+		#	isFirst = False
 
 		print("Timestamp", data[TIMESTAMP])
 
@@ -220,12 +236,12 @@ while ser.isOpen():
 
 		new_data = Telemetry.objects.create(  # -------------- * * * -------------- SAVE TO DATABASE
 		timestamp = data[TIMESTAMP],
-		accel_x   = data[ACCELX],
-		accel_y   = data[ACCELY],
-		accel_z   = data[ACCELZ],
-		gyro_x    = data[GYROX],
-		gyro_y    = data[GYROY],
-		gyro_z    = data[GYROZ],
+		accel_x	  = data[ACCELX],
+		accel_y	  = data[ACCELY],
+		accel_z	  = data[ACCELZ],
+		gyro_x	  = data[GYROX],
+		gyro_y	  = data[GYROY],
+		gyro_z	  = data[GYROZ],
 		barometer = data[ALTITUDE],
 		#temp = data[TEMP]
 		)
@@ -264,7 +280,7 @@ while ser.isOpen():
 			'''
 
 			if myData.gps_sec != oldGPSTime:
-				processCoordinates(myData.gps_lon, myData.gps_lat, myData.gps_alt)
+				processCoordinates_a(myData.gps_lon, myData.gps_lat, myData.gps_alt)
 				print('processed coordinates')
 			'''
 			#append absolute time
@@ -304,7 +320,8 @@ while ser.isOpen():
 			print(finalData)
 			myData.printData()
 			print(dropped)
-	except:
+	except Exception as e: 
+		print(repr(e))
 		print('failed\n')
 		print(dropped)
 		continue #maybe this should be a continue?

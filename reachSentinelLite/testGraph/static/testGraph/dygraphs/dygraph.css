@@ -13,10 +13,11 @@
   top: 0px;
   right: 2px;
   */
-  background: white;
+  background: #1e1e1e;
   line-height: normal;
   text-align: left;
   overflow: hidden;
+  color: white;
 }
 
 /* styles for a solid line in the legend */

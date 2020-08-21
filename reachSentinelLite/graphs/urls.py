@@ -8,4 +8,6 @@ urlpatterns = [
     url(r'^getdata/$', views.alldata, name='alldata'),
     url(r'^getdata/(?P<sensor>[0-9])/$', views.getdata, name='getdata'),
     url(r'^updateGraphs/$', views.updateGraphs, name='updateGraphs'),
+    
+    url(r'^testdata/(?P<sensor>[0-9])/$', views.testdata, name='testdata')
 ]

@@ -61,7 +61,7 @@ def saveCoor(lon, lat, alt):
       pos.write(kmlHead + coor.read() + kmlFoot)
 
 #def processCoordinates(timestamp, longitude, latitude, altitude):
-def processCoordinates(longitude, latitude, altitude):
+def processCoordinates_a(longitude, latitude, altitude):
 
     latDeg = math.floor(latitude)
     lonDeg = math.floor(longitude)
@@ -146,7 +146,7 @@ def saveCoor(lon, lat, alt):
       pos.write(kmlHead + coor.read() + kmlFoot)
 
 
-def processCoordinates(timestamp, longitude, latitude, altitude):
+def processCoordinates_b(timestamp, longitude, latitude, altitude):
 
     latDeg = math.floor(float(latitude))
     lonDeg = math.floor(float(longitude))
