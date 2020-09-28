@@ -54,6 +54,8 @@ def alldata(request):
 
 def getdata(request, sensor):
 	data = [None] * Telemetry.objects.count()
+	# debug print
+	print(Telemetry.objects.count())
 	i = 0
 	for x in Telemetry.objects.all():
 		# Need to find a way to use iterator
@@ -78,10 +80,10 @@ def getdata(request, sensor):
 test_num_calls = 0;
 
 def testdata(request, sensor):
-    global test_num_calls
-    data = [None] * (50 + test_num_calls)
-    test_num_calls += 1
-    for i in range(0, len(data)):
-        random.seed(i)
-        data[i] = [float(i*60000), random.uniform(0, 5)]
-    return JsonResponse({'stuff': data})
+	global test_num_calls
+	data = [None] * (50 + test_num_calls)
+	test_num_calls += 1
+	for i in range(0, len(data)):
+		random.seed(i)
+		data[i] = [float(i*60000), random.uniform(0, 5)]
+	return JsonResponse({'stuff': data})

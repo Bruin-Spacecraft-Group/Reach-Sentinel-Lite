@@ -15,7 +15,7 @@
 		<br>
 		<div class="graphDiv">
 			<canvas class="drawChart", id="drawChart"></canvas>
-			<div class="textDiv"></div>
+			<div class="textDiv", id="textDiv"></div>
 		</div>
 		<br>
 		<div class="buttonContainer">
@@ -42,7 +42,7 @@
 	<script type="text/javascript" src="{% static 'dashboard/index.js' %}"></script>
 	<script type="text/javascript" src="{% static 'node_modules/chart.js/dist/Chart.js' %}"></script>
 	<script type="text/javascript" src="{% static 'graphs/index.js' %}"></script>
-	<script>
+	<!--script>
 		showGraph(TEMP, false, 40*MINS);
-	</script>
+	</script-->
 	{% endblock %}

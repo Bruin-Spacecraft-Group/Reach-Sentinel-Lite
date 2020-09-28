@@ -116,7 +116,7 @@ if IsLive.objects.count() != 0:	 # ------------------ * * * ------------------ R
 downlink = IsLive.objects.create() # ----------------- * * * ----------------- INITIALLY FALSE, ON BUTTON-CLICK IN DASH, TRUE
 
 TYPE = 1
-TEST_PORT = "/dev/pts/6"
+TEST_PORT = "/dev/pts/5"
 
 if (TYPE == 0): # OPTION 0: run normally
 	try:
@@ -243,7 +243,7 @@ while ser.isOpen():
 		gyro_y	  = data[GYROY],
 		gyro_z	  = data[GYROZ],
 		barometer = data[ALTITUDE],
-		#temp = data[TEMP]
+		temp = data[TEMP]
 		)
 		new_data.save()
 
